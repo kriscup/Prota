@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Notepad.ttf" />
+    <None Remove="Fonts\Poppins.ttf" />
+    <None Remove="Fonts\trispace.ttf" />
+    <None Remove="Images\ProtaLogo.ico" />
+    <None Remove="Images\ProtaLogo.png" />
+    <None Remove="Images\Protatextnobackground.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Notepad.ttf" />
+    <Resource Include="Fonts\Poppins.ttf" />
+    <Resource Include="Fonts\trispace.ttf" />
+    <Resource Include="Images\ProtaLogo.ico" />
+    <Resource Include="Images\ProtaLogo.png" />
+    <Resource Include="Images\Protatextnobackground.png" />
+  </ItemGroup>
+
+</Project>
