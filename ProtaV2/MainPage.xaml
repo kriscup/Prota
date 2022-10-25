@@ -65,10 +65,14 @@
                                 Margin="15, 0, 15, 15"
                                 BorderBrush="Transparent"
                                 BorderThickness="2"
-                                CornerRadius="16"
+                                CornerRadius="0, 0, 16, 16"
                                 Padding="10">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="16" />
+                                </Border.Effect>
+                                
                                 <Border.Background>
-                                    <SolidColorBrush Color="LightBlue"/>
+                                    <SolidColorBrush Color="LightYellow"/>
                                 </Border.Background>
                                 <ListBox
 								    x:Name="CategoryListbox"
@@ -86,22 +90,27 @@
 
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Border
-                                                Background="{Binding CategoryColor}"
-                                                BorderBrush="Transparent"
+                                            <Border 
+                                                x:Name="Border"
+                                                BorderBrush="Black"
                                                 BorderThickness="2"
-                                                CornerRadius="16"
-                                                HorizontalAlignment="Right"
-                                                Width="200"
-                                                Margin="5, 15, 0, 15">
-                                                <TextBlock
-										            Text="{Binding CategoryName}"
-										            TextWrapping="Wrap"
-										            FontFamily="Poppins"
-										            FontSize="18"
-                                                    Padding="8"
-										            Foreground="White"
-                                                    TextAlignment="Center"/>
+                                                CornerRadius="12" 
+                                                Background="{Binding CategoryColor}" 
+                                                Padding="2"
+                                                Margin="0, 5, 0, 5"
+                                                Width="210">
+                                                <Grid>
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        IsHitTestVisible="False"
+                                                        Background="Transparent"
+                                                        Foreground="Black"
+                                                        FontFamily="{StaticResource Notepad}"
+                                                        FontSize="22"
+                                                        Padding="4"
+                                                        Text="{Binding CategoryName}"/>
+                                                </Grid>
                                             </Border>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
@@ -109,7 +118,7 @@
                             </Border>
 
                             <Button
-								x:Name ="AddButton1"
+								x:Name ="AddCategoryButton"
 								Content="+ Category"
 								FontSize="24"
                                 Style="{StaticResource DefaultButton}"
@@ -120,7 +129,7 @@
                                 Height="66"
 								VerticalAlignment="Bottom"
 								HorizontalAlignment="Center"
-                                Click="AddButton1_Click"
+                                Click="AddCategoryButton_Click"
                                 Margin="15"/>
                         </StackPanel>
 
@@ -157,21 +166,29 @@
                     <Border
 						BorderBrush="Transparent"
 						BorderThickness="1"
-						CornerRadius="16"
-						Background="LightBlue"
+						CornerRadius="0, 0, 16, 16"
+						Background="LightYellow"
 						Margin="15, 0, 15, 0"
                         Height="560"
+                        Padding="20"
                         VerticalAlignment="Bottom">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="16" />
+                        </Border.Effect>
 
-                        <TextBlock
-                            x:Name="TaskText"
-							Padding="15"
-                            Text=""
-                            Foreground="White"
-                            FontFamily="{StaticResource Poppins}"
-                            FontSize="32">
-
-                        </TextBlock>
+                        <Border
+                            Background="White"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="16">
+                            <TextBlock
+                                x:Name="TaskText"
+							    Padding="20"
+                                Text="No Task Selected"
+                                Foreground="Black"
+                                FontFamily="{StaticResource Notepad}"
+                                FontSize="24"/>
+                        </Border>
 
                     </Border>
 
@@ -215,43 +232,53 @@
                                         Margin="15, 0, 15, 15"
                                         BorderBrush="Transparent"
                                         BorderThickness="2"
-                                        CornerRadius="16"
+                                        CornerRadius="0, 0, 16, 16"
                                         Padding="10">
+                                        <Border.Effect>
+                                            <DropShadowEffect BlurRadius="16" />
+                                        </Border.Effect>
+                                        
                                         <Border.Background>
-                                            <SolidColorBrush Color="LightBlue"/>
+                                            <SolidColorBrush Color="LightYellow"/>
                                         </Border.Background>
                                         <ListBox
-								    x:Name="TaskListbox"
-                                    ScrollViewer.CanContentScroll="False"
-								    Height="420"
-                                    Width="240"
-								    VerticalAlignment="Top"
-                                    HorizontalAlignment="Center"
-                                    Margin="0, 0, 0, 0"
-                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-								    Background="Transparent" 
-                                    BorderThickness="0"
-                                    SelectionChanged="TaskListbox_SelectionChanged"
-                                    d:ItemsSource="{d:SampleData ItemCount=15}">
+								            x:Name="TaskListbox"
+                                            ScrollViewer.CanContentScroll="False"
+								            Height="420"
+                                            Width="240"
+								            VerticalAlignment="Top"
+                                            HorizontalAlignment="Center"
+                                            Margin="0, 0, 0, 0"
+                                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+								            Background="Transparent" 
+                                            BorderThickness="0"
+                                            SelectionChanged="TaskListbox_SelectionChanged"
+                                            d:ItemsSource="{d:SampleData ItemCount=15}">
 
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
-                                                    <Border
-                                                Background="{Binding TaskColor}"
-                                                BorderBrush="Transparent"
-                                                BorderThickness="2"
-                                                CornerRadius="16"
-                                                HorizontalAlignment="Left"
-                                                Width="200"
-                                                Margin="5, 15, 0, 15">
-                                                        <TextBlock
-										            Text="{Binding TaskName}"
-										            TextWrapping="Wrap"
-										            FontFamily="Poppins"
-										            FontSize="18"
-                                                    Padding="8"
-										            Foreground="White"
-                                                    TextAlignment="Center"/>
+                                                    
+                                                    <Border 
+                                                        x:Name="Border"
+                                                        BorderBrush="Black"
+                                                        BorderThickness="2"
+                                                        CornerRadius="12" 
+                                                        Background="{Binding TaskColor}" 
+                                                        Padding="2"
+                                                        Margin="0, 5, 0, 5"
+                                                        Width="210">
+                                                        <Grid>
+                                                            <TextBlock
+                                                                VerticalAlignment="Center"
+                                                                HorizontalAlignment="Center"
+                                                                IsHitTestVisible="False"
+                                                                Background="Transparent"
+                                                                Foreground="Black"
+                                                                Text="{Binding TaskName}"
+                                                                FontFamily="{StaticResource Notepad}"
+                                                                FontSize="22"
+                                                                Padding="4"/>
+                                                        </Grid>
                                                     </Border>
                                                 </DataTemplate>
                                             </ListBox.ItemTemplate>
@@ -262,7 +289,7 @@
                             </Border>
 
                             <Button
-								x:Name ="AddButton2"
+								x:Name ="AddTaskButton"
 								Content="+ Task"
 								FontSize="24"
                                 Style="{StaticResource DefaultButton}"
@@ -273,7 +300,7 @@
                                 FontFamily="{StaticResource Notepad}"
 								VerticalAlignment="Bottom"
 								HorizontalAlignment="Center"
-                                Click="AddButton2_Click"
+                                Click="AddTaskButton_Click"
                                 Margin="15"
                                 IsEnabled="False"/>
                         </StackPanel>

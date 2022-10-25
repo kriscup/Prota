@@ -27,16 +27,15 @@ namespace ProtaV2
             InitializeComponent();
         }
 
-        private async void AddButton1_Click(object sender, RoutedEventArgs e)
+        private async void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            CategoryListbox.UnselectAll();
-            TaskListbox.UnselectAll();
-            TaskText.Text = "";
             TaskName.Content = "Click a task to view";
             UpdateTasks();
 
-            AddButton1.IsEnabled = false;
+            AddCategoryButton.IsEnabled = false;
+
             await Task.Delay(100);
+
             CategoryListItem newItem = new CategoryListItem();
             newItem.CategoryName = "New Category X";
             newItem.tasks = new List<TaskListItem>();
@@ -46,20 +45,24 @@ namespace ProtaV2
 
             CategoryListbox.Items.Add(newItem);
             await Task.Delay(100);
-            AddButton1.IsEnabled = true;
+            AddCategoryButton.IsEnabled = true;
         }
 
-        private async void AddButton2_Click(object sender, RoutedEventArgs e)
+        private async void AddTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            AddButton2.IsEnabled = false;
+            AddTaskButton.IsEnabled = false;
+
             await Task.Delay(100);
+
             TaskListItem newItem = new TaskListItem();
+
             newItem.TaskName = "Some Task";
             newItem.TaskText = "Lorem Ipsum";
             newItem.TaskColor = ((CategoryListItem)CategoryListbox.Items.GetItemAt(selectedCategory)).CategoryColor;
             ((CategoryListItem)CategoryListbox.Items.GetItemAt(selectedCategory)).tasks.Add(newItem);
+
             await Task.Delay(100);
-            AddButton2.IsEnabled = true;
+            AddTaskButton.IsEnabled = true;
             UpdateTasks();
 
         }
@@ -69,7 +72,7 @@ namespace ProtaV2
             if (TaskListbox.SelectedItem != null)
             {
                 TaskText.Text = ((TaskListItem)TaskListbox.SelectedItem).TaskText;
-                TaskName.Content = ((TaskListItem)TaskListbox.SelectedItem).TaskName;
+                TaskName.Content = ((CategoryListItem)CategoryListbox.SelectedItem).CategoryName + " - " + ((TaskListItem)TaskListbox.SelectedItem).TaskName;
             }
         }
 
@@ -79,7 +82,7 @@ namespace ProtaV2
             {
                 UpdateTasks();
             }
-            AddButton2.IsEnabled = (CategoryListbox.SelectedItem != null);
+            AddTaskButton.IsEnabled = (CategoryListbox.SelectedItem != null);
         }
 
         private void UpdateTasks()

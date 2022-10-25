@@ -21,13 +21,7 @@
     </Window.Resources>
 
     <Grid>
-        <Image
-            Source="/Images/Protatextnobackground.png"
-            Width="350"
-            Height="320"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" Margin="0,-44,0,0"
-            />
+        
 
 
         <Grid>
@@ -45,10 +39,19 @@
             </Grid.RowDefinitions>
 
             <StackPanel
+                x:Name="ButtonStackPanel"
                 Grid.Row="1"
                 Grid.Column="2"
                 Orientation="Horizontal"
-                Margin="300, 0, 0, 0">
+                Margin="0, 0, 0, 0">
+
+                <Image
+                    x:Name="ProtaLogoImage"
+                    Source="/Images/ProtaLogo.png"
+                    Width="350"
+                    Height="220"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" Margin="0,-44,0,0"/>
 
                 <Button
                     x:Name="HomeButton"

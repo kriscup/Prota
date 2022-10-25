@@ -24,6 +24,20 @@ namespace ProtaV2
         public MainWindow()
         {
             InitializeComponent();
+
+            Splash splash = new Splash();
+            MainContentFrame.Content = splash;
+            ButtonStackPanel.Opacity = 0;
+
+            Task.Delay(3000).ContinueWith(t =>
+            {
+                this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimatePageOpactiy(1, 0, 1, splash));
+
+                Task.Delay(1500).ContinueWith(t =>
+                {
+                    this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimateStackPanelOpactiy(0, 1, 1, ButtonStackPanel));
+                });
+            });
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)

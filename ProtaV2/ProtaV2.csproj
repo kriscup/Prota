@@ -14,6 +14,12 @@
     <None Remove="Images\ProtaLogo.ico" />
     <None Remove="Images\ProtaLogo.png" />
     <None Remove="Images\Protatextnobackground.png" />
+    <None Remove="Images\protawritingwhite.gif" />
+    <None Remove="Images\transparentprotawriting.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XamlAnimatedGif" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +29,8 @@
     <Resource Include="Images\ProtaLogo.ico" />
     <Resource Include="Images\ProtaLogo.png" />
     <Resource Include="Images\Protatextnobackground.png" />
+    <Resource Include="Images\protawritingwhite.gif" />
+    <Resource Include="Images\transparentprotawriting.gif" />
   </ItemGroup>
 
 </Project>
