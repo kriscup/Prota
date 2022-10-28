@@ -18,16 +18,24 @@ namespace ProtaV2
     /// <summary>
     /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class EditPage : Page
     {
         private int selectedCategory = 0;
 
-        public MainPage()
+        public EditPage()
         {
             InitializeComponent();
         }
 
         private async void AddCategoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(100);
+            AddCategoryWindow addCategoryWindow = new AddCategoryWindow(this);
+
+            addCategoryWindow.ShowDialog();  // Showdialog for non-modal
+        }
+
+        public async void AddCategory(string name, Color color)
         {
             TaskName.Content = "Click a task to view";
             UpdateTasks();
@@ -37,11 +45,10 @@ namespace ProtaV2
             await Task.Delay(100);
 
             CategoryListItem newItem = new CategoryListItem();
-            newItem.CategoryName = "New Category X";
+            newItem.CategoryName = name;
             newItem.tasks = new List<TaskListItem>();
 
-            Random r = new Random();
-            newItem.CategoryColor = (Color.FromRgb((byte)r.Next(1, 255), (byte)r.Next(1, 255), (byte)r.Next(1, 233))).ToString();
+            newItem.CategoryColor = color.ToString();
 
             CategoryListbox.Items.Add(newItem);
             await Task.Delay(100);
