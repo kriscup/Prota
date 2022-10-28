@@ -37,6 +37,7 @@ namespace ProtaV2
 
             MainContentFrame.Content = splashScreen;
             ButtonStackPanel.Opacity = 0;
+            SettingsButton.Opacity = 0;
 
 
 
@@ -47,6 +48,7 @@ namespace ProtaV2
                 Task.Delay(1500).ContinueWith(t =>
                 {
                     this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimateStackPanelOpactiy(0, 1, 1, ButtonStackPanel));
+                    this.Dispatcher.BeginInvoke(() => SettingsButton.Opacity = 1);
 
                     Task.Delay(1000).ContinueWith(t =>
                     {
@@ -62,6 +64,7 @@ namespace ProtaV2
             HomeButton.IsEnabled = true;
             EditButton.IsEnabled = false;
             CalButton.IsEnabled = true;
+            SettingsButton.IsEnabled = true;
         }
 
         private void CalButton_Click(object sender, RoutedEventArgs e)
@@ -70,6 +73,7 @@ namespace ProtaV2
             HomeButton.IsEnabled = true;
             EditButton.IsEnabled = true;
             CalButton.IsEnabled = false;
+            SettingsButton.IsEnabled = true;
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
@@ -78,6 +82,15 @@ namespace ProtaV2
             HomeButton.IsEnabled = false;
             EditButton.IsEnabled = true;
             CalButton.IsEnabled = true;
+            SettingsButton.IsEnabled = true;
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e) {
+            MainContentFrame.Content = null;
+            HomeButton.IsEnabled = true;
+            EditButton.IsEnabled = true;
+            CalButton.IsEnabled = true;
+            SettingsButton.IsEnabled = false;
         }
     }
 

@@ -101,8 +101,31 @@
                     FontFamily="{StaticResource Notepad}"
                     Style="{StaticResource DefaultButton}"
                     Click="CalButton_Click"/>
-            </StackPanel>
 
+                
+
+            </StackPanel>
+            
+            <Button
+                x:Name="SettingsButton"
+                Grid.Row="1"
+                Grid.Column="2"
+                Width="66"
+                Height="66"
+                Padding="0, 0, 0, 0"
+                Margin="0, 0, 50, 0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Content="⚙️"
+                FontSize="40"
+                BorderBrush="Black"
+                BorderThickness="2"
+                FontFamily="{StaticResource Notepad}"
+                Style="{StaticResource DefaultButton}"
+                IsEnabled="True"
+                Click="SettingsButton_Click"/>
             <Frame
                  x:Name="MainContentFrame"
                  Grid.Row="2"
