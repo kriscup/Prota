@@ -20,19 +20,30 @@ namespace ProtaV2
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        private Splash splashScreen;
+        private HomePage homePage;
+        private EditPage editPage;
+        private CalendarPage calendarPage;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            Splash splash = new Splash();
-            MainContentFrame.Content = splash;
+            splashScreen = new Splash();
+            homePage = new HomePage();
+            editPage = new EditPage();
+            calendarPage = new CalendarPage();
+
+
+            MainContentFrame.Content = splashScreen;
             ButtonStackPanel.Opacity = 0;
             SettingsButton.Opacity = 0;
 
+
+
             Task.Delay(3000).ContinueWith(t =>
             {
-                this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimatePageOpactiy(1, 0, 1, splash));
+                this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimatePageOpactiy(1, 0, 1, splashScreen));
 
                 Task.Delay(1500).ContinueWith(t =>
                 {
@@ -40,11 +51,18 @@ namespace ProtaV2
                     this.Dispatcher.BeginInvoke(() => SettingsButton.Opacity = 1);
                 });
             });
+
+                    Task.Delay(1000).ContinueWith(t =>
+                    {
+                        this.Dispatcher.BeginInvoke(() => MainContentFrame.Content = homePage);
+                    });
+                });
+            });
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            MainContentFrame.Content = new MainPage();
+            MainContentFrame.Content = editPage;
             HomeButton.IsEnabled = true;
             EditButton.IsEnabled = false;
             CalButton.IsEnabled = true;
@@ -53,7 +71,7 @@ namespace ProtaV2
 
         private void CalButton_Click(object sender, RoutedEventArgs e)
         {
-            MainContentFrame.Content = null;
+            MainContentFrame.Content = calendarPage;
             HomeButton.IsEnabled = true;
             EditButton.IsEnabled = true;
             CalButton.IsEnabled = false;
@@ -62,7 +80,7 @@ namespace ProtaV2
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            MainContentFrame.Content = null;
+            MainContentFrame.Content = homePage;
             HomeButton.IsEnabled = false;
             EditButton.IsEnabled = true;
             CalButton.IsEnabled = true;
