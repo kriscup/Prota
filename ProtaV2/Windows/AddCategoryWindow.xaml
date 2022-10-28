@@ -8,6 +8,9 @@
         xmlns:local="clr-namespace:ProtaV2"
         mc:Ignorable="d"
         Title="AddCategoryWindow" 
+        ResizeMode="NoResize"	
+		WindowStartupLocation="CenterScreen"
+        Icon="/Images/ProtaLogo.ico"
         Height="580" 
         Width="800">
 
