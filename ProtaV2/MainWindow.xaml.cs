@@ -24,6 +24,7 @@ namespace ProtaV2
         private HomePage homePage;
         private EditPage editPage;
         private CalendarPage calendarPage;
+        private Settings settingsPage;
 
         public MainWindow()
         {
@@ -33,7 +34,7 @@ namespace ProtaV2
             homePage = new HomePage();
             editPage = new EditPage();
             calendarPage = new CalendarPage();
-
+            settingsPage = new Settings();
 
             MainContentFrame.Content = splashScreen;
             ButtonStackPanel.Opacity = 0;
@@ -86,7 +87,7 @@ namespace ProtaV2
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e) {
-            MainContentFrame.Content = null;
+            MainContentFrame.Content = settingsPage;
             HomeButton.IsEnabled = true;
             EditButton.IsEnabled = true;
             CalButton.IsEnabled = true;

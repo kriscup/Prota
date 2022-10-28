@@ -21,12 +21,7 @@
     </Window.Resources>
 
     <Grid>
-        
-
-
         <Grid>
-
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
