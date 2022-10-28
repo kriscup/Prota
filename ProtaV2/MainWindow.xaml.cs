@@ -49,8 +49,6 @@ namespace ProtaV2
                 {
                     this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimateStackPanelOpactiy(0, 1, 1, ButtonStackPanel));
                     this.Dispatcher.BeginInvoke(() => SettingsButton.Opacity = 1);
-                });
-            });
 
                     Task.Delay(1000).ContinueWith(t =>
                     {
