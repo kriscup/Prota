@@ -5,6 +5,11 @@
     <FontFamily x:Key="Notepad" >/Fonts/#Notepad</FontFamily>
     <FontFamily x:Key="Trispace">/Fonts/#trispace</FontFamily>
 
+    <!-- Date picker style -->
+    <Style TargetType="{x:Type DatePickerTextBox}">
+        <Setter Property="IsReadOnly" Value="True" />
+    </Style>
+
     <!-- Default Button Style -->
     <Style 
         x:Key="DefaultButton"

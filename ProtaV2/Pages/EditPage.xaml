@@ -44,7 +44,8 @@
 						BorderThickness="0, 0, 0, 3"
 						CornerRadius="0"
 						Margin="15">
-                        <Label
+                        <Grid>
+                            <Label
 							Content="Categories"
 							FontFamily="{StaticResource Notepad}"
 							FontSize="32"
@@ -52,6 +53,25 @@
 							Foreground="Black"
                             Margin="0, 25, 0, 0"
 							HorizontalContentAlignment="Center"/>
+                            
+                            <Button
+								x:Name ="EditCategoryButton"
+								Content="⚙️"
+                                IsEnabled="False"
+								FontSize="24"
+                                Style="{StaticResource DefaultButton}"
+                                FontFamily="{StaticResource Notepad}"
+                                BorderBrush="Black"
+								Cursor="Hand"
+                                Width="40"
+                                Height="40"
+                                Padding="2, 5, 0, 0"
+                                Margin="0, 0, 0, 5"
+								VerticalAlignment="Bottom"
+								HorizontalAlignment="Right"
+                                Click="AddCategoryButton_Click"/>
+                        </Grid>
+                        
                     </Border>
 
                     <Border
@@ -132,6 +152,8 @@
 								HorizontalAlignment="Center"
                                 Click="AddCategoryButton_Click"
                                 Margin="15"/>
+
+                            
                         </StackPanel>
 
                     </Border>
@@ -182,13 +204,31 @@
                             BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="16">
-                            <TextBlock
-                                x:Name="TaskText"
-							    Padding="20"
-                                Text="No Task Selected"
-                                Foreground="Black"
-                                FontFamily="{StaticResource Notepad}"
-                                FontSize="24"/>
+                            <StackPanel>
+                                <TextBlock
+                                    x:Name="TaskText"
+							        Padding="20"
+                                    Height="370"
+                                    Text="No Task Selected"
+                                    Foreground="Black"
+                                    FontFamily="{StaticResource Notepad}"
+                                    FontSize="24"/>
+                                <TextBlock
+                                    x:Name="LocationText"
+							        Padding="20"
+                                    Text=""
+                                    Foreground="Black"
+                                    FontFamily="{StaticResource Notepad}"
+                                    FontSize="24"/>
+                                <TextBlock
+                                    x:Name="DueText"
+							        Padding="20"
+                                    Text=""
+                                    Foreground="Black"
+                                    FontFamily="{StaticResource Notepad}"
+                                    FontSize="24"/>
+                            </StackPanel>
+                            
                         </Border>
 
                     </Border>
@@ -206,7 +246,9 @@
 						BorderThickness="0, 0, 0, 3"
 						CornerRadius="0"
 						Margin="15">
-                        <Label
+                        <Grid>
+
+                            <Label
 							Content="Tasks"
 							FontFamily="{StaticResource Notepad}"
                             FontWeight="Bold"
@@ -214,6 +256,25 @@
 							Foreground="Black"
 							Margin="0, 25, 0, 0"
 							HorizontalContentAlignment="Center"/>
+                            
+                            <Button
+								x:Name ="EditTaskButton"
+								Content="⚙️"
+								FontSize="24"
+                                IsEnabled="False"
+                                Style="{StaticResource DefaultButton}"
+                                FontFamily="{StaticResource Notepad}"
+                                BorderBrush="Black"
+								Cursor="Hand"
+                                Width="40"
+                                Height="40"
+                                Padding="2, 5, 0, 0"
+                                Margin="0, 0, 0, 5"
+								VerticalAlignment="Bottom"
+								HorizontalAlignment="Right"
+                                Click="AddCategoryButton_Click"/>
+                        </Grid>
+                        
                     </Border>
 
                     <Border

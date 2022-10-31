@@ -201,6 +201,7 @@
                         x:Name="CategoryColorPicker"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
+                        SelectedColor="White"
                         ColorChanged="CategoryColorPicker_ColorChanged" 
                         Height="200"
                         Width="200"
@@ -211,13 +212,13 @@
 
             <Button
                 x:Name="AddButton"
-                Content="Add"
+                Content="Save"
                 Style="{StaticResource DefaultButton}"
                 FontFamily="{StaticResource Notepad}"
                 Margin="0, 30, 20, 0"
                 Width="150"
                 Height="50"
-                FontSize="32"
+                FontSize="24"
                 HorizontalAlignment="Right"
                 IsEnabled="False"
                 Click="AddButton_Click"/>

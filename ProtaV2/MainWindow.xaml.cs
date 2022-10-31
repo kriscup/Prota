@@ -48,12 +48,13 @@ namespace ProtaV2
 
                 Task.Delay(1500).ContinueWith(t =>
                 {
-                    this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimateStackPanelOpactiy(0, 1, 1, ButtonStackPanel));
-                    this.Dispatcher.BeginInvoke(() => SettingsButton.Opacity = 1);
+                    this.Dispatcher.BeginInvoke(() => MainContentFrame.Content = homePage);
 
                     Task.Delay(1000).ContinueWith(t =>
                     {
-                        this.Dispatcher.BeginInvoke(() => MainContentFrame.Content = homePage);
+                        this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimateStackPanelOpactiy(0, 1, 1, ButtonStackPanel));
+                        this.Dispatcher.BeginInvoke(() => SettingsButton.Opacity = 1);
+
                     });
                 });
             });
@@ -100,6 +101,8 @@ namespace ProtaV2
         public string TaskName { get; set; }
         public string TaskText { get; set; }
         public string TaskColor { get; set; }
+        public string DueDate { get; set; }
+        public string Location { get; set; }
     }
 
     public class CategoryListItem

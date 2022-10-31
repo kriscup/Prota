@@ -28,7 +28,6 @@ namespace ProtaV2
             InitializeComponent();
             ColorPicker.Models.NotifyableColor color = CategoryColorPicker.Color;
             Color outColor = Color.FromRgb((byte)color.RGB_R, (byte)color.RGB_G, (byte)color.RGB_B);
-
             this.editPage = editPage;
             categoryColor = outColor;
         }

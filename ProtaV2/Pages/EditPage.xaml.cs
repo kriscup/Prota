@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProtaV2.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,11 +36,32 @@ namespace ProtaV2
             addCategoryWindow.ShowDialog();  // Showdialog for non-modal
         }
 
+        public async void AddTask(string name, string desc, string dueDate, string location)
+        {
+            CategoryListItem categoryListItem = ((CategoryListItem)CategoryListbox.Items.GetItemAt(selectedCategory));
+            AddCategoryButton.IsEnabled = false;
+            AddTaskButton.IsEnabled = false;
+
+            await Task.Delay(100);
+
+            TaskListItem newItem = new TaskListItem();
+            newItem.TaskName = name;
+            newItem.TaskText = desc;
+            newItem.TaskColor = categoryListItem.CategoryColor;
+            newItem.DueDate = dueDate;
+            newItem.Location = location;
+            categoryListItem.tasks.Add(newItem);
+
+            await Task.Delay(100);
+            AddCategoryButton.IsEnabled = true;
+            AddTaskButton.IsEnabled = true;
+            UpdateTasks();
+        }
+
         public async void AddCategory(string name, Color color)
         {
             TaskName.Content = "Click a task to view";
             UpdateTasks();
-
             AddCategoryButton.IsEnabled = false;
 
             await Task.Delay(100);
@@ -53,24 +75,16 @@ namespace ProtaV2
             CategoryListbox.Items.Add(newItem);
             await Task.Delay(100);
             AddCategoryButton.IsEnabled = true;
+            AddTaskButton.IsEnabled = true;
+            UpdateTasks();
         }
 
         private async void AddTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            AddTaskButton.IsEnabled = false;
-
             await Task.Delay(100);
+            AddTaskWindow addTaskWindow = new AddTaskWindow(this);
 
-            TaskListItem newItem = new TaskListItem();
-
-            newItem.TaskName = "Some Task";
-            newItem.TaskText = "Lorem Ipsum";
-            newItem.TaskColor = ((CategoryListItem)CategoryListbox.Items.GetItemAt(selectedCategory)).CategoryColor;
-            ((CategoryListItem)CategoryListbox.Items.GetItemAt(selectedCategory)).tasks.Add(newItem);
-
-            await Task.Delay(100);
-            AddTaskButton.IsEnabled = true;
-            UpdateTasks();
+            addTaskWindow.ShowDialog();
 
         }
 
@@ -78,7 +92,10 @@ namespace ProtaV2
         {
             if (TaskListbox.SelectedItem != null)
             {
-                TaskText.Text = ((TaskListItem)TaskListbox.SelectedItem).TaskText;
+                TaskListItem selected = ((TaskListItem)TaskListbox.SelectedItem);
+                TaskText.Text = selected.TaskText;
+                DueText.Text = "Due: " + selected.DueDate;
+                LocationText.Text = "Where: " + selected.Location;
                 TaskName.Content = ((CategoryListItem)CategoryListbox.SelectedItem).CategoryName + " - " + ((TaskListItem)TaskListbox.SelectedItem).TaskName;
             }
         }
@@ -88,13 +105,14 @@ namespace ProtaV2
             if (CategoryListbox.SelectedItem != null)
             {
                 UpdateTasks();
+                selectedCategory = CategoryListbox.SelectedIndex;
             }
             AddTaskButton.IsEnabled = (CategoryListbox.SelectedItem != null);
         }
 
         private void UpdateTasks()
         {
-            selectedCategory = CategoryListbox.SelectedIndex;
+            
             TaskListbox.Items.Clear();
             CategoryListItem current = (CategoryListItem)CategoryListbox.SelectedItem;
             if (current != null)
@@ -104,7 +122,7 @@ namespace ProtaV2
                     TaskListbox.Items.Add(item);
                 }
             }
-
+            selectedCategory = CategoryListbox.SelectedIndex;
             TaskListbox.Items.Refresh();
         }
     }
