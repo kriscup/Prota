@@ -228,7 +228,8 @@
     </Style>
 
     <Style x:Key="{x:Type ListBoxItem}"
-       TargetType="ListBoxItem">
+       TargetType="ListBoxItem"
+           x:Name="ListItem2">
         <Setter Property="SnapsToDevicePixels"
           Value="true" />
         <Setter Property="OverridesDefaultStyle"
@@ -245,7 +246,7 @@
                         <Border.Background>
                             <SolidColorBrush Color="Transparent" />
                         </Border.Background>
-                        
+
                         <ContentPresenter />
                     </Border>
 
@@ -279,16 +280,14 @@
                             <Setter 
                                 TargetName="Border"
                                 Property="BorderBrush" Value="Black"/>
-                            
+
                         </Trigger>
                     </ControlTemplate.Triggers>
 
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
-        
-        
     </Style>
+
 
 </ResourceDictionary>

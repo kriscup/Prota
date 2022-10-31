@@ -86,7 +86,6 @@
                 Margin="15, 0, 0, 0">
                     <TextBox
                     x:Name="NameText"
-                    MaxLength="18"
                     Text=""
                     BorderBrush="Transparent"
                     Background="Transparent"

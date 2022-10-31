@@ -69,7 +69,7 @@
                                 Margin="0, 0, 0, 5"
 								VerticalAlignment="Bottom"
 								HorizontalAlignment="Right"
-                                Click="AddCategoryButton_Click"/>
+                                Click="EditCategoryButton_Click"/>
                         </Grid>
                         
                     </Border>
@@ -115,7 +115,7 @@
                                                 BorderBrush="Black"
                                                 BorderThickness="2"
                                                 CornerRadius="12" 
-                                                Background="{Binding CategoryColor}" 
+                                                Background="{Binding CategoryBrush}" 
                                                 Padding="2"
                                                 Margin="0, 5, 0, 5"
                                                 Width="210">
@@ -272,7 +272,7 @@
                                 Margin="0, 0, 0, 5"
 								VerticalAlignment="Bottom"
 								HorizontalAlignment="Right"
-                                Click="AddCategoryButton_Click"/>
+                                Click="EditTaskButton_Click"/>
                         </Grid>
                         
                     </Border>
@@ -325,7 +325,7 @@
                                                         BorderBrush="Black"
                                                         BorderThickness="2"
                                                         CornerRadius="12" 
-                                                        Background="{Binding TaskColor}" 
+                                                        Background="{Binding TaskBrush}" 
                                                         Padding="2"
                                                         Margin="0, 5, 0, 5"
                                                         Width="210">

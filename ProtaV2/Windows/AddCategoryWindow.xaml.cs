@@ -19,23 +19,25 @@ namespace ProtaV2
     /// </summary>
     public partial class AddCategoryWindow : Window
     {
-        private EditPage editPage;
-        private string categoryName;
-        private Color categoryColor;
+        private EditPage _editPage;
+        private string _categoryName;
+        private Color _categoryColor;
+        private CategoryListItem _current;
 
-        public AddCategoryWindow(EditPage editPage)
+        public AddCategoryWindow(EditPage editPage, CategoryListItem current = null)
         {
             InitializeComponent();
             ColorPicker.Models.NotifyableColor color = CategoryColorPicker.Color;
             Color outColor = Color.FromRgb((byte)color.RGB_R, (byte)color.RGB_G, (byte)color.RGB_B);
-            this.editPage = editPage;
-            categoryColor = outColor;
+            _current = current;
+            _editPage = editPage;
+            _categoryColor = outColor;
         }
 
         private void NameText_TextChanged(object sender, TextChangedEventArgs e)
         {
             CategoryPreview.Text = NameText.Text;
-            categoryName = NameText.Text;
+            _categoryName = NameText.Text;
             AddButton.IsEnabled = (NameText.Text.Length > 0);
         }
 
@@ -46,12 +48,18 @@ namespace ProtaV2
             Color outColor = Color.FromRgb((byte)color.RGB_R, (byte)color.RGB_G, (byte)color.RGB_B);
             brush.Color = outColor;
             Border.Background = brush;
-            categoryColor = outColor;
+            _categoryColor = outColor;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            editPage.AddCategory(categoryName, categoryColor);
+
+            if (_current == null) {
+                _editPage.AddCategory(_categoryName, _categoryColor);
+            }
+            else {
+                _editPage.EditCategory(_current, _categoryName, _categoryColor);
+            }
             Close();
         }
     }

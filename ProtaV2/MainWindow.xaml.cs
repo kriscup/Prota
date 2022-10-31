@@ -100,7 +100,8 @@ namespace ProtaV2
     {
         public string TaskName { get; set; }
         public string TaskText { get; set; }
-        public string TaskColor { get; set; }
+        public Color TaskColor { get; set; }
+        public SolidColorBrush TaskBrush { get; set; }
         public string DueDate { get; set; }
         public string Location { get; set; }
     }
@@ -109,6 +110,7 @@ namespace ProtaV2
     {
         public string CategoryName { get; set; }
         public List<TaskListItem> tasks { get; set; }
-        public string CategoryColor { get; set; }
+        public Color CategoryColor { get; set; }
+        public SolidColorBrush CategoryBrush { get; set; }
     }
 }

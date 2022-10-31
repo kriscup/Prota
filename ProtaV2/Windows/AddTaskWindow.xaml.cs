@@ -24,11 +24,13 @@ namespace ProtaV2.Windows
         private string _location = "";
         private string _date = "";
         private EditPage _editPage;
+        TaskListItem _current;
 
-        public AddTaskWindow(EditPage editPage)
+        public AddTaskWindow(EditPage editPage, TaskListItem current = null)
         {
             InitializeComponent();
             _editPage = editPage;
+            _current = current;
         }
 
         private void CompletedByDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -60,7 +62,14 @@ namespace ProtaV2.Windows
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            _editPage.AddTask(_name, _description, _date, _location);
+            if(_current == null)
+            {
+                _editPage.AddTask(_name, _description, _date, _location);
+            } 
+            else
+            {
+                _editPage.EditTask(_current, _name, _description, _date, _location);
+            }
             Close();
         }
 
