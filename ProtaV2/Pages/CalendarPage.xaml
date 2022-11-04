@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProtaV2"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="780" d:DesignWidth="1600"
       Title="CalendarPage">
 
     <Page.Resources>
@@ -17,6 +17,76 @@
     </Page.Resources>
 
     <Grid>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Calendar Box-->
+            <StackPanel>
+                <StackPanel 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0 50 0 30">
+
+                </StackPanel>
+
+                <!-- Calander Control -->
+                <Calendar 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Grid.Column="1" 
+                    Grid.Row="1"
+                    RenderTransformOrigin="0.5,0.5" Width="180" Height="167">
+
+                    <Calendar.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="3.5" ScaleY="3.5"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="225"/>
+                        </TransformGroup>
+                    </Calendar.RenderTransform>
+                </Calendar>
+            </StackPanel>
+
+            <!-- Daily Tasks List -->
+            <StackPanel Grid.Column="1">
+                <Label
+                    Content="Tasks"
+                    FontFamily="{StaticResource Notepad}"
+                    FontWeight="Bold"
+                    FontSize="32"
+                    Foreground="Black"
+                    Margin="0 25 0 0"
+                    HorizontalContentAlignment="Center"/>
+                <Border
+                    Margin="15 15 15 15"
+                    BorderBrush="Transparent"
+                    BorderThickness="2"
+                    CornerRadius="0 0 16 16"
+                    Padding="10">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="16"/>
+                    </Border.Effect>
+
+                    <Border.Background>
+                        <SolidColorBrush Color="LightYellow" />
+                    </Border.Background>
+                    <ListBox
+                        x:Name="DailyTasks"
+                        Margin="0 15 0 15"
+                        Background="Transparent"
+                        Height="600"
+                        FontFamily="{StaticResource Notepad}"
+                        FontSize="32"
+                        d:ItemsSource="{d:SampleData ItemCount=20}"/>
+                </Border>
+            </StackPanel>
+
+
+        </Grid>
+
     </Grid>
 </Page>
