@@ -5,6 +5,11 @@
     <FontFamily x:Key="Notepad" >/Fonts/#Notepad</FontFamily>
     <FontFamily x:Key="Trispace">/Fonts/#trispace</FontFamily>
 
+    <!-- Date picker style -->
+    <Style TargetType="{x:Type DatePickerTextBox}">
+        <Setter Property="IsReadOnly" Value="True" />
+    </Style>
+
     <!-- Default Button Style -->
     <Style 
         x:Key="DefaultButton"
@@ -49,7 +54,7 @@
                                 Foreground="{TemplateBinding Foreground}"
                                 FontFamily="{TemplateBinding FontFamily}"
                                 FontSize="{TemplateBinding FontSize}"
-                                Padding="4"
+                                Padding="{TemplateBinding Padding}"
                                 Text="{TemplateBinding Content}"/>
                         </Grid>
                     </Border>
@@ -355,7 +360,8 @@
     </Style>
 
     <Style x:Key="{x:Type ListBoxItem}"
-       TargetType="ListBoxItem">
+       TargetType="ListBoxItem"
+           x:Name="ListItem2">
         <Setter Property="SnapsToDevicePixels"
           Value="true" />
         <Setter Property="OverridesDefaultStyle"
@@ -372,7 +378,7 @@
                         <Border.Background>
                             <SolidColorBrush Color="Transparent" />
                         </Border.Background>
-                        
+
                         <ContentPresenter />
                     </Border>
 
@@ -406,7 +412,7 @@
                             <Setter 
                                 TargetName="Border"
                                 Property="BorderBrush" Value="Black"/>
-                            
+
                         </Trigger>
                     </ControlTemplate.Triggers>
 
