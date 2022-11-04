@@ -8,6 +8,7 @@
       d:DesignHeight="780" d:DesignWidth="1600"
       Title="CalendarPage">
 
+    <!-- Test Test -->
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
