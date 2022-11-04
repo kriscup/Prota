@@ -5,8 +5,162 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProtaV2"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Settings">
+      Height="780" 
+      Width="1600"
+      Title="EditPage"
+      ShowsNavigationUI="False">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/ProtaTheme.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="15"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="700"/>
+                <RowDefinition Height="15"/>
+            </Grid.RowDefinitions>
+
+            
+
+            <Border
+				Grid.Column="2"
+				Grid.Row="1"
+                >
+
+                <StackPanel>
+                    <Border
+						BorderBrush="Black"
+						BorderThickness="0, 0, 0, 3"
+						CornerRadius="0"
+						Margin="15">
+
+                        <Label
+                            x:Name="TaskName"
+							Content="Settings"
+							FontFamily="{StaticResource Notepad}"
+                            FontWeight="Bold"
+							FontSize="32"
+							Foreground="Black"
+							Margin="0, 25, 0, 0"
+							HorizontalContentAlignment="Center"/>
+                    </Border>
+
+                    <Border
+						BorderBrush="Transparent"
+						BorderThickness="1"
+						CornerRadius="0, 0, 16, 16"
+						Background="LightYellow"
+						Margin="15, 0, 15, 0"
+                        Height="560"
+                        Padding="20"
+                        VerticalAlignment="Bottom">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="16" />
+                        </Border.Effect>
+
+                        <Border
+                            Background="White"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="16">
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="100"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+                                    x:Name="ResolutiontextBlock"
+							        Padding="20"
+                                    Text="Resolution:"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    VerticalAlignment="Center"
+                                    Foreground="Black"
+                                    FontFamily="{StaticResource Notepad}"
+                                    FontSize="24"/>
+
+                                <ComboBox 
+                                    x:Name="ResolutionSizes"
+                                    Height="25"
+                                    Width="300"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    Grid.Row="0"
+                                    >
+                                    <ComboBoxItem Content="3840 x 2160"/>
+                                    <ComboBoxItem Content="2560 x 1440"/>
+                                    <ComboBoxItem Content="1920 x 1080"/>
+                                    <ComboBoxItem Content="1600 x 900"/>
+                                    
+                                </ComboBox>
+
+
+                                <TextBlock
+                                    x:Name="DarkmodetextBlock"
+							        Padding="20"
+                                    Text="Dark Mode:"
+                                    Grid.Row="1"
+                                    Foreground="Black"
+                                    VerticalAlignment="Center"
+                                    FontFamily="{StaticResource Notepad}"
+                                    FontSize="24"/>
+                                <TextBlock
+                                    x:Name="NotificationstextBlock"
+							        Padding="20"
+                                    Text="Notifications:"
+                                    Grid.Row="2"
+                                    Foreground="Black"
+                                    VerticalAlignment="Center"
+                                    FontFamily="{StaticResource Notepad}"
+                                    FontSize="24"/>
+                                <TextBlock
+                                    x:Name="ContacttextBlock"
+							        Padding="20"
+                                    Text="Contact us:"
+                                    Grid.Row="3"
+                                    Foreground="Black"
+                                    VerticalAlignment="Center"
+                                    FontFamily="{StaticResource Notepad}"
+                                    FontSize="24"/>
+                            </Grid>
+                        </Border>
+
+                    </Border>
+
+                </StackPanel>
+            </Border>
+
+            
+
+        </Grid>
+    </Grid>
 
     <GroupBox Header="GroupBox">
         <UniformGrid Rows="7" HorizontalAlignment="Center">
