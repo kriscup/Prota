@@ -36,6 +36,7 @@ namespace ProtaV2
             task1.TaskName = "Task 1";
             task1.TaskText = "Do your homework";
             task1.TaskColor = Colors.PapayaWhip;
+            
 
             task2.TaskName = "Task 2";
             task2.TaskText = "Take out the trash";
