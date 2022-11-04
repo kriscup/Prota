@@ -36,15 +36,17 @@ namespace ProtaV2
             task1.TaskName = "Task 1";
             task1.TaskText = "Do your homework";
             task1.TaskColor = Colors.PapayaWhip;
-            
+            task1.TaskBrush = new SolidColorBrush(task1.TaskColor);
 
             task2.TaskName = "Task 2";
             task2.TaskText = "Take out the trash";
             task2.TaskColor = Colors.SeaShell;
+            task2.TaskBrush = new SolidColorBrush(task2.TaskColor);
 
             task3.TaskName = "Task 3";
             task3.TaskText = "Go grocery shopping for the week";
             task3.TaskColor = Colors.PaleTurquoise;
+            task3.TaskBrush = new SolidColorBrush(task3.TaskColor);
 
             TaskCollection = new List<TaskListItem>();
 
