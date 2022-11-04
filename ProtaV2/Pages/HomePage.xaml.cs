@@ -35,15 +35,15 @@ namespace ProtaV2
 
             task1.TaskName = "Task 1";
             task1.TaskText = "Do your homework";
-            task1.TaskColor = Colors.PapayaWhip.ToString();
+            task1.TaskColor = Colors.PapayaWhip;
 
             task2.TaskName = "Task 2";
             task2.TaskText = "Take out the trash";
-            task2.TaskColor = Colors.SeaShell.ToString();
+            task2.TaskColor = Colors.SeaShell;
 
             task3.TaskName = "Task 3";
             task3.TaskText = "Go grocery shopping for the week";
-            task3.TaskColor = Colors.PaleTurquoise.ToString();
+            task3.TaskColor = Colors.PaleTurquoise;
 
             TaskCollection = new List<TaskListItem>();
 
