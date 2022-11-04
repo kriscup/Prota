@@ -28,7 +28,7 @@ namespace ProtaV2
 
         public MainWindow(){
             InitializeComponent();
-
+            DataContext = new HomePage();
             splashScreen = new Splash();
             homePage = new HomePage();
             editPage = new EditPage();
@@ -114,4 +114,6 @@ namespace ProtaV2
         public Color CategoryColor { get; set; }
         public SolidColorBrush CategoryBrush { get; set; }
     }
+
+
 }
