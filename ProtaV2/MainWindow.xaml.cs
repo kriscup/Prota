@@ -47,12 +47,11 @@ namespace ProtaV2
 
                 Task.Delay(1500).ContinueWith(t =>
                 {
-                    this.Dispatcher.BeginInvoke(() => MainContentFrame.Content = homePage);
-
                     Task.Delay(1000).ContinueWith(t =>
                     {
                         this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimateStackPanelOpactiy(0, 1, 1, ButtonStackPanel));
                         this.Dispatcher.BeginInvoke(() => SettingsButton.Opacity = 1);
+                        this.Dispatcher.BeginInvoke(() => MainContentFrame.Content = homePage);
 
                     });
                 });

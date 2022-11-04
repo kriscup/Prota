@@ -203,16 +203,25 @@
                             Background="White"
                             BorderBrush="Black"
                             BorderThickness="2"
-                            CornerRadius="16">
+                            CornerRadius="16"
+                            Padding="5">
                             <StackPanel>
-                                <TextBlock
-                                    x:Name="TaskText"
-							        Padding="20"
-                                    Height="370"
-                                    Text="No Task Selected"
-                                    Foreground="Black"
-                                    FontFamily="{StaticResource Notepad}"
-                                    FontSize="24"/>
+                                <Border
+                                    BorderBrush="Black"
+                                    BorderThickness="0, 0, 0, 2">
+                                    <TextBox
+                                        x:Name="TaskText"
+                                        BorderBrush="Transparent"
+							            Padding="20"
+                                        Height="370"
+                                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                        ScrollViewer.CanContentScroll="True"
+                                        Text="No Task Selected"
+                                        Foreground="Black"
+                                        FontFamily="{StaticResource Notepad}"
+                                        FontSize="24"/>
+                                </Border>
+                                
                                 <TextBlock
                                     x:Name="LocationText"
 							        Padding="20"
