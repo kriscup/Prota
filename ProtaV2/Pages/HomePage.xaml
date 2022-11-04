@@ -98,7 +98,7 @@
                                                 BorderBrush="Black"
                                                 BorderThickness="2"
                                                 CornerRadius="12" 
-                                                Background="{Binding TaskColor}" 
+                                                Background="{Binding TaskBrush}" 
                                                 Padding="2"
                                                 Margin="0, 5, 0, 5"
                                                 Width="210">
