@@ -21,5 +21,9 @@ namespace ProtaV2 {
         public Settings() {
             InitializeComponent();
         }
+
+        private void FontSizes_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+        }
     }
 }

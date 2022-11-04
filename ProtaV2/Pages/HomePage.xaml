@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProtaV2"
       mc:Ignorable="d" 
-      d:DesignHeight="450" 
-      d:DesignWidth="800"
+      Height="780" 
+      Width="1600"
       Title="HomePage">
 
     <Page.Resources>
@@ -19,25 +19,115 @@
 
     <Grid>
         <StackPanel>
-            <Label
-                x:Name="WelcomeMessage"
-			    Content="Welcome!"
-			    FontFamily="{StaticResource Notepad}"
-                FontWeight="Bold"
-			    FontSize="48"
-			    Foreground="Black"
-			    Margin="0, 50, 0, 0"
-			    HorizontalContentAlignment="Center"/>
+            
+            <Border
+				Grid.Column="2"
+				Grid.Row="1">
 
-            <Label
-                x:Name="WelcomeMessageSubtext"
-			    Content="Ready to tackle the day?"
-			    FontFamily="{StaticResource Notepad}"
-                FontWeight="Bold"
-			    FontSize="32"
-			    Foreground="Black"
-			    HorizontalContentAlignment="Center"/>
+                <StackPanel>
+                    <Border
+						BorderBrush="Black"
+						BorderThickness="0, 0, 0, 3"
+						CornerRadius="0"
+						Margin="15">
+
+                        <Label
+                            x:Name="HomeName"
+							Content="Home"
+							FontFamily="{StaticResource Notepad}"
+                            FontWeight="Bold"
+							FontSize="32"
+							Foreground="Black"
+							Margin="0, 25, 0, 0"
+							HorizontalContentAlignment="Center"/>
+                        
+                    </Border>
+
+                    <Border
+						BorderBrush="Transparent"
+						BorderThickness="1"
+						CornerRadius="0, 0, 16, 16"
+						Background="LightYellow"
+						Margin="15, 0, 15, 0"
+                        Height="560"
+                        Padding="20"
+                        VerticalAlignment="Bottom">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="16" />
+                        </Border.Effect>
+                       
+                        <!--<Border.Background>
+                            <SolidColorBrush Color="LightYellow"/>
+                        </Border.Background>-->
+                       
+                        <Border
+                            Background="White"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="16">
+                            <Grid>
+                                <TextBlock
+                                x:Name="TaskText"
+							    Padding="20"
+                                Height="50"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Center"
+                                Foreground="Black"
+                                FontFamily="{StaticResource Notepad}"
+                                Text="Your Tasks"
+                                FontWeight="Bold"
+                                FontSize="24"/>
+
+                                <ListBox
+								    x:Name="TaskListbox"
+                                    ScrollViewer.CanContentScroll="False"
+								    Height="420"
+                                    Width="240"
+								    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    Margin="0, 0, 0, 0"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+								    Background="Transparent" 
+                                    BorderThickness="0"
+                                    d:ItemsSource="{d:SampleData ItemCount=7}">
+
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border 
+                                                x:Name="Border"
+                                                BorderBrush="Black"
+                                                BorderThickness="2"
+                                                CornerRadius="12" 
+                                                Background="{Binding TaskColor}" 
+                                                Padding="2"
+                                                Margin="0, 5, 0, 5"
+                                                Width="210">
+                                                <Grid>
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        IsHitTestVisible="False"
+                                                        Background="Transparent"
+                                                        Foreground="Black"
+                                                        TextWrapping="Wrap"
+                                                        Text="{Binding TaskText}"
+                                                        FontFamily="{StaticResource Notepad}"
+                                                        FontSize="22"
+                                                        Padding="4"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </Border>
+
+                    </Border>
+
+                </StackPanel>
+            </Border>
+
         </StackPanel>
-        
+
     </Grid>
 </Page>
