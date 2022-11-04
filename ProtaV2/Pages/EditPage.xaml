@@ -95,7 +95,7 @@
                                                 BorderBrush="Black"
                                                 BorderThickness="2"
                                                 CornerRadius="12" 
-                                                Background="{Binding CategoryColor}" 
+                                                Background="{Binding CategoryColor}"
                                                 Padding="2"
                                                 Margin="0, 5, 0, 5"
                                                 Width="210">

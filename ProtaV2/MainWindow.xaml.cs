@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -18,16 +19,14 @@ namespace ProtaV2
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
+    public partial class MainWindow : Window{
         private Splash splashScreen;
         private HomePage homePage;
         private EditPage editPage;
         private CalendarPage calendarPage;
         private Settings settingsPage;
 
-        public MainWindow()
-        {
+        public MainWindow(){
             InitializeComponent();
 
             splashScreen = new Splash();
@@ -59,8 +58,7 @@ namespace ProtaV2
             });
         }
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
-        {
+        private void EditButton_Click(object sender, RoutedEventArgs e){
             MainContentFrame.Content = editPage;
             HomeButton.IsEnabled = true;
             EditButton.IsEnabled = false;
@@ -68,8 +66,7 @@ namespace ProtaV2
             SettingsButton.IsEnabled = true;
         }
 
-        private void CalButton_Click(object sender, RoutedEventArgs e)
-        {
+        private void CalButton_Click(object sender, RoutedEventArgs e){
             MainContentFrame.Content = calendarPage;
             HomeButton.IsEnabled = true;
             EditButton.IsEnabled = true;
@@ -77,8 +74,7 @@ namespace ProtaV2
             SettingsButton.IsEnabled = true;
         }
 
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
-        {
+        private void HomeButton_Click(object sender, RoutedEventArgs e){
             MainContentFrame.Content = homePage;
             HomeButton.IsEnabled = false;
             EditButton.IsEnabled = true;
@@ -92,6 +88,11 @@ namespace ProtaV2
             EditButton.IsEnabled = true;
             CalButton.IsEnabled = true;
             SettingsButton.IsEnabled = false;
+        }
+
+        private void DarkmodeButton_Click(object sender, RoutedEventArgs e) {
+            //DarkmodeToggle
+            //Click = "DarkmodeToggle_Click"
         }
     }
 
