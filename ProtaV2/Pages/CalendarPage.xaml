@@ -59,7 +59,7 @@
                     FontWeight="Bold"
                     FontSize="32"
                     Foreground="Black"
-                    Margin="0 15 0 0"
+                    Margin="0 15 0 15"
                     HorizontalContentAlignment="Center"/>
                 <Border
                     Margin="15 15 15 50"
