@@ -29,7 +29,7 @@ namespace ProtaV2
         public MainWindow()
         {
             InitializeComponent();
-
+            DataContext = new HomePage();
             splashScreen = new Splash();
             homePage = new HomePage();
             editPage = new EditPage();
@@ -108,4 +108,6 @@ namespace ProtaV2
         public List<TaskListItem> tasks { get; set; }
         public string CategoryColor { get; set; }
     }
+
+
 }
