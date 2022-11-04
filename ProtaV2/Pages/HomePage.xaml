@@ -20,16 +20,15 @@
     <Grid>
         <StackPanel>
             
-            <Border
-				Grid.Column="2"
-				Grid.Row="1">
+            <Border>
 
                 <StackPanel>
                     <Border
 						BorderBrush="Black"
 						BorderThickness="0, 0, 0, 3"
 						CornerRadius="0"
-						Margin="15">
+						Width="1400"
+                        Margin="0, 31, 0, 0">
 
                         <Label
                             x:Name="HomeName"
@@ -48,10 +47,11 @@
 						BorderThickness="1"
 						CornerRadius="0, 0, 16, 16"
 						Background="LightYellow"
-						Margin="15, 0, 15, 0"
+						Margin="15, 15, 15, 0"
                         Height="560"
-                        Padding="20"
-                        VerticalAlignment="Bottom">
+                        Width="1200"
+                        VerticalAlignment="Bottom"
+                        Padding="20">
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="16" />
                         </Border.Effect>
