@@ -49,7 +49,7 @@
 						Background="LightYellow"
 						Margin="15, 15, 15, 0"
                         Height="560"
-                        Width="1200"
+                        Width="600"
                         VerticalAlignment="Bottom"
                         Padding="20">
                         <Border.Effect>
@@ -74,7 +74,7 @@
                                 HorizontalAlignment="Center"
                                 Foreground="Black"
                                 FontFamily="{StaticResource Notepad}"
-                                Text="Your Tasks"
+                                Text="Today's Tasks"
                                 FontWeight="Bold"
                                 FontSize="24"/>
 
@@ -82,9 +82,9 @@
 								    x:Name="TaskListbox"
                                     ScrollViewer.CanContentScroll="False"
 								    Height="420"
-                                    Width="240"
+                                    Width="540"
 								    VerticalAlignment="Center"
-                                    HorizontalAlignment="Left"
+                                    HorizontalAlignment="Center"
                                     Margin="0, 0, 0, 0"
                                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
 								    Background="Transparent" 
@@ -101,7 +101,7 @@
                                                 Background="{Binding TaskBrush}" 
                                                 Padding="2"
                                                 Margin="0, 5, 0, 5"
-                                                Width="210">
+                                                Width="410">
                                                 <Grid>
                                                     <TextBlock
                                                         VerticalAlignment="Center"
