@@ -9,10 +9,10 @@
         mc:Ignorable="d"
         Title="AddCategoryWindow" 
         ResizeMode="NoResize"	
-		WindowStartupLocation="CenterScreen"
         Icon="/Images/ProtaLogo.ico"
         Height="580" 
-        Width="800">
+        Width="800"
+        WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <ResourceDictionary>
