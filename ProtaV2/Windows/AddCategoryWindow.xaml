@@ -8,6 +8,9 @@
         xmlns:local="clr-namespace:ProtaV2"
         mc:Ignorable="d"
         Title="AddCategoryWindow" 
+        ResizeMode="NoResize"	
+		WindowStartupLocation="CenterScreen"
+        Icon="/Images/ProtaLogo.ico"
         Height="580" 
         Width="800">
 
@@ -87,7 +90,6 @@
                         Margin="15, 0, 0, 0">
                 <TextBox
                         x:Name="NameText"
-                        MaxLength="10"
                         Text=""
                         BorderBrush="Transparent"
                         Background="Transparent"
@@ -198,6 +200,7 @@
                         x:Name="CategoryColorPicker"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
+                        SelectedColor="White"
                         ColorChanged="CategoryColorPicker_ColorChanged" 
                         Height="200"
                         Width="200"
@@ -208,13 +211,13 @@
 
             <Button
                 x:Name="AddButton"
-                Content="Add"
+                Content="Save"
                 Style="{StaticResource DefaultButton}"
                 FontFamily="{StaticResource Notepad}"
                 Margin="0, 30, 20, 0"
                 Width="150"
                 Height="50"
-                FontSize="32"
+                FontSize="24"
                 HorizontalAlignment="Right"
                 IsEnabled="False"
                 Click="AddButton_Click"/>

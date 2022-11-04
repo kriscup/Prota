@@ -24,6 +24,7 @@ namespace ProtaV2
         private HomePage homePage;
         private EditPage editPage;
         private CalendarPage calendarPage;
+        private Settings settingsPage;
 
         public MainWindow()
         {
@@ -33,10 +34,11 @@ namespace ProtaV2
             homePage = new HomePage();
             editPage = new EditPage();
             calendarPage = new CalendarPage();
-
+            settingsPage = new Settings();
 
             MainContentFrame.Content = splashScreen;
             ButtonStackPanel.Opacity = 0;
+            SettingsButton.Opacity = 0;
 
 
 
@@ -46,11 +48,13 @@ namespace ProtaV2
 
                 Task.Delay(1500).ContinueWith(t =>
                 {
-                    this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimateStackPanelOpactiy(0, 1, 1, ButtonStackPanel));
+                    this.Dispatcher.BeginInvoke(() => MainContentFrame.Content = homePage);
 
                     Task.Delay(1000).ContinueWith(t =>
                     {
-                        this.Dispatcher.BeginInvoke(() => MainContentFrame.Content = homePage);
+                        this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimateStackPanelOpactiy(0, 1, 1, ButtonStackPanel));
+                        this.Dispatcher.BeginInvoke(() => SettingsButton.Opacity = 1);
+
                     });
                 });
             });
@@ -62,6 +66,7 @@ namespace ProtaV2
             HomeButton.IsEnabled = true;
             EditButton.IsEnabled = false;
             CalButton.IsEnabled = true;
+            SettingsButton.IsEnabled = true;
         }
 
         private void CalButton_Click(object sender, RoutedEventArgs e)
@@ -70,6 +75,7 @@ namespace ProtaV2
             HomeButton.IsEnabled = true;
             EditButton.IsEnabled = true;
             CalButton.IsEnabled = false;
+            SettingsButton.IsEnabled = true;
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
@@ -78,6 +84,15 @@ namespace ProtaV2
             HomeButton.IsEnabled = false;
             EditButton.IsEnabled = true;
             CalButton.IsEnabled = true;
+            SettingsButton.IsEnabled = true;
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e) {
+            MainContentFrame.Content = settingsPage;
+            HomeButton.IsEnabled = true;
+            EditButton.IsEnabled = true;
+            CalButton.IsEnabled = true;
+            SettingsButton.IsEnabled = false;
         }
     }
 
@@ -85,13 +100,17 @@ namespace ProtaV2
     {
         public string TaskName { get; set; }
         public string TaskText { get; set; }
-        public string TaskColor { get; set; }
+        public Color TaskColor { get; set; }
+        public SolidColorBrush TaskBrush { get; set; }
+        public string DueDate { get; set; }
+        public string Location { get; set; }
     }
 
     public class CategoryListItem
     {
         public string CategoryName { get; set; }
         public List<TaskListItem> tasks { get; set; }
-        public string CategoryColor { get; set; }
+        public Color CategoryColor { get; set; }
+        public SolidColorBrush CategoryBrush { get; set; }
     }
 }
