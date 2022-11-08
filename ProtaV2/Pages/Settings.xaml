@@ -468,23 +468,4 @@
         </Grid>
     </Grid>
 
-    <!--
-    <GroupBox Header="GroupBox">
-        <UniformGrid Rows="7" HorizontalAlignment="Center">
-            <Button Content="Button" Height="50" Width="100" />
-            <TextBlock Text="text" HorizontalAlignment="Center"
-                       TextAlignment="Center" Height="20" Margin="0,15,0,14" 
-                       Width="71"/>
-            <TextBox Text=" some text" HorizontalAlignment="Center" 
-                     TextAlignment="Center"/>
-            <RadioButton x:Name="DarkMode" Content="Black Mode" 
-                         HorizontalAlignment="Center" Height="20"/>
-            <RadioButton x:Name="LightMode" Content="Black Mode" 
-                         HorizontalAlignment="Center" Height="20"/>
-            <RadioButton x:Name="NormalMode" Content="Black Mode" 
-                         HorizontalAlignment="Center" Height="20"/>
-            <RadioButton x:Name="WhiteMode" Content="Black Mode" 
-                         HorizontalAlignment="Center" Height="20"/>
-        </UniformGrid>
-    </GroupBox>-->
 </Page>
