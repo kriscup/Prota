@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\data.txt" />
     <None Remove="Fonts\Notepad.ttf" />
     <None Remove="Fonts\Poppins.ttf" />
     <None Remove="Fonts\trispace.ttf" />
@@ -26,6 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Data\data.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Fonts\Notepad.ttf" />
     <Resource Include="Fonts\Poppins.ttf" />
     <Resource Include="Fonts\trispace.ttf" />

@@ -212,6 +212,9 @@
                                     <TextBox
                                         x:Name="TaskText"
                                         BorderBrush="Transparent"
+                                        Background="Transparent"
+                                        IsReadOnly="True"
+                                        IsHitTestVisible="False"
 							            Padding="20"
                                         Height="370"
                                         ScrollViewer.VerticalScrollBarVisibility="Auto"
