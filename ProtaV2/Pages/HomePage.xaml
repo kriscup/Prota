@@ -74,7 +74,7 @@
                                 HorizontalAlignment="Center"
                                 Foreground="Black"
                                 FontFamily="{StaticResource Notepad}"
-                                Text="Today's Tasks"
+                                Text="Upcoming Tasks"
                                 FontWeight="Bold"
                                 FontSize="24"/>
 
@@ -110,7 +110,7 @@
                                                         Background="Transparent"
                                                         Foreground="Black"
                                                         TextWrapping="Wrap"
-                                                        Text="{Binding TaskText}"
+                                                        Text="{Binding TaskName}"
                                                         FontFamily="{StaticResource Notepad}"
                                                         FontSize="22"
                                                         Padding="4"/>
