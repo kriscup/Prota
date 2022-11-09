@@ -25,15 +25,15 @@
                 <StackPanel>
                     <Border
 						BorderBrush="Black"
-						BorderThickness="0, 0, 0, 3"
+						BorderThickness="0, 0, 0, 4"
 						CornerRadius="0"
 						Width="1400"
-                        Margin="0, 31, 0, 0">
+                        Margin="0, 23, 0, 0">
 
                         <Label
                             x:Name="HomeName"
 							Content="Home"
-							FontFamily="{StaticResource Notepad}"
+							FontFamily="{StaticResource Bainsley}"
                             FontWeight="Bold"
 							FontSize="32"
 							Foreground="Black"
@@ -63,29 +63,34 @@
                         <Border
                             Background="White"
                             BorderBrush="Black"
-                            BorderThickness="2"
+                            BorderThickness="3"
                             CornerRadius="16">
                             <Grid>
-                                <TextBlock
-                                x:Name="TaskText"
-							    Padding="20"
-                                Height="50"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Center"
-                                Foreground="Black"
-                                FontFamily="{StaticResource Notepad}"
-                                Text="Upcoming Tasks"
-                                FontWeight="Bold"
-                                FontSize="24"/>
+                                <Border
+                                    BorderThickness="0, 0, 0, 3"
+                                    BorderBrush="Black"
+                                    Height="55"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Center">
+                                    <TextBlock
+                                    x:Name="TaskText"
+							        Padding="20"
+                                    Foreground="Black"
+                                    FontFamily="{StaticResource Bainsley}"
+                                    Text="Upcoming Tasks"
+                                    FontWeight="Bold"
+                                    FontSize="24"/>
 
+                                </Border>
+                               
                                 <ListBox
 								    x:Name="TaskListbox"
                                     ScrollViewer.CanContentScroll="False"
-								    Height="420"
+                                    Margin="0, 20, 0, 0"
+								    Height="450"
                                     Width="540"
-								    VerticalAlignment="Center"
+								    VerticalAlignment="Bottom"
                                     HorizontalAlignment="Center"
-                                    Margin="0, 0, 0, 0"
                                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
 								    Background="Transparent" 
                                     BorderThickness="0"
@@ -96,7 +101,7 @@
                                             <Border 
                                                 x:Name="Border"
                                                 BorderBrush="Black"
-                                                BorderThickness="2"
+                                                BorderThickness="3"
                                                 CornerRadius="12" 
                                                 Background="{Binding TaskBrush}" 
                                                 Padding="2"
@@ -111,7 +116,7 @@
                                                         Foreground="Black"
                                                         TextWrapping="Wrap"
                                                         Text="{Binding TaskName}"
-                                                        FontFamily="{StaticResource Notepad}"
+                                                        FontFamily="{StaticResource Bainsley}"
                                                         FontSize="22"
                                                         Padding="4"/>
                                                 </Grid>

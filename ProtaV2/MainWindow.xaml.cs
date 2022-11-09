@@ -20,11 +20,13 @@ namespace ProtaV2
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window{
-        private Splash splashScreen;
-        private HomePage homePage;
-        private EditPage editPage;
-        private CalendarPage calendarPage;
-        private Settings settingsPage;
+        public static Splash splashScreen;
+        public static HomePage homePage;
+        public static EditPage editPage;
+        public static CalendarPage calendarPage;
+        public static Settings settingsPage;
+        private bool _isWindowed = true;
+        public bool minimizeToTray = false;
 
         public MainWindow(){
             InitializeComponent();
@@ -33,7 +35,9 @@ namespace ProtaV2
             homePage = new HomePage();
             editPage = new EditPage(homePage);
             calendarPage = new CalendarPage();
-            settingsPage = new Settings();
+            settingsPage = new Settings(this);
+
+            settingsPage.ResolutionSizes.SelectedIndex = 3;
 
             MainContentFrame.Content = splashScreen;
             ButtonStackPanel.Opacity = 0;
@@ -69,6 +73,21 @@ namespace ProtaV2
                     });
                 });
             });
+        }
+
+        public static void UpdateCategories(List<CategoryListItem> newCategories)
+        {
+            List<TaskListItem> tasks = new List<TaskListItem>();
+
+            foreach(CategoryListItem item in newCategories)
+            {
+                foreach(TaskListItem task in item.tasks)
+                {
+                    tasks.Add(task);
+                }
+            }
+
+            homePage.UpdateTasks(tasks);
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e){
@@ -184,6 +203,58 @@ namespace ProtaV2
             //DarkmodeToggle
             //Click = "DarkmodeToggle_Click"
         }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            _isWindowed = !_isWindowed;
+            if (_isWindowed)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+                MaximizeButton.Content = "☐";
+            }
+            else
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+                MaximizeButton.Content = "❏";
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(!minimizeToTray)
+            {
+                App.Current.Shutdown();
+            }
+            else
+            {
+                this.Hide();
+            }
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+
+                if(Application.Current.MainWindow.WindowState == WindowState.Maximized)
+                {
+                    Application.Current.MainWindow.WindowState = WindowState.Normal;
+                    MaximizeButton.Content = "☐";
+                    _isWindowed = true;
+                }
+            }
+        }
+
+        private void myNotifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            this.Show();
+        }
     }
 
     public class TaskListItem
@@ -202,6 +273,7 @@ namespace ProtaV2
         public List<TaskListItem> tasks { get; set; }
         public Color CategoryColor { get; set; }
         public SolidColorBrush CategoryBrush { get; set; }
+        public int Amount { get; set; } = 0;
     }
 
 
