@@ -47,25 +47,24 @@
                         <Grid>
                             <Label
 							Content="Categories"
-							FontFamily="{StaticResource Notepad}"
+							FontFamily="{StaticResource Bainsley}"
 							FontSize="32"
                             FontWeight="Bold"
 							Foreground="Black"
-                            Margin="0, 25, 0, 0"
+                            Margin="0, 18, 0, 0"
 							HorizontalContentAlignment="Center"/>
                             
                             <Button
 								x:Name ="EditCategoryButton"
 								Content="⚙️"
                                 IsEnabled="False"
-								FontSize="24"
                                 Style="{StaticResource DefaultButton}"
-                                FontFamily="{StaticResource Notepad}"
+                                FontFamily="{StaticResource Bainsley}"
                                 BorderBrush="Black"
 								Cursor="Hand"
                                 Width="40"
                                 Height="40"
-                                Padding="2, 5, 0, 0"
+                                FontSize="38"
                                 Margin="0, 0, 0, 5"
 								VerticalAlignment="Bottom"
 								HorizontalAlignment="Right"
@@ -126,11 +125,15 @@
                                                         IsHitTestVisible="False"
                                                         Background="Transparent"
                                                         Foreground="Black"
-                                                        FontFamily="{StaticResource Notepad}"
+                                                        FontFamily="{StaticResource Bainsley}"
                                                         TextWrapping="Wrap"
                                                         FontSize="22"
-                                                        Padding="4"
-                                                        Text="{Binding CategoryName}"/>
+                                                        Padding="4">
+                                                        <Run Text="{Binding CategoryName}"> </Run>
+                                                        <Run >(</Run>
+                                                        <Run Text="{Binding Amount}"> </Run>
+                                                        <Run>)</Run>
+                                                    </TextBlock>
                                                 </Grid>
                                             </Border>
                                         </DataTemplate>
@@ -141,9 +144,9 @@
                             <Button
 								x:Name ="AddCategoryButton"
 								Content="+ Category"
-								FontSize="24"
+								FontSize="28"
                                 Style="{StaticResource DefaultButton}"
-                                FontFamily="{StaticResource Notepad}"
+                                FontFamily="{StaticResource Bainsley}"
                                 BorderBrush="Black"
 								Cursor="Hand"
                                 Width="200"
@@ -178,11 +181,11 @@
                         <Label
                             x:Name="TaskName"
 							Content="Click a task to view"
-							FontFamily="{StaticResource Notepad}"
+							FontFamily="{StaticResource Bainsley}"
                             FontWeight="Bold"
 							FontSize="32"
 							Foreground="Black"
-							Margin="0, 25, 0, 0"
+							Margin="0, 18, 0, 0"
 							HorizontalContentAlignment="Center"/>
                     </Border>
 
@@ -203,8 +206,7 @@
                             Background="White"
                             BorderBrush="Black"
                             BorderThickness="2"
-                            CornerRadius="16"
-                            Padding="5">
+                            CornerRadius="16">
                             <StackPanel>
                                 <Border
                                     BorderBrush="Black"
@@ -214,14 +216,16 @@
                                         BorderBrush="Transparent"
                                         Background="Transparent"
                                         IsReadOnly="True"
+                                        Width="892"
+                                        TextWrapping="Wrap"
                                         IsHitTestVisible="False"
-							            Padding="20"
+							            Padding="10"
                                         Height="370"
                                         ScrollViewer.VerticalScrollBarVisibility="Auto"
                                         ScrollViewer.CanContentScroll="True"
                                         Text="No Task Selected"
                                         Foreground="Black"
-                                        FontFamily="{StaticResource Notepad}"
+                                        FontFamily="{StaticResource Bainsley}"
                                         FontSize="24"/>
                                 </Border>
                                 
@@ -230,14 +234,14 @@
 							        Padding="20"
                                     Text=""
                                     Foreground="Black"
-                                    FontFamily="{StaticResource Notepad}"
+                                    FontFamily="{StaticResource Bainsley}"
                                     FontSize="24"/>
                                 <TextBlock
                                     x:Name="DueText"
 							        Padding="20"
                                     Text=""
                                     Foreground="Black"
-                                    FontFamily="{StaticResource Notepad}"
+                                    FontFamily="{StaticResource Bainsley}"
                                     FontSize="24"/>
                             </StackPanel>
                             
@@ -262,25 +266,25 @@
 
                             <Label
 							Content="Tasks"
-							FontFamily="{StaticResource Notepad}"
+							FontFamily="{StaticResource Bainsley}"
                             FontWeight="Bold"
 							FontSize="32"
 							Foreground="Black"
-							Margin="0, 25, 0, 0"
+							Margin="0, 18, 0, 0"
 							HorizontalContentAlignment="Center"/>
                             
                             <Button
 								x:Name ="EditTaskButton"
 								Content="⚙️"
-								FontSize="24"
+								FontSize="38"
                                 IsEnabled="False"
                                 Style="{StaticResource DefaultButton}"
-                                FontFamily="{StaticResource Notepad}"
+                                FontFamily="{StaticResource Bainsley}"
                                 BorderBrush="Black"
 								Cursor="Hand"
                                 Width="40"
                                 Height="40"
-                                Padding="2, 5, 0, 0"
+                                Padding="0, 0, 0, 0"
                                 Margin="0, 0, 0, 5"
 								VerticalAlignment="Bottom"
 								HorizontalAlignment="Right"
@@ -350,7 +354,7 @@
                                                                 Foreground="Black"
                                                                 TextWrapping="Wrap"
                                                                 Text="{Binding TaskName}"
-                                                                FontFamily="{StaticResource Notepad}"
+                                                                FontFamily="{StaticResource Bainsley}"
                                                                 FontSize="22"
                                                                 Padding="4"/>
                                                         </Grid>
@@ -366,13 +370,13 @@
                             <Button
 								x:Name ="AddTaskButton"
 								Content="+ Task"
-								FontSize="24"
+								FontSize="28"
                                 Style="{StaticResource DefaultButton}"
 								Cursor="Hand"
                                 Width="200"
                                 Height="66"
                                 BorderBrush="Black"
-                                FontFamily="{StaticResource Notepad}"
+                                FontFamily="{StaticResource Bainsley}"
 								VerticalAlignment="Bottom"
 								HorizontalAlignment="Center"
                                 Click="AddTaskButton_Click"

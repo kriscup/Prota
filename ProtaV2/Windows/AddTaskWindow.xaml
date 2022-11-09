@@ -4,12 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProtaV2.Windows"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="AddTaskWindow" 
         ResizeMode="NoResize"	
 		WindowStartupLocation="CenterScreen"
         Icon="/Images/ProtaLogo.ico"
         Height="580" 
-        Width="800">
+        Width="800"
+        xmlns:custom="clr-namespace:ProtaV2.Placeholder"
+        Background="Transparent"
+        AllowsTransparency="True" 
+        WindowStyle="None"
+        MouseDown="Window_MouseDown">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -30,7 +36,10 @@
         </Grid.RowDefinitions>
 
         <Border
-            Grid.Row="1">
+            Grid.Row="1"
+            BorderBrush="Black"
+            BorderThickness="3, 0, 3, 3"
+            CornerRadius="0, 0, 16, 16">
             <Border.Background>
                 <LinearGradientBrush 
                         EndPoint="0, 30" 
@@ -44,17 +53,42 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        
-        <Label
-            x:Name="Title"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-			Content="Add New Task"
-			FontFamily="{StaticResource Notepad}"
-            FontWeight="Bold"
-			FontSize="32"
-			Foreground="Black"
-			HorizontalContentAlignment="Center"/>
+
+        <Border
+            BorderBrush="Black"
+            BorderThickness="3, 3, 3, 0"
+            CornerRadius="16, 16, 0, 0"
+            Background="White">
+                <Label
+                x:Name="Title"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+			    Content="Add New Task"
+			    FontFamily="{StaticResource Bainsley}"
+                FontWeight="Bold"
+			    FontSize="28"
+			    Foreground="Black"
+			    HorizontalContentAlignment="Center"
+                />
+            </Border>
+
+        <StackPanel
+                        FlowDirection="LeftToRight"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top">
+
+            <Button
+                        x:Name="CloseButton"
+                        Style="{StaticResource DefaultButton}"
+                        Content="X"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        Width="40"
+                        Height="40"
+                        Margin="0, 5, 10, 0"
+                        Click="CloseButton_Click"/>
+                </StackPanel>
 
         <StackPanel
             Grid.Column="0"
@@ -64,12 +98,12 @@
                 <Label
                     x:Name="NameLabel"
 			        Content="Name - Short and sweet"
-			        FontFamily="{StaticResource Notepad}"
+			        FontFamily="{StaticResource Bainsley}"
                     FontWeight="Bold"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Margin="15, 0, 0, 0"
-                    Height="30"
+                    Height="32"
                     VerticalContentAlignment="Bottom"
 			        FontSize="18"
 			        Foreground="Black"
@@ -84,15 +118,17 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="15, 0, 0, 0">
-                    <TextBox
+                    <custom:PlaceholderTextBoxControl
                     x:Name="NameText"
                     Text=""
+                    ToolTip="Task Name"
                     BorderBrush="Transparent"
                     Background="Transparent"
-                    FontSize="22"
+                    FontSize="18"
+                        Padding="5, 0, 0, 0"
                     Height="25"
                     VerticalAlignment="Bottom"
-                    FontFamily="{StaticResource Notepad}"
+                    FontFamily="{StaticResource Bainsley}"
                     TextChanged="NameText_TextChanged"/>
                 </Border>
             </StackPanel>
@@ -102,12 +138,12 @@
                 <Label
                     x:Name="DescLabel"
 			        Content="Description - What will be happening?"
-			        FontFamily="{StaticResource Notepad}"
+			        FontFamily="{StaticResource Bainsley}"
                     FontWeight="Bold"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Margin="15, 0, 0, 0"
-                    Height="31"
+                    Height="28"
                     VerticalContentAlignment="Bottom"
 			        FontSize="18"
 			        Foreground="Black"
@@ -121,17 +157,19 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="15, 0, 0, 0">
-                    <TextBox
+                    <custom:PlaceholderTextBoxControl
                     x:Name="DescText"
                     Text=""
+                    ToolTip="Add a Description!"
                     TextBlock.LineHeight="30"
                     BorderBrush="Transparent"
                     Background="Transparent"
                     AcceptsReturn="True"
-                    FontSize="22"
+                    FontSize="24"
+                    Padding="5, 0, 0, 0"
                     Height="208"
                     VerticalAlignment="Top"
-                    FontFamily="{StaticResource Notepad}"
+                    FontFamily="{StaticResource Bainsley}"
                     TextChanged="DescText_TextChanged"/>
                 </Border>
             </StackPanel>
@@ -140,7 +178,7 @@
                 <Label
                     x:Name="DueLabel"
 			        Content="When is it due?"
-                    FontFamily="{StaticResource Notepad}"
+                    FontFamily="{StaticResource Bainsley}"
                     FontWeight="Bold"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
@@ -159,12 +197,15 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="15, 0, 0, 0">
-                    <DatePicker
+                    <xctk:DateTimePicker
                         x:Name="CompletedByDate"
-                        FontFamily="{StaticResource Notepad}"
                         BorderBrush="Transparent"
-                        FontSize="18"
-                        SelectedDateChanged="CompletedByDate_SelectedDateChanged"/>
+                        FontSize="14"
+                        Height="25"
+                        TextAlignment="Left"
+                        FontFamily="{StaticResource Bainsley}"
+                        Background="Transparent"
+                        ValueChanged="CompletedByDate_ValueChanged"/>
                 </Border>
             </StackPanel>
 
@@ -172,7 +213,7 @@
                 <Label
                     x:Name="LocationLabel"
 			        Content="Location? (Optional)"
-			        FontFamily="{StaticResource Notepad}"
+			        FontFamily="{StaticResource Bainsley}"
                     FontWeight="Bold"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
@@ -192,15 +233,17 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="15, 0, 0, 0">
-                    <TextBox
+                    <custom:PlaceholderTextBoxControl
                     x:Name="LocationText"
                     Text=""
+                    ToolTip="Address"
                     BorderBrush="Transparent"
                     Background="Transparent"
-                    FontSize="22"
+                    FontSize="18"
                     Height="25"
+                    Padding="5, 0, 0, 0"
                     VerticalAlignment="Bottom"
-                    FontFamily="{StaticResource Notepad}"
+                    FontFamily="{StaticResource Bainsley}"
                     TextChanged="LocationText_TextChanged"/>
                 </Border>
             </StackPanel>
@@ -210,7 +253,7 @@
                     x:Name="SaveButton"
                     HorizontalAlignment="Right"
                     Margin="0, 0, 30, 0"
-                    FontFamily="{StaticResource Notepad}"
+                    FontFamily="{StaticResource Bainsley}"
                     Style="{StaticResource DefaultButton}"
                     Content="Save"
                     IsEnabled="False"

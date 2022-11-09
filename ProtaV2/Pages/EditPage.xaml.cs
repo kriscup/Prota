@@ -42,6 +42,7 @@ namespace ProtaV2
             {
                 CategoryListbox.Items.Add(item);
             }
+            UpdateTasks();
         }
 
         private async void AddCategoryButton_Click(object sender, RoutedEventArgs e)
@@ -157,11 +158,13 @@ namespace ProtaV2
 
             foreach(CategoryListItem category in CategoryListbox.Items)
             {
+                category.Amount = category.tasks.Count;
                 foreach(TaskListItem task in category.tasks)
                 {
                     tasks.Add(task);
                 }
             }
+            CategoryListbox.Items.Refresh();
             _page.UpdateTasks(tasks);
 
         }
@@ -265,7 +268,7 @@ namespace ProtaV2
             addTaskWindow.NameText.Text = current.TaskName;
             addTaskWindow.DescText.Text = current.TaskText;
             addTaskWindow.LocationText.Text = current.Location;
-            addTaskWindow.CompletedByDate.SelectedDate = DateTime.Parse(current.DueDate);
+            addTaskWindow.CompletedByDate.Value = DateTime.Parse(current.DueDate);
 
             addTaskWindow.ShowDialog();
         }

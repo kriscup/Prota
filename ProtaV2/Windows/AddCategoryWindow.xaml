@@ -12,7 +12,13 @@
         Icon="/Images/ProtaLogo.ico"
         Height="580" 
         Width="800"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True" 
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        xmlns:custom="clr-namespace:ProtaV2.Placeholder"
+        >
 
     <Window.Resources>
         <ResourceDictionary>
@@ -33,26 +39,57 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label
-            x:Name="Title"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-			Content="Add New Category"
-			FontFamily="{StaticResource Notepad}"
-            FontWeight="Bold"
-			FontSize="32"
-			Foreground="Black"
-			HorizontalContentAlignment="Center"/>
+        <Border
+                BorderBrush="Black"
+                BorderThickness="3, 3, 3, 0"
+                Grid.ColumnSpan="2"
+                CornerRadius="16,16,0,0"
+                Background="White"
+                >
+            <Label
+                    
+                    x:Name="Title"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+			        Content="Add New Category"
+			        FontFamily="{StaticResource Bainsley}"
+                    FontWeight="Bold"
+			        FontSize="28"
+			        Foreground="Black"
+			        HorizontalContentAlignment="Center"/>
+        </Border>
+        <StackPanel
+                        FlowDirection="LeftToRight"
+                        Orientation="Horizontal"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top">
+
+            <Button
+                        x:Name="CloseButton"
+                        Style="{StaticResource DefaultButton}"
+                        Content="X"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        Width="40"
+                        Height="40"
+                        Margin="0, 5, 10, 0"
+                        Click="CloseButton_Click"/>
+        </StackPanel>
+
 
         <Border
-            Grid.Row="1"
-            Grid.ColumnSpan="2">
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                BorderBrush="Black"
+                BorderThickness="3, 0, 3, 3"
+                CornerRadius="0, 0, 16, 16">
             <Border.Background>
                 <LinearGradientBrush 
-                        EndPoint="0, 30" 
-                        StartPoint="0, 0" 
-                        MappingMode="Absolute" 
-                        SpreadMethod="Repeat">
+                            EndPoint="0, 30" 
+                            StartPoint="0, 0" 
+                            MappingMode="Absolute" 
+                            SpreadMethod="Repeat">
                     <GradientStop Color="LightBlue" Offset="0" />
                     <GradientStop Color="LightBlue" Offset="0.1" />
                     <GradientStop Color="White" Offset="0.1" />
@@ -62,94 +99,95 @@
         </Border>
 
         <StackPanel
-            Grid.Column="0"
-            Grid.Row="1"
-            Margin="15, 0, 0, 0">
-            <Label
-                    x:Name="NameLabel"
-			        Content="Name"
-			        FontFamily="{StaticResource Notepad}"
-                    FontWeight="Bold"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Margin="15, 0, 0, 0"
-                    Height="30"
-                    VerticalContentAlignment="Bottom"
-			        FontSize="22"
-			        Foreground="Black"
-			        HorizontalContentAlignment="Center"/>
-
-            <Border
-                        BorderBrush="Black"
-                        CornerRadius="8"
-                        BorderThickness="2"
-                        Width="350"
-                        Height="30"
+                Grid.Column="0"
+                Grid.Row="1"
+                Margin="15, 0, 0, 0">
+                <Label
+                        x:Name="NameLabel"
+			            Content="Name"
+			            FontFamily="{StaticResource Bainsley}"
+                        FontWeight="Bold"
                         HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Margin="15, 0, 0, 0">
-                <TextBox
-                        x:Name="NameText"
-                        Text=""
-                        BorderBrush="Transparent"
-                        Background="Transparent"
-                        FontSize="22"
-                        Height="25"
                         VerticalAlignment="Bottom"
-                        FontFamily="{StaticResource Notepad}"
-                        TextChanged="NameText_TextChanged"/>
+                        Margin="15, 0, 0, 0"
+                        Height="30"
+                        VerticalContentAlignment="Bottom"
+			            FontSize="18"
+			            Foreground="Black"
+			            HorizontalContentAlignment="Center"/>
+
+                    <Border
+                            BorderBrush="Black"
+                            CornerRadius="8"
+                            BorderThickness="2"
+                            Width="350"
+                            Height="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="15, 0, 0, 0">
+                        <custom:PlaceholderTextBoxControl
+                            x:Name="NameText"
+                            ToolTip="Enter Name"
+                            BorderBrush="Transparent"
+                            Background="Transparent"
+                            FontSize="22"
+                            Height="25"
+                            Padding="5, 0, 0, 0"
+                            VerticalAlignment="Bottom"
+
+                            FontFamily="{StaticResource Bainsley}"
+                            TextChanged="NameText_TextChanged"/>
             </Border>
 
             <Border
-				BorderBrush="Transparent"
-				BorderThickness="1"
-				CornerRadius="0, 0, 16, 16"
-				Background="LightYellow"
-                Width="360"
-                Height="300"
-                Margin="0, 25, 0, 0"
-                VerticalAlignment="Bottom">
+				    BorderBrush="Transparent"
+				    BorderThickness="1"
+				    CornerRadius="0, 0, 16, 16"
+				    Background="LightYellow"
+                    Width="360"
+                    Height="300"
+                    Margin="0, 55, 0, 0">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="16" />
                 </Border.Effect>
 
                 <StackPanel>
                     <TextBlock
-                        x:Name="PreviewLabel"
-			            Text="Category Preview:"
-			            FontFamily="{StaticResource Notepad}"
-                        FontWeight="Bold"
-                        Margin="35"
-                        TextAlignment="Center"
-                        HorizontalAlignment="Center"
-			            FontSize="22"
-                        TextWrapping="Wrap"
-			            Foreground="Black"
-                        Width="210"/>
+                            x:Name="PreviewLabel"
+			                Text="Category Preview"
+			                FontFamily="{StaticResource Bainsley}"
+                            FontWeight="Bold"
+                            Margin="35"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+			                FontSize="22"
+                            TextWrapping="Wrap"
+			                Foreground="Black"
+                            Width="210"/>
 
                     <Border 
-                        x:Name="Border"
-                        BorderBrush="Black"
-                        BorderThickness="2"
-                        CornerRadius="12" 
-                        Background="White" 
-                        Padding="2"
-                        Margin="0, 5, 0, 5"
-                        Width="210"
-                        Height="80">
+                            x:Name="Border"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="12" 
+                            Background="White" 
+                            Padding="2"
+                            Margin="0, 5, 0, 5"
+                            Width="210"
+                            Height="80">
                         <Grid>
                             <TextBlock
-                                x:Name="CategoryPreview"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center"
-                                IsHitTestVisible="False"
-                                Background="Transparent"
-                                Foreground="Black"
-                                TextWrapping="Wrap"
-                                FontFamily="{StaticResource Notepad}"
-                                FontSize="22"
-                                Padding="4"
-                                Text="Example"/>
+                                    x:Name="CategoryPreview"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    IsHitTestVisible="False"
+                                    Background="Transparent"
+                                    Foreground="Black"
+                                    TextWrapping="Wrap"
+                                    FontFamily="{StaticResource Bainsley}"
+                                    FontSize="22"
+                                    Padding="3"
+                                    Text="Example"/>
                         </Grid>
                     </Border>
                 </StackPanel>
@@ -160,67 +198,72 @@
         </StackPanel>
 
         <StackPanel
-            Grid.Column="1"
-            Grid.Row="1">
-            <Label
-                x:Name="ColorLabel"
-			    Content="Color"
-			    FontFamily="{StaticResource Notepad}"
-                FontWeight="Bold"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                Margin="35, 0, 0, 0"
-                Height="30"
-                VerticalContentAlignment="Bottom"
-			    FontSize="22"
-			    Foreground="Black"
-			    HorizontalContentAlignment="Center"/>
+                Grid.Column="1"
+                Grid.Row="1"
+            Margin="0, 30, 0, 0">
+            
 
             <Border
-				BorderBrush="Transparent"
-				BorderThickness="1"
-				CornerRadius="0, 0, 16, 16"
-				Background="LightYellow"
-                Width="360"
-                Height="355"
-                VerticalAlignment="Bottom">
+				    BorderBrush="Transparent"
+				    BorderThickness="1"
+				    CornerRadius="0, 0, 16, 16"
+				    Background="LightYellow"
+                    Width="360"
+                    Height="385">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="16" />
                 </Border.Effect>
 
-                <Border
-                    Background="White"
-                    Height="250"
-                    Width="300"
-                    BorderBrush="Black"
-                    BorderThickness="2"
-                    CornerRadius="16"
-                    Padding="5">
-                    <colorpicker:SquarePicker 
-                        x:Name="CategoryColorPicker"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        SelectedColor="White"
-                        ColorChanged="CategoryColorPicker_ColorChanged" 
-                        Height="200"
-                        Width="200"
-                    />
-                </Border>
+                <Grid>
+                    <Label
+                    x:Name="ColorLabel"
+			        Content="Color Preview"
+			        FontFamily="{StaticResource Bainsley}"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="35, 10, 0, 0"
+                    VerticalContentAlignment="Bottom"
+			        FontSize="22"
+			        Foreground="Black"
+			        HorizontalContentAlignment="Center"/>
+
+
+                    <Border
+                        Background="White"
+                        Height="250"
+                        Width="300"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="16"
+                        Padding="5">
+                        <colorpicker:SquarePicker 
+                            x:Name="CategoryColorPicker"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            SelectedColor="White"
+                            ColorChanged="CategoryColorPicker_ColorChanged" 
+                            Height="200"
+                            Width="200"
+                        />
+                    </Border>
+                </Grid>
+
 
             </Border>
 
             <Button
-                x:Name="AddButton"
-                Content="Save"
-                Style="{StaticResource DefaultButton}"
-                FontFamily="{StaticResource Notepad}"
-                Margin="0, 30, 20, 0"
-                Width="150"
-                Height="50"
-                FontSize="24"
-                HorizontalAlignment="Right"
-                IsEnabled="False"
-                Click="AddButton_Click"/>
+                    x:Name="AddButton"
+                    Content="Save"
+                    Style="{StaticResource DefaultButton}"
+                    FontFamily="{StaticResource Bainsley}"
+                    Margin="0, 30, 20, 0"
+                    Width="150"
+                    Height="50"
+                    FontSize="24"
+                    HorizontalAlignment="Right"
+                    IsEnabled="False"
+                    Click="AddButton_Click"/>
         </StackPanel>
 
     </Grid>

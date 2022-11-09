@@ -23,6 +23,8 @@ namespace ProtaV2
         private string _categoryName;
         private Color _categoryColor;
         private CategoryListItem _current;
+        private bool _isWindowed = true;
+        private bool minimizeToTray = false;
 
         public AddCategoryWindow(EditPage editPage, CategoryListItem current = null)
         {
@@ -61,6 +63,19 @@ namespace ProtaV2
                 _editPage.EditCategory(_current, _categoryName, _categoryColor);
             }
             Close();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
     }
 }

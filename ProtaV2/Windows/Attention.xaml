@@ -9,8 +9,12 @@
         Icon="/Images/ProtaLogo.ico"
         ResizeMode="NoResize"	
 		WindowStartupLocation="CenterScreen"
+        Background="Transparent"
         Height="225" 
-        Width="500">
+        Width="500"
+        AllowsTransparency="True" 
+        WindowStyle="None"
+        MouseDown="Window_MouseDown">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -20,44 +24,62 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid
-        Background="gray">
-        <Label
-            HorizontalAlignment="Center"
-            Margin="0,21,0,0"
-            Foreground="Wheat"
-            FontFamily="{StaticResource Bainsley}"
-            FontSize="24"
-            >
-            <TextBlock
-                TextWrapping="Wrap"
-                FontWeight="Bold"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Text="Are you sure you want to do this, this will reset ALL of your data." 
-                TextAlignment="Center"
+    <Border
+	    BorderBrush="Transparent"
+	    BorderThickness="1"
+	    CornerRadius="0, 0, 16, 16"
+	    Background="Transparent"
+        Padding="10">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="16" />
+        </Border.Effect>
+
+
+        <Border
+            BorderBrush="Black"
+            Background="LightYellow"
+            BorderThickness="2"
+            CornerRadius="16">
+            <Grid>
+                <Label
+                    HorizontalAlignment="Center"
+                    Margin="0,25,0,0"
+                    Foreground="Black"
+                    FontFamily="{StaticResource Bainsley}"
+                    FontSize="24"
                 >
+                    <TextBlock
+                        x:Name="AttentionText"
+                        TextWrapping="Wrap"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Are you sure you want to do this, this will reset ALL of your data." 
+                        TextAlignment="Center"
+                    >
 
 
-            </TextBlock>
-        </Label>
-        <Button
-            x:Name="REconfirmYes"
-            FontFamily= "{StaticResource Bainsley}"
-            Style="{StaticResource ResetButton}"
-            Height="50"
-            Width="100"
-            Click="REconfirmYes_Click"
-            Margin="-125,110,0,0"
-            Content="Yes"/>
-        <Button
-            x:Name="REconfirmNo"
-            FontFamily="{StaticResource Bainsley}"
-            Style="{StaticResource DefaultButton}"
-            Height="50"
-            Width="100"
-            Click="REconfirmNo_Click"
-            Margin="125,110,0,0"
-            Content="No"/>
-    </Grid>
+                    </TextBlock>
+                </Label>
+                <Button
+                    x:Name="REconfirmYes"
+                    FontFamily= "{StaticResource Bainsley}"
+                    Style="{StaticResource ResetButton}"
+                    Height="50"
+                    Width="100"
+                    Click="REconfirmYes_Click"
+                    Margin="-125,110,0,0"
+                    Content="Yes"/>
+                <Button
+                    x:Name="REconfirmNo"
+                    FontFamily="{StaticResource Bainsley}"
+                    Style="{StaticResource DefaultButton}"
+                    Height="50"
+                    Width="100"
+                    Click="REconfirmNo_Click"
+                    Margin="125,110,0,0"
+                    Content="No"/>
+            </Grid>
+        </Border>
+    </Border>
 </Window>
