@@ -28,6 +28,7 @@ namespace ProtaV2
         {
             InitializeComponent();
 
+            /*
             TaskListItem task1 = new TaskListItem();
             TaskListItem task2 = new TaskListItem();
             TaskListItem task3 = new TaskListItem();
@@ -55,7 +56,37 @@ namespace ProtaV2
             TaskCollection.Add(task3);
 
             this.TaskListbox.ItemsSource = TaskCollection; //is this how it ignores sample data but still provides the tasks from above when the app is run? -GR (not sure)
-         
+            */
+
+            List<CategoryListItem> loadedItems = EditPage.LoadJSON();
+            List<List<TaskListItem>> foundTaskLists = new List<List<TaskListItem>>();
+            foreach (CategoryListItem item in loadedItems)
+            {
+                foundTaskLists.Add(item.tasks);
+            }
+
+            foreach(List<TaskListItem> list in foundTaskLists)
+            {
+                foreach(TaskListItem task in list)
+                {
+                    TaskListbox.Items.Add(task);
+                }
+            }
+
+            TaskListbox.Items.Refresh();
+        }
+
+        public void UpdateTasks(List<TaskListItem> list)
+        {
+            TaskListbox.Items.Clear();
+
+            foreach (TaskListItem task in list)
+            {
+                TaskListbox.Items.Add(task);
+            }
+
+            TaskListbox.Items.Refresh();
+
         }
        
     }

@@ -55,7 +55,7 @@
             <StackPanel Grid.Column="1">
                 <Label
                     Content="Tasks"
-                    FontFamily="{StaticResource Notepad}"
+                    FontFamily="{StaticResource Bainsley}"
                     FontWeight="Bold"
                     FontSize="32"
                     Foreground="Black"
@@ -79,7 +79,7 @@
                         Margin="0 15 0 0"
                         Background="Transparent"
                         Height="600"
-                        FontFamily="{StaticResource Notepad}"
+                        FontFamily="{StaticResource Bainsley}"
                         FontSize="32"
                         d:ItemsSource="{d:SampleData ItemCount=20}"/>
                 </Border>

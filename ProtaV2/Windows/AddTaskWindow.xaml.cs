@@ -25,21 +25,14 @@ namespace ProtaV2.Windows
         private string _date = "";
         private EditPage _editPage;
         TaskListItem _current;
+        private bool _isWindowed = true;
+        private bool minimizeToTray = false;
 
         public AddTaskWindow(EditPage editPage, TaskListItem current = null)
         {
             InitializeComponent();
             _editPage = editPage;
             _current = current;
-        }
-
-        private void CompletedByDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if(CompletedByDate.SelectedDate != DateTime.MinValue)
-            {
-                _date = CompletedByDate.SelectedDate.ToString();
-                CheckButton();
-            }
         }
 
         private void NameText_TextChanged(object sender, TextChangedEventArgs e)
@@ -76,6 +69,26 @@ namespace ProtaV2.Windows
         private void CheckButton()
         {
             SaveButton.IsEnabled = ((_name.Length > 0 && _description.Length > 0 && _date.Length > 0) ? true : false);
+        }
+
+        private void CompletedByDate_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (CompletedByDate.Value != DateTime.MinValue)
+            {
+                _date = CompletedByDate.Value.ToString();
+                CheckButton();
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e) {
+            Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
     }
 }

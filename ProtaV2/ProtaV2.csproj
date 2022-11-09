@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Bainsley_Roman.otf" />
+    <None Remove="Data\data.txt" />
     <None Remove="Fonts\Notepad.ttf" />
     <None Remove="Fonts\Poppins.ttf" />
     <None Remove="Fonts\trispace.ttf" />
@@ -20,12 +22,19 @@
 
   <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.4.0" />
+    <PackageReference Include="Hardcodet.Wpf.TaskbarNotification" Version="1.0.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PixiEditor.ColorPicker" Version="3.3.1" />
     <PackageReference Include="XamlAnimatedGif" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\Bainsley_Roman.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\data.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Fonts\Notepad.ttf" />
     <Resource Include="Fonts\Poppins.ttf" />
     <Resource Include="Fonts\trispace.ttf" />
