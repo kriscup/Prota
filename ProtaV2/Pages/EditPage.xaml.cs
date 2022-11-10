@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Xml;
 using Newtonsoft.Json;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace ProtaV2
 {
@@ -25,10 +27,22 @@ namespace ProtaV2
     public partial class EditPage : Page
     {
         private int _selectedCategory = 0;
+        private HomePage _page;
+        public static string dataPath = Assembly.GetEntryAssembly().Location.Substring(0, Assembly.GetEntryAssembly().Location.IndexOf("bin")) + "\\Data\\data.txt";
 
-        public EditPage()
+
+        public EditPage(HomePage page)
         {
             InitializeComponent();
+            List<CategoryListItem> loadedItems = LoadJSON();
+
+            _page = page;
+
+            foreach (CategoryListItem item in loadedItems)
+            {
+                CategoryListbox.Items.Add(item);
+            }
+            UpdateTasks();
         }
 
         private async void AddCategoryButton_Click(object sender, RoutedEventArgs e)
@@ -37,6 +51,14 @@ namespace ProtaV2
             AddCategoryWindow addCategoryWindow = new AddCategoryWindow(this);
 
             addCategoryWindow.ShowDialog();  // Showdialog for non-modal
+        }
+
+        private void ResetCenterText()
+        {
+            TaskText.Text = "No Task Selected";
+            DueText.Text = "";
+            LocationText.Text = "";
+            TaskName.Content = "Click a task to view";
         }
 
         public async void AddTask(string name, string desc, string dueDate, string location)
@@ -60,6 +82,7 @@ namespace ProtaV2
             AddCategoryButton.IsEnabled = true;
             AddTaskButton.IsEnabled = true;
             UpdateTasks();
+            UpdateJSON();
         }
 
         public async void AddCategory(string name, Color color)
@@ -112,6 +135,7 @@ namespace ProtaV2
                 _selectedCategory = CategoryListbox.SelectedIndex;
                 UpdateTasks();
             }
+            ResetCenterText();
             AddTaskButton.IsEnabled = (CategoryListbox.SelectedItem != null);
             EditCategoryButton.IsEnabled = (CategoryListbox.SelectedItem != null);
         }
@@ -120,6 +144,7 @@ namespace ProtaV2
         {
             TaskListbox.Items.Clear();
             CategoryListItem current = (CategoryListItem)CategoryListbox.SelectedItem;
+            List<TaskListItem> tasks = new List<TaskListItem>();
             if (current != null)
             {
                 foreach (TaskListItem item in current.tasks)
@@ -130,25 +155,35 @@ namespace ProtaV2
                 }
             }
             TaskListbox.Items.Refresh();
+
+            foreach(CategoryListItem category in CategoryListbox.Items)
+            {
+                category.Amount = category.tasks.Count;
+                foreach(TaskListItem task in category.tasks)
+                {
+                    tasks.Add(task);
+                }
+            }
+            CategoryListbox.Items.Refresh();
+            _page.UpdateTasks(tasks);
+
         }
 
         private void UpdateJSON()
         {
             try
             {
-                Uri path1 = new Uri("pack://application:,,,/Data/data.json");
-                string path = System.IO.Path.Combine(Environment.CurrentDirectory, @"Data/data.json");
-                using (StreamWriter sw = new StreamWriter(path, false))
+                
+                using (StreamWriter sw = new StreamWriter(dataPath, false))
                 {
-                    sw.WriteLine("");
+                    // Wipe the file
                 }
 
                 foreach (CategoryListItem item in CategoryListbox.Items)
                 {
-
                     string jsonString = JsonConvert.SerializeObject(item);
 
-                    using (StreamWriter sw = new StreamWriter(path, true))
+                    using (StreamWriter sw = new StreamWriter(dataPath, true))
                     {
                         sw.WriteLine(jsonString);
                     }
@@ -157,7 +192,21 @@ namespace ProtaV2
             catch (Exception ex)
             { 
             }
-            
+        }
+
+        public static List<CategoryListItem> LoadJSON()
+        {
+            if (File.Exists(dataPath))
+            {
+                List<CategoryListItem> found = new List<CategoryListItem>();
+                // Read the file and display it line by line.  
+                foreach (string line in File.ReadLines(dataPath))
+                {
+                    found.Add(JsonConvert.DeserializeObject<CategoryListItem>(line));
+                }
+                return found;
+            }
+            return new List<CategoryListItem>();
         }
 
         private async void EditCategoryButton_Click(object sender, RoutedEventArgs e)
@@ -187,6 +236,7 @@ namespace ProtaV2
 
             UpdateTasks();
             CategoryListbox.Items.Refresh();
+            UpdateJSON();
         }
 
         public async void EditTask(TaskListItem current, string name, string desc, string dueDate, string location)
@@ -207,6 +257,7 @@ namespace ProtaV2
             DueText.Text = "Due: " + selected.DueDate;
             LocationText.Text = "Where: " + selected.Location;
             TaskName.Content = ((CategoryListItem)CategoryListbox.SelectedItem).CategoryName + " - " + ((TaskListItem)TaskListbox.SelectedItem).TaskName;
+            UpdateJSON();
         }
 
         private async void EditTaskButton_Click(object sender, RoutedEventArgs e)
@@ -217,7 +268,7 @@ namespace ProtaV2
             addTaskWindow.NameText.Text = current.TaskName;
             addTaskWindow.DescText.Text = current.TaskText;
             addTaskWindow.LocationText.Text = current.Location;
-            addTaskWindow.CompletedByDate.SelectedDate = DateTime.Parse(current.DueDate);
+            addTaskWindow.CompletedByDate.Value = DateTime.Parse(current.DueDate);
 
             addTaskWindow.ShowDialog();
         }

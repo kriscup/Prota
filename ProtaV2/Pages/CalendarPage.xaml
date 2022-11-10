@@ -67,7 +67,7 @@
             <StackPanel Grid.Column="1">
                 <Label
                     Content="Tasks"
-                    FontFamily="{StaticResource Notepad}"
+                    FontFamily="{StaticResource Bainsley}"
                     FontWeight="Bold"
                     FontSize="32"
                     Foreground="Black"
