@@ -19,8 +19,8 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="800"/>
+                <ColumnDefinition Width="800"/>
             </Grid.ColumnDefinitions>
 
             <!--Calendar Box-->
@@ -29,15 +29,16 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="0 50 0 30">
-
                 </StackPanel>
+
                 <!-- Calendar Border -->
                 <Border
-                    Margin="150 10 150 50"
                     BorderBrush="Transparent"
                     BorderThickness="2"
                     CornerRadius="0 0 16 16"
-                    Padding="10" Height="600"
+                    Margin="30 15 15 50"
+                    Height="600"
+                    Width="675"
                     Background="LightYellow">
 
                     <Border.Effect>
@@ -46,17 +47,21 @@
 
                     <!-- Calander Control -->
                     <Calendar
+                        x:Name="TaskCalendar"
                         RenderTransformOrigin="0.5,0.5"
-                        Width="180" Height="167"
                         Background="White"
                         BorderBrush="Black"
                         BorderThickness="1"
-                        FontFamily="{StaticResource Bainsley}">
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="{StaticResource Bainsley}"
+                        SelectionMode="SingleDate"
+                        SelectedDatesChanged="Calendar_SelectedDatesChanged"
+                        Focusable="False">
 
                         <Calendar.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="3.5" ScaleY="3.5"/>
-                                <TranslateTransform Y="0"/>
                             </TransformGroup>
                         </Calendar.RenderTransform>
                     </Calendar>
@@ -78,7 +83,9 @@
                     BorderBrush="Transparent"
                     BorderThickness="2"
                     CornerRadius="0 0 16 16"
-                    Padding="10" Height="600">
+                    Width="675"
+                    Padding="10" 
+                    Height="600">
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="16"/>
                     </Border.Effect>
@@ -101,7 +108,39 @@
                             Padding="2"
                             FontFamily="{StaticResource Bainsley}"
                             FontSize="32"
-                            d:ItemsSource="{d:SampleData ItemCount=20}" Width="550" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            d:ItemsSource="{d:SampleData ItemCount=20}" 
+                            Width="600" 
+                            HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border 
+                                                x:Name="Border"
+                                                BorderBrush="Black"
+                                                BorderThickness="3"
+                                                CornerRadius="12" 
+                                                Background="{Binding TaskBrush}" 
+                                                Padding="2"
+                                                Margin="0, 5, 0, 5"
+                                                Width="410">
+                                        <Grid>
+                                            <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        IsHitTestVisible="False"
+                                                        Background="Transparent"
+                                                        Foreground="Black"
+                                                        TextWrapping="Wrap"
+                                                        Text="{Binding TaskName}"
+                                                        FontFamily="{StaticResource Bainsley}"
+                                                        FontSize="22"
+                                                        Padding="4"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
                     </Border>
                 </Border>
             </StackPanel>

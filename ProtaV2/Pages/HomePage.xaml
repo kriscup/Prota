@@ -183,9 +183,7 @@
                             BorderThickness="2"
                             CornerRadius="16">
                             <StackPanel>
-                                <Border
-                                    BorderBrush="Black"
-                                    BorderThickness="0, 0, 0, 2">
+                                <Border>
                                     <!--the height in the description box is 510px to cover the entire white space -GR-->
                                     <!--We also are not adding a location or due date here so those are excluded -GR-->
                                     <TextBox

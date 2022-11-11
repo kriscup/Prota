@@ -33,8 +33,8 @@ namespace ProtaV2
             DataContext = new HomePage();
             splashScreen = new Splash();
             homePage = new HomePage();
-            editPage = new EditPage(homePage);
             calendarPage = new CalendarPage();
+            editPage = new EditPage(homePage, calendarPage);
             settingsPage = new Settings(this);
 
             settingsPage.ResolutionSizes.SelectedIndex = 3;
