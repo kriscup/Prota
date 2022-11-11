@@ -117,16 +117,13 @@
                                                         Background="Transparent"
                                                         Foreground="Black"
                                                         TextWrapping="Wrap"
-                                                        Text="{Binding TaskName}"
                                                         FontFamily="{StaticResource Bainsley}"
                                                         FontSize="22"
                                                         Padding="4">
-                                                        <!-- Not quite sure what this is for -GR
-                                                        <Run Text="{Binding CategoryName}"> </Run>
-                                                        <Run >(</Run>
-                                                        <Run Text="{Binding Amount}"> </Run>
-                                                        <Run>)</Run>
-                                                        -->
+                                                        
+                                                        <Run Text="{Binding TaskName}"/>
+                                                        <Run Text="{Binding DueDate}"> </Run>
+
                                                     </TextBlock>
                                                 </Grid>
                                             </Border>

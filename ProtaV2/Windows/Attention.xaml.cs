@@ -19,7 +19,14 @@ namespace ProtaV2.Windows {
     /// Interaction logic for Attention.xaml
     /// </summary>
     public partial class Attention : Window {
-        public Attention() {
+        HomePage _homepage;
+        EditPage _editpage;
+        CalendarPage _calendarPage;
+
+        public Attention(HomePage homepage, EditPage editpage, CalendarPage calendarPage) {
+            _homepage = homepage;
+            _editpage = editpage;
+            _calendarPage = calendarPage;
             InitializeComponent();
         }
 
@@ -33,6 +40,9 @@ namespace ProtaV2.Windows {
                     // Wipe the file
                 }
 
+                this.Dispatcher.BeginInvoke(() => _homepage.UpdateTasks(new List<TaskListItem>()));
+                this.Dispatcher.BeginInvoke(() => _calendarPage.UpdateTasks(new List<TaskListItem>()));
+                this.Dispatcher.BeginInvoke(() => _editpage.DeleteData());
 
                 this.Dispatcher.BeginInvoke(() => AttentionText.Text = "Data deleted!");
                 this.Dispatcher.BeginInvoke(() => AttentionText.Foreground = new SolidColorBrush(Colors.Red));
