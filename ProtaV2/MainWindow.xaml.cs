@@ -65,7 +65,7 @@ namespace ProtaV2
                     Task.Delay(1000).ContinueWith(t =>
                     {
                         
-                        //this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimatePageOpactiy(0, 1, 1, homePage));
+                        this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimatePageOpactiy(0, 1, 1, homePage));
                         this.Dispatcher.BeginInvoke(() => MainContentFrame.Content = homePage);
                         this.Dispatcher.BeginInvoke(() => HomeButton.IsHitTestVisible = true);
                         this.Dispatcher.BeginInvoke(() => CalButton.IsHitTestVisible = true);

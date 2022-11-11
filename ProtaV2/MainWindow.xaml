@@ -61,7 +61,6 @@
                         Content="_"
                         Width="40"
                         Height="40"
-                        BorderBrush="Black"
                         BorderThickness="2"
                         Margin="0, 10, 10, 0"
                         Click="MinimizeButton_Click"/>
@@ -70,7 +69,6 @@
                         x:Name="MaximizeButton"
                         Style="{StaticResource DefaultButton}"
                         Content="☐"
-                        BorderBrush="Black"
                         BorderThickness="2"
                         Width="40"
                         Height="40"
@@ -81,7 +79,6 @@
                         x:Name="CloseButton"
                         Style="{StaticResource DefaultButton}"
                         Content="X"
-                        BorderBrush="Black"
                         BorderThickness="2"
                         Width="40"
                         Height="40"
@@ -128,7 +125,6 @@
                         VerticalAlignment="Center"
                         Content="Home"
                         FontSize="32"
-                        BorderBrush="Black"
                         BorderThickness="2"
                         FontFamily="{StaticResource Bainsley}"
                         Style="{StaticResource DefaultButton}"
@@ -147,7 +143,6 @@
                         FontSize="32"
                         FontFamily="{StaticResource Bainsley}"
                         Style="{StaticResource DefaultButton}"
-                        BorderBrush="Black"
                         BorderThickness="2"
                         Click="EditButton_Click"/>
 
@@ -160,7 +155,6 @@
                         Margin="50, 0, 0, 0"
                         VerticalAlignment="Center"
                         Content="Calendar"
-                        BorderBrush="Black"
                         BorderThickness="2"
                         FontSize="32"
                         FontFamily="{StaticResource Bainsley}"
@@ -177,7 +171,6 @@
                         VerticalAlignment="Center"
                         Content="⚙️"
                         FontSize="64"
-                        BorderBrush="Black"
                         BorderThickness="2"
                         FontFamily="{StaticResource Bainsley}"
                         Style="{StaticResource DefaultButton}"
@@ -201,8 +194,8 @@
                                 StartPoint="0, 0" 
                                 MappingMode="Absolute" 
                                 SpreadMethod="Repeat">
-                                <GradientStop Color="LightBlue" Offset="0" />
-                                <GradientStop Color="LightBlue" Offset="0.1" />
+                                <GradientStop Color="{StaticResource _LightBlue}" Offset="0" />
+                                <GradientStop Color="{StaticResource _LightBlue}" Offset="0.1" />
                                 <GradientStop Color="{StaticResource _White}" Offset="0.1" />
                                 <GradientStop Color="{StaticResource _White}" Offset="1" />
                             </LinearGradientBrush>
