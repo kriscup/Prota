@@ -69,26 +69,35 @@ namespace ProtaV2
             {
                 foreach(TaskListItem task in list)
                 {
-                    TaskListbox.Items.Add(task);
+                    UpcomingTasksListbox.Items.Add(task);
                 }
             }
 
-            TaskListbox.Items.Refresh();
+            UpcomingTasksListbox.Items.Refresh();
         }
 
         public void UpdateTasks(List<TaskListItem> list)
         {
-            TaskListbox.Items.Clear();
+            UpcomingTasksListbox.Items.Clear();
 
             foreach (TaskListItem task in list)
             {
-                TaskListbox.Items.Add(task);
+                UpcomingTasksListbox.Items.Add(task);
             }
 
-            TaskListbox.Items.Refresh();
+            UpcomingTasksListbox.Items.Refresh();
 
         }
-       
+
+        private void UpcomingTasksListbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CompletedTasksListbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     

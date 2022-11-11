@@ -16,21 +16,320 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-
+    
+    <!--ALL OF MY COMMENTS ARE ON THE LINE ***ABOVE*** WHAT I'M REFERRING TO -GR-->
+    
+    <!--Outer grid for page content helps outline where our content will go -GR-->
     <Grid>
-        <StackPanel>
+        <!--Inner grid for main content helps break down into 3 columns and subsections within the page -GR-->
+        <Grid>
+            <!--Defines all of our vertical columns and spacing -GR-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="15"/>
+            </Grid.ColumnDefinitions>
             
-            <Border>
+            <!--Defines all of our horizontal rows and spacing -GR-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="700"/>
+                <RowDefinition Height="15"/>
+            </Grid.RowDefinitions>
+            
+            <!--Beginning of formatting for Upcoming Tasks Column -GR -->
+            <Border
+                Grid.Column="1"
+				Grid.Row="1">
 
                 <StackPanel>
                     <Border
+                        BorderBrush="Black"
+						BorderThickness="0, 0, 0, 3"
+						CornerRadius="0"
+						Margin="15">
+                        <Grid>
+                            <Label
+                                Content="Upcoming Tasks"
+							    FontFamily="{StaticResource Bainsley}"
+							    FontSize="32"
+                                FontWeight="Bold"
+							    Foreground="Black"
+                                Margin="0, 18, 0, 0"
+							    HorizontalContentAlignment="Center"/>
+                            
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        BorderBrush="Transparent"
+						BorderThickness="1"
+						CornerRadius="16"
+						Background="Transparent"
+                        VerticalAlignment="Bottom">
+
+                        <StackPanel>
+                            <Border
+                                Margin="15, 0, 15, 15"
+                                BorderBrush="Transparent"
+                                BorderThickness="2"
+                                CornerRadius="0, 0, 16, 16"
+                                Padding="10">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="16" />
+                                </Border.Effect>
+                                
+                                <Border.Background>
+                                    <SolidColorBrush Color="LightYellow"/>
+                                </Border.Background>
+                                <ListBox
+                                    x:Name="UpcomingTasksListbox"
+                                    ScrollViewer.CanContentScroll="False"
+								    Height="535"
+                                    Width="240"
+								    VerticalAlignment="Top"
+                                    HorizontalAlignment="Center"
+                                    Margin="0, 0, 0, 0"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+								    Background="Transparent" 
+                                    BorderThickness="0"
+                                    SelectionChanged="UpcomingTasksListbox_SelectionChanged"
+                                    d:ItemsSource="{d:SampleData ItemCount=15}">
+
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border 
+                                                x:Name="Border"
+                                                BorderBrush="Black"
+                                                BorderThickness="3"
+                                                CornerRadius="12" 
+                                                Background="{Binding TaskBrush}" 
+                                                Padding="2"
+                                                Margin="0, 5, 0, 5"
+                                                Width="210">
+                                                <Grid>
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        IsHitTestVisible="False"
+                                                        Background="Transparent"
+                                                        Foreground="Black"
+                                                        TextWrapping="Wrap"
+                                                        Text="{Binding TaskName}"
+                                                        FontFamily="{StaticResource Bainsley}"
+                                                        FontSize="22"
+                                                        Padding="4">
+                                                        <!-- Not quite sure what this is for -GR
+                                                        <Run Text="{Binding CategoryName}"> </Run>
+                                                        <Run >(</Run>
+                                                        <Run Text="{Binding Amount}"> </Run>
+                                                        <Run>)</Run>
+                                                        -->
+                                                    </TextBlock>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+
+                                </ListBox>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <!--End of formatting for Upcoming Tasks Column -GR -->
+            
+            <!--Beginning of formatting for Task Description Column -GR-->
+            <Border
+                Grid.Column="2"
+				Grid.Row="1">
+
+                <StackPanel>
+                    <Border
+                        BorderBrush="Black"
+						BorderThickness="0, 0, 0, 3"
+						CornerRadius="0"
+						Margin="15">
+
+                        <Label
+                            x:Name="TaskDescriptionName"
+							Content="Task Description"
+							FontFamily="{StaticResource Bainsley}"
+                            FontWeight="Bold"
+							FontSize="32"
+							Foreground="Black"
+							Margin="0, 18, 0, 0"
+							HorizontalContentAlignment="Center"/>
+                    </Border>
+
+                    <Border
+                        BorderBrush="Transparent"
+						BorderThickness="1"
+						CornerRadius="0, 0, 16, 16"
+						Background="LightYellow"
+						Margin="15, 0, 15, 0"
+                        Height="560"
+                        Padding="20"
+                        VerticalAlignment="Bottom">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="16" />
+                        </Border.Effect>
+
+                        <Border
+                            Background="White"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="16">
+                            <StackPanel>
+                                <Border
+                                    BorderBrush="Black"
+                                    BorderThickness="0, 0, 0, 2">
+                                    <!--the height in the description box is 510px to cover the entire white space -GR-->
+                                    <!--We also are not adding a location or due date here so those are excluded -GR-->
+                                    <TextBox
+                                        x:Name="DescriptionText"
+                                        BorderBrush="Transparent"
+                                        Background="Transparent"
+                                        IsReadOnly="True"
+                                        Width="892"
+                                        TextWrapping="Wrap"
+                                        IsHitTestVisible="False"
+							            Padding="10"
+                                        Height="510" 
+                                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                        ScrollViewer.CanContentScroll="True"
+                                        Text="Select an upcoming task to view its description"
+                                        Foreground="Black"
+                                        FontFamily="{StaticResource Bainsley}"
+                                        FontSize="24"/>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <!--End of formatting for Task Description Column -GR-->
+
+            <!--Beginning of formatting for Completed Tasks Column -GR-->
+            <Border
+                Grid.Column="3"
+				Grid.Row="1">
+
+                <StackPanel>
+                    <Border
+                        BorderBrush="Black"
+						BorderThickness="0, 0, 0, 3"
+						CornerRadius="0"
+						Margin="15">
+
+                        <Grid>
+                            <Label
+							Content="Completed Tasks"
+							FontFamily="{StaticResource Bainsley}"
+                            FontWeight="Bold"
+							FontSize="32"
+							Foreground="Black"
+							Margin="0, 18, 0, 0"
+							HorizontalContentAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        BorderBrush="Transparent"
+						BorderThickness="1"
+						CornerRadius="16"
+                        VerticalAlignment="Bottom">
+                        <StackPanel>
+                            <Border
+                                BorderBrush="Transparent"
+						        BorderThickness="1"
+						        CornerRadius="16"
+						        Margin="0, 0, 0, 0"
+                                VerticalAlignment="Bottom">
+                                <StackPanel>
+                                    <Border
+                                        Margin="15, 0, 15, 15"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="2"
+                                        CornerRadius="0, 0, 16, 16"
+                                        Padding="10">
+                                        <Border.Effect>
+                                            <DropShadowEffect BlurRadius="16" />
+                                        </Border.Effect>
+                                        
+                                        <Border.Background>
+                                            <SolidColorBrush Color="LightYellow"/>
+                                        </Border.Background>
+                                        <ListBox
+                                            x:Name="CompletedTasksListbox"
+                                            ScrollViewer.CanContentScroll="False"
+								            Height="535"
+                                            Width="240"
+								            VerticalAlignment="Top"
+                                            HorizontalAlignment="Center"
+                                            Margin="0, 0, 0, 0"
+                                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+								            Background="Transparent" 
+                                            BorderThickness="0"
+                                            SelectionChanged="CompletedTasksListbox_SelectionChanged"
+                                            d:ItemsSource="{d:SampleData ItemCount=15}">
+                                            
+                                            <!--Unsure if i should rename borders and binding/ if those will interfere with the ListBox.ItemTemplate from the upcoming tasks column -GR-->
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+
+                                                    <Border 
+                                                        x:Name="Border"
+                                                        BorderBrush="Black"
+                                                        BorderThickness="2"
+                                                        CornerRadius="12" 
+                                                        Background="{Binding TaskBrush}" 
+                                                        Padding="2"
+                                                        Margin="0, 5, 0, 5"
+                                                        Width="210">
+                                                        <Grid>
+                                                            <TextBlock
+                                                                VerticalAlignment="Center"
+                                                                HorizontalAlignment="Center"
+                                                                IsHitTestVisible="False"
+                                                                Background="Transparent"
+                                                                Foreground="Black"
+                                                                TextWrapping="Wrap"
+                                                                Text="{Binding TaskName}"
+                                                                FontFamily="{StaticResource Bainsley}"
+                                                                FontSize="22"
+                                                                Padding="4"/>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </Border>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <!--End of formatting for Completed Tasks Column -GR-->
+            
+            <!--Old Code saved below just in case something goes wrong -GR-->
+            <!--
+                <StackPanel>
+
+                    <Border>
+
+                        <StackPanel>
+                            <Border
 						BorderBrush="Black"
 						BorderThickness="0, 0, 0, 4"
 						CornerRadius="0"
 						Width="1400"
                         Margin="0, 23, 0, 0">
 
-                        <Label
+                                <Label
                             x:Name="HomeName"
 							Content="Home"
 							FontFamily="{StaticResource Bainsley}"
@@ -39,10 +338,10 @@
 							Foreground="Black"
 							Margin="0, 25, 0, 0"
 							HorizontalContentAlignment="Center"/>
-                        
-                    </Border>
 
-                    <Border
+                            </Border>
+
+                            <Border
 						BorderBrush="Transparent"
 						BorderThickness="1"
 						CornerRadius="0, 0, 16, 16"
@@ -52,27 +351,27 @@
                         Width="600"
                         VerticalAlignment="Bottom"
                         Padding="20">
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="16" />
-                        </Border.Effect>
-                       
-                        <!--<Border.Background>
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="16" />
+                                </Border.Effect>
+
+                                <Border.Background>
                             <SolidColorBrush Color="LightYellow"/>
-                        </Border.Background>-->
-                       
-                        <Border
+                        </Border.Background>
+
+                                <Border
                             Background="White"
                             BorderBrush="Black"
                             BorderThickness="3"
                             CornerRadius="16">
-                            <Grid>
-                                <Border
+                                    <Grid>
+                                        <Border
                                     BorderThickness="0, 0, 0, 3"
                                     BorderBrush="Black"
                                     Height="55"
                                     VerticalAlignment="Top"
                                     HorizontalAlignment="Center">
-                                    <TextBlock
+                                            <TextBlock
                                     x:Name="TaskText"
 							        Padding="20"
                                     Foreground="Black"
@@ -81,9 +380,9 @@
                                     FontWeight="Bold"
                                     FontSize="24"/>
 
-                                </Border>
-                               
-                                <ListBox
+                                        </Border>
+
+                                        <ListBox
 								    x:Name="TaskListbox"
                                     ScrollViewer.CanContentScroll="False"
                                     Margin="0, 20, 0, 0"
@@ -96,9 +395,9 @@
                                     BorderThickness="0"
                                     d:ItemsSource="{d:SampleData ItemCount=7}">
 
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border 
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border 
                                                 x:Name="Border"
                                                 BorderBrush="Black"
                                                 BorderThickness="3"
@@ -106,7 +405,7 @@
                                                 Background="{Binding TaskBrush}" 
                                                 Padding="2"
                                                 Margin="0, 5, 0, 5"
-                                                Width="410">
+                                                Width="210">
                                                 <Grid>
                                                     <TextBlock
                                                         VerticalAlignment="Center"
@@ -118,21 +417,29 @@
                                                         Text="{Binding TaskName}"
                                                         FontFamily="{StaticResource Bainsley}"
                                                         FontSize="22"
-                                                        Padding="4"/>
-                                                </Grid>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
-                        </Border>
+                                                        Padding="4">
+                                                        Not quite sure what this is for -GR
+                                                        <Run Text="{Binding CategoryName}"> </Run>
+                                                        <Run >(</Run>
+                                                        <Run Text="{Binding Amount}"> </Run>
+                                                        <Run>)</Run>
+                                                        
+                                                    </TextBlock>
+                                                    </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </Grid>
+                                </Border>
 
+                            </Border>
+
+                        </StackPanel>
                     </Border>
 
                 </StackPanel>
-            </Border>
-
-        </StackPanel>
-
+            -->
+        </Grid>
     </Grid>
 </Page>
