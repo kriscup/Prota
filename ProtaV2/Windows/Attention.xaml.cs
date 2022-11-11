@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProtaV2.Windows {
     /// <summary>
@@ -57,6 +58,7 @@ namespace ProtaV2.Windows {
                     this.Dispatcher.BeginInvoke(() => Close());
 
                 });
+
 
 
                 

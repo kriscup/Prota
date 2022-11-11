@@ -63,23 +63,35 @@
 						BorderBrush="Transparent"
 						BorderThickness="1"
 						CornerRadius="0, 0, 16, 16"
-						Background="LightYellow"
+						
 						Margin="15, 0, 15, 0"
                         Height="560"
                         Padding="20"
                         VerticalAlignment="Bottom">
+                        <Border.Background>
+                            <SolidColorBrush
+                                    Color="{StaticResource _lightyellow}">
+
+                            </SolidColorBrush>
+                        </Border.Background>
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="16" />
                         </Border.Effect>
 
                     
                         <Border
-                            Background="White"
+                            
                             BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="16"
                             Padding="5"
                             >
+                            <Border.Background>
+                                <SolidColorBrush
+                                Color="{StaticResource _White}">
+
+                                </SolidColorBrush>
+                            </Border.Background>
                             <Grid>
 
                                 <Grid.RowDefinitions>

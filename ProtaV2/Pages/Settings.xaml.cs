@@ -85,7 +85,7 @@ namespace ProtaV2 {
         private void MinimizetoTray_Click(object sender, RoutedEventArgs e)
         {
             _mainWindow.minimizeToTray = (bool)MinimizetoTray.IsChecked;
-            int x = 10;
+            
         }
 
         private void StartMinimized_Click(object sender, RoutedEventArgs e)
