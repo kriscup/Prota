@@ -22,10 +22,16 @@ namespace ProtaV2 {
     public partial class Settings : Page {
 
         private MainWindow _mainWindow;
+        private HomePage _homepage;
+        private EditPage _editPage;
+        private CalendarPage _calendarPage;
 
-        public Settings(MainWindow mainWindow) {
+        public Settings(MainWindow mainWindow, HomePage  homepage, EditPage editPage, CalendarPage calendarPage) {
             InitializeComponent();
             _mainWindow = mainWindow;
+            _homepage = homepage;
+            _editPage = editPage;
+            _calendarPage = calendarPage;
         }
 
         private void FontSizes_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -34,7 +40,7 @@ namespace ProtaV2 {
 
         private void ResetButton_Click(object sender, RoutedEventArgs e) {
 
-            Window resetWindow = new Attention();
+            Window resetWindow = new Attention(_homepage, _editPage, _calendarPage);
             
             resetWindow.ShowDialog();
         }

@@ -36,12 +36,12 @@
                     BorderBrush="Transparent"
                     BorderThickness="2"
                     CornerRadius="0 0 16 16"
-                    Margin="30 15 15 50"
+                    Margin="30 40 15 50"
                     Height="600"
                     Width="675"
                     >
                     <Border.Background>
-                        <SolidColorBrush Color="LightYellow"/>
+                        <SolidColorBrush Color="{StaticResource _lightyellow}"/>
                     </Border.Background>
 
                     <Border.Effect>
@@ -52,7 +52,6 @@
                     <Calendar
                         x:Name="TaskCalendar"
                         RenderTransformOrigin="0.5,0.5"
-                        
                         BorderBrush="Black"
                         BorderThickness="1"
                         HorizontalAlignment="Center"
@@ -61,12 +60,6 @@
                         SelectionMode="SingleDate"
                         SelectedDatesChanged="Calendar_SelectedDatesChanged"
                         Focusable="False">
-                        <Calendar.Background>
-                            <SolidColorBrush
-                                Color="{StaticResource _White}">
-
-                            </SolidColorBrush>
-                        </Calendar.Background>
 
                         <Calendar.RenderTransform>
                             <TransformGroup>
@@ -79,16 +72,37 @@
 
             <!-- Daily Tasks List -->
             <StackPanel Grid.Column="1">
-                <Label
-                    Content="Tasks"
-                    FontFamily="{StaticResource Bainsley}"
-                    FontWeight="Bold"
-                    FontSize="32"
-                    Foreground="Black"
-                    Margin="0 15 0 15"
-                    HorizontalContentAlignment="Center"/>
                 <Border
-                    Margin="15 15 15 50"
+						BorderThickness="0, 0, 0, 3"
+						CornerRadius="0"
+						Margin="15">
+
+                    <Border.BorderBrush>
+                        <SolidColorBrush
+                                Color="{StaticResource _Black}">
+                        </SolidColorBrush>
+                    </Border.BorderBrush>
+
+                    <Grid>
+
+                        <Label
+							Content="Tasks"
+							FontFamily="{StaticResource Bainsley}"
+                            FontWeight="Bold"
+							FontSize="32"
+							Margin="0, 33, 0, 0"
+							HorizontalContentAlignment="Center">
+
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{StaticResource _Black}"/>
+                            </Label.Foreground>
+
+                        </Label>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Margin="15 0 15 50"
                     BorderBrush="Transparent"
                     BorderThickness="2"
                     CornerRadius="0 0 16 16"
@@ -100,7 +114,7 @@
                     </Border.Effect>
 
                     <Border.Background>
-                        <SolidColorBrush Color="LightYellow" />
+                        <SolidColorBrush Color="{StaticResource _lightyellow}" />
                     </Border.Background>
                     <Border
                         BorderBrush="Black"
@@ -108,12 +122,10 @@
                         Margin="10"
                         BorderThickness="2"
                         CornerRadius="16 16 16 16">
-                        <Border.Background>
-                            <SolidColorBrush Color="{StaticResource _White}"/>
-                        </Border.Background>
                         <ListBox
                             x:Name="DailyTasks"
                             BorderBrush="Transparent"
+                            Background="Transparent"
                             Padding="2"
                             FontFamily="{StaticResource Bainsley}"
                             FontSize="32"

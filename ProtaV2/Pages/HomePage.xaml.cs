@@ -76,6 +76,10 @@ namespace ProtaV2
             UpcomingTasksListbox.Items.Refresh();
         }
 
+        /// <summary>
+        /// This is my summary
+        /// </summary>
+        /// <param name="list"></param>
         public void UpdateTasks(List<TaskListItem> list)
         {
             UpcomingTasksListbox.Items.Clear();
@@ -91,7 +95,13 @@ namespace ProtaV2
 
         private void UpcomingTasksListbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            TaskListItem item = (TaskListItem) UpcomingTasksListbox.SelectedItem;
+            if(item != null)
+            {
+                DescriptionText.Text = item.TaskText;
+                TaskDescriptionName.Content = "Task Description - " + item.TaskName;
+            }
+            
         }
 
         private void CompletedTasksListbox_SelectionChanged(object sender, SelectionChangedEventArgs e)

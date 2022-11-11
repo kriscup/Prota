@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProtaV2.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,7 @@ namespace ProtaV2
             homePage = new HomePage();
             calendarPage = new CalendarPage();
             editPage = new EditPage(homePage, calendarPage);
-            settingsPage = new Settings(this);
+            settingsPage = new Settings(this, homePage, editPage, calendarPage);
 
             settingsPage.ResolutionSizes.SelectedIndex = 3;
 

@@ -46,20 +46,29 @@
 
                 <StackPanel>
                     <Border
-                        BorderBrush="Black"
 						BorderThickness="0, 0, 0, 3"
 						CornerRadius="0"
 						Margin="15">
+
+                        <Border.BorderBrush>
+                            <SolidColorBrush
+                                Color="{StaticResource _Black}">
+                            </SolidColorBrush>
+                        </Border.BorderBrush>
+
                         <Grid>
                             <Label
                                 Content="Upcoming Tasks"
 							    FontFamily="{StaticResource Bainsley}"
 							    FontSize="32"
                                 FontWeight="Bold"
-							    Foreground="Black"
                                 Margin="0, 18, 0, 0"
-							    HorizontalContentAlignment="Center"/>
-                            
+							    HorizontalContentAlignment="Center">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{StaticResource _Black}"/>
+                                </Label.Foreground>
+                            </Label>
+
                         </Grid>
                     </Border>
 
@@ -82,7 +91,7 @@
                                 </Border.Effect>
                                 
                                 <Border.Background>
-                                    <SolidColorBrush Color="LightYellow"/>
+                                    <SolidColorBrush Color="{StaticResource _lightyellow}"/>
                                 </Border.Background>
                                 <ListBox
                                     x:Name="UpcomingTasksListbox"
@@ -117,16 +126,13 @@
                                                         Background="Transparent"
                                                         Foreground="Black"
                                                         TextWrapping="Wrap"
-                                                        Text="{Binding TaskName}"
                                                         FontFamily="{StaticResource Bainsley}"
                                                         FontSize="22"
                                                         Padding="4">
-                                                        <!-- Not quite sure what this is for -GR
-                                                        <Run Text="{Binding CategoryName}"> </Run>
-                                                        <Run >(</Run>
-                                                        <Run Text="{Binding Amount}"> </Run>
-                                                        <Run>)</Run>
-                                                        -->
+                                                        
+                                                        <Run Text="{Binding TaskName}"/>
+                                                        <Run Text="{Binding DueDate}"> </Run>
+
                                                     </TextBlock>
                                                 </Grid>
                                             </Border>
@@ -148,27 +154,32 @@
 
                 <StackPanel>
                     <Border
-                        BorderBrush="Black"
 						BorderThickness="0, 0, 0, 3"
 						CornerRadius="0"
 						Margin="15">
-
+                        <Border.BorderBrush>
+                            <SolidColorBrush
+                                Color="{StaticResource _Black}">
+                            </SolidColorBrush>
+                        </Border.BorderBrush>
                         <Label
                             x:Name="TaskDescriptionName"
 							Content="Task Description"
 							FontFamily="{StaticResource Bainsley}"
                             FontWeight="Bold"
 							FontSize="32"
-							Foreground="Black"
 							Margin="0, 18, 0, 0"
-							HorizontalContentAlignment="Center"/>
+							HorizontalContentAlignment="Center">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{StaticResource _Black}"/>
+                            </Label.Foreground>
+                        </Label>
                     </Border>
 
                     <Border
                         BorderBrush="Transparent"
 						BorderThickness="1"
 						CornerRadius="0, 0, 16, 16"
-						Background="LightYellow"
 						Margin="15, 0, 15, 0"
                         Height="560"
                         Padding="20"
@@ -177,9 +188,13 @@
                             <DropShadowEffect BlurRadius="16" />
                         </Border.Effect>
 
+                        <Border.Background>
+                            <SolidColorBrush
+                                Color="{StaticResource _lightyellow}">
+                            </SolidColorBrush>
+                        </Border.Background>
+
                         <Border
-                            
-                            BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="16">
                             <Border.Background>
@@ -188,6 +203,12 @@
 
                                 </SolidColorBrush>
                             </Border.Background>
+
+                            <Border.BorderBrush>
+                                <SolidColorBrush
+                                Color="{StaticResource _Black}">
+                                </SolidColorBrush>
+                            </Border.BorderBrush>
                             <StackPanel>
                                 <Border>
                                     <!--the height in the description box is 510px to cover the entire white space -GR-->
@@ -205,9 +226,12 @@
                                         ScrollViewer.VerticalScrollBarVisibility="Auto"
                                         ScrollViewer.CanContentScroll="True"
                                         Text="Select an upcoming task to view its description"
-                                        Foreground="Black"
                                         FontFamily="{StaticResource Bainsley}"
-                                        FontSize="24"/>
+                                        FontSize="24">
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{StaticResource _Black}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
                                 </Border>
                             </StackPanel>
                         </Border>
@@ -223,10 +247,15 @@
 
                 <StackPanel>
                     <Border
-                        BorderBrush="Black"
 						BorderThickness="0, 0, 0, 3"
 						CornerRadius="0"
 						Margin="15">
+
+                        <Border.BorderBrush>
+                            <SolidColorBrush
+                                Color="{StaticResource _Black}">
+                            </SolidColorBrush>
+                        </Border.BorderBrush>
 
                         <Grid>
                             <Label
@@ -234,9 +263,12 @@
 							FontFamily="{StaticResource Bainsley}"
                             FontWeight="Bold"
 							FontSize="32"
-							Foreground="Black"
 							Margin="0, 18, 0, 0"
-							HorizontalContentAlignment="Center"/>
+							HorizontalContentAlignment="Center">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{StaticResource _Black}"/>
+                                </Label.Foreground>
+                            </Label>
                         </Grid>
                     </Border>
 
@@ -264,7 +296,7 @@
                                         </Border.Effect>
                                         
                                         <Border.Background>
-                                            <SolidColorBrush Color="LightYellow"/>
+                                            <SolidColorBrush Color="{StaticResource _lightyellow}"/>
                                         </Border.Background>
                                         <ListBox
                                             x:Name="CompletedTasksListbox"
@@ -360,7 +392,7 @@
                                 </Border.Effect>
 
                                 <Border.Background>
-                            <SolidColorBrush Color="LightYellow"/>
+                            <SolidColorBrush Color="{StaticResource _lightyellow}"/>
                         </Border.Background>
 
                                 <Border

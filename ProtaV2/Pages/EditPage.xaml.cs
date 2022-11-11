@@ -173,6 +173,12 @@ namespace ProtaV2
 
         }
 
+        public void DeleteData()
+        {
+            CategoryListbox.Items.Clear();
+            TaskListbox.Items.Clear();
+        }
+
         private void UpdateJSON()
         {
             try

@@ -4,10 +4,13 @@
     
     <!--Main Colors-->
     <Color x:Key="_White">White</Color>
+    <Color x:Key="_MedWhite">#e1e3e1</Color>
     <Color x:Key="_Black">Black</Color>
     <Color x:Key="_lightyellow">LightYellow</Color>
     <Color x:Key="_LightBlue">LightBlue</Color>
-    
+    <Color x:Key="_Red">#ff3b3b</Color>
+    <Color x:Key="_MedRed">#db2c2c</Color>
+
     <!--Control colors.-->
     <Color x:Key="WindowColor">#FFE8EDF9</Color>
     <Color x:Key="ContentAreaColorLight">#FFC5CBF9</Color>

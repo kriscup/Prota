@@ -61,8 +61,11 @@
 			        FontFamily="{StaticResource Bainsley}"
                     FontWeight="Bold"
 			        FontSize="28"
-			        Foreground="Black"
-			        HorizontalContentAlignment="Center"/>
+			        HorizontalContentAlignment="Center">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{StaticResource _Black}"/>
+                </Label.Foreground>
+            </Label>
         </Border>
         <StackPanel
                         FlowDirection="LeftToRight"
@@ -108,7 +111,7 @@
                 Grid.Column="0"
                 Grid.Row="1"
                 Margin="15, 0, 0, 0">
-                <Label
+            <Label
                         x:Name="NameLabel"
 			            Content="Name"
 			            FontFamily="{StaticResource Bainsley}"
@@ -119,10 +122,15 @@
                         Height="30"
                         VerticalContentAlignment="Bottom"
 			            FontSize="18"
-			            Foreground="Black"
-			            HorizontalContentAlignment="Center"/>
+			            HorizontalContentAlignment="Center">
 
-                    <Border
+                <Label.Foreground>
+                    <SolidColorBrush Color="{StaticResource _Black}"/>
+                </Label.Foreground>
+
+            </Label>
+
+            <Border
                             BorderBrush="Black"
                             CornerRadius="8"
                             BorderThickness="2"
@@ -131,7 +139,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Margin="15, 0, 0, 0">
-                        <custom:PlaceholderTextBoxControl
+                <custom:PlaceholderTextBoxControl
                             x:Name="NameText"
                             ToolTip="Enter Name"
                             BorderBrush="Transparent"
@@ -142,7 +150,11 @@
                             VerticalAlignment="Bottom"
                             VerticalContentAlignment="Center"
                             FontFamily="{StaticResource Bainsley}"
-                            TextChanged="NameText_TextChanged"/>
+                            TextChanged="NameText_TextChanged">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{StaticResource _Black}"/>
+                            </TextBlock.Foreground>
+                </custom:PlaceholderTextBoxControl>
             </Border>
 
             <Border
@@ -174,8 +186,9 @@
                             HorizontalAlignment="Center"
 			                FontSize="22"
                             TextWrapping="Wrap"
-			                Foreground="Black"
-                            Width="210"/>
+                            Width="210">
+
+                    </TextBlock>
 
                     <Border 
                             x:Name="Border"
@@ -200,12 +213,15 @@
                                     HorizontalAlignment="Center"
                                     IsHitTestVisible="False"
                                     Background="Transparent"
-                                    Foreground="Black"
                                     TextWrapping="Wrap"
                                     FontFamily="{StaticResource Bainsley}"
                                     FontSize="22"
                                     Padding="3"
-                                    Text="Example"/>
+                                    Text="Example">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{StaticResource _Black}"/>
+                                </TextBlock.Foreground>
+                            </TextBlock>
                         </Grid>
                     </Border>
                 </StackPanel>
