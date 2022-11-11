@@ -39,7 +39,10 @@
                     Margin="30 15 15 50"
                     Height="600"
                     Width="675"
-                    Background="LightYellow">
+                    >
+                    <Border.Background>
+                        <SolidColorBrush Color="LightYellow"/>
+                    </Border.Background>
 
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="16"/>
@@ -49,7 +52,7 @@
                     <Calendar
                         x:Name="TaskCalendar"
                         RenderTransformOrigin="0.5,0.5"
-                        Background="White"
+                        
                         BorderBrush="Black"
                         BorderThickness="1"
                         HorizontalAlignment="Center"
@@ -58,6 +61,12 @@
                         SelectionMode="SingleDate"
                         SelectedDatesChanged="Calendar_SelectedDatesChanged"
                         Focusable="False">
+                        <Calendar.Background>
+                            <SolidColorBrush
+                                Color="{StaticResource _White}">
+
+                            </SolidColorBrush>
+                        </Calendar.Background>
 
                         <Calendar.RenderTransform>
                             <TransformGroup>
@@ -100,7 +109,7 @@
                         BorderThickness="2"
                         CornerRadius="16 16 16 16">
                         <Border.Background>
-                            <SolidColorBrush Color="White"/>
+                            <SolidColorBrush Color="{StaticResource _White}"/>
                         </Border.Background>
                         <ListBox
                             x:Name="DailyTasks"

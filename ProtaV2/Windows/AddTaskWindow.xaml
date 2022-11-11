@@ -48,8 +48,8 @@
                         SpreadMethod="Repeat">
                     <GradientStop Color="LightBlue" Offset="0" />
                     <GradientStop Color="LightBlue" Offset="0.1" />
-                    <GradientStop Color="White" Offset="0.1" />
-                    <GradientStop Color="White" Offset="1" />
+                    <GradientStop Color="{StaticResource _White}" Offset="0.1" />
+                    <GradientStop Color="{StaticResource _White}" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
@@ -58,7 +58,13 @@
             BorderBrush="Black"
             BorderThickness="3, 3, 3, 0"
             CornerRadius="16, 16, 0, 0"
-            Background="White">
+            >
+            <Border.Background>
+                <SolidColorBrush
+                                Color="{StaticResource _White}">
+
+                </SolidColorBrush>
+            </Border.Background>
                 <Label
                 x:Name="Title"
                 Grid.Column="0"
