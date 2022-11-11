@@ -178,10 +178,16 @@
                         </Border.Effect>
 
                         <Border
-                            Background="White"
+                            
                             BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="16">
+                            <Border.Background>
+                                <SolidColorBrush
+                                Color="{StaticResource _White}">
+
+                                </SolidColorBrush>
+                            </Border.Background>
                             <StackPanel>
                                 <Border>
                                     <!--the height in the description box is 510px to cover the entire white space -GR-->
@@ -358,10 +364,16 @@
                         </Border.Background>
 
                                 <Border
-                            Background="White"
+                            
                             BorderBrush="Black"
                             BorderThickness="3"
                             CornerRadius="16">
+                        <Border.Background>
+                <SolidColorBrush
+                                Color="{StaticResource _White}">
+
+                </SolidColorBrush>
+            </Border.Background>
                                     <Grid>
                                         <Border
                                     BorderThickness="0, 0, 0, 3"

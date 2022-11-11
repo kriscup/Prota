@@ -44,8 +44,14 @@
                 BorderThickness="3, 3, 3, 0"
                 Grid.ColumnSpan="2"
                 CornerRadius="16,16,0,0"
-                Background="White"
+                
                 >
+            <Border.Background>
+                <SolidColorBrush
+                                Color="{StaticResource _White}">
+
+                </SolidColorBrush>
+            </Border.Background>
             <Label
                     
                     x:Name="Title"
@@ -92,8 +98,8 @@
                             SpreadMethod="Repeat">
                     <GradientStop Color="LightBlue" Offset="0" />
                     <GradientStop Color="LightBlue" Offset="0.1" />
-                    <GradientStop Color="White" Offset="0.1" />
-                    <GradientStop Color="White" Offset="1" />
+                    <GradientStop Color="{StaticResource _White}" Offset="0.1" />
+                    <GradientStop Color="{StaticResource _White}" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
@@ -143,10 +149,16 @@
 				    BorderBrush="Transparent"
 				    BorderThickness="1"
 				    CornerRadius="0, 0, 16, 16"
-				    Background="LightYellow"
+				    
                     Width="360"
                     Height="300"
                     Margin="0, 55, 0, 0">
+                <Border.Background>
+                    <SolidColorBrush
+                                Color="{StaticResource _lightyellow}">
+
+                    </SolidColorBrush>
+                </Border.Background>
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="16" />
                 </Border.Effect>
@@ -170,11 +182,17 @@
                             BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="12" 
-                            Background="White" 
+                             
                             Padding="2"
                             Margin="0, 5, 0, 5"
                             Width="210"
                             Height="80">
+                        <Border.Background>
+                            <SolidColorBrush
+                                Color="{StaticResource _White}">
+                                
+                            </SolidColorBrush>
+                        </Border.Background>
                         <Grid>
                             <TextBlock
                                     x:Name="CategoryPreview"
@@ -207,9 +225,15 @@
 				    BorderBrush="Transparent"
 				    BorderThickness="1"
 				    CornerRadius="0, 0, 16, 16"
-				    Background="LightYellow"
+				    
                     Width="360"
                     Height="385">
+                <Border.Background>
+                    <SolidColorBrush
+                                Color="{StaticResource _lightyellow}">
+
+                    </SolidColorBrush>
+                </Border.Background>
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="16" />
                 </Border.Effect>
@@ -230,18 +254,24 @@
 
 
                     <Border
-                        Background="White"
+                        
                         Height="250"
                         Width="300"
                         BorderBrush="Black"
                         BorderThickness="2"
                         CornerRadius="16"
                         Padding="5">
+                        <Border.Background>
+                            <SolidColorBrush
+                                Color="{StaticResource _White}">
+
+                            </SolidColorBrush>
+                        </Border.Background>
                         <colorpicker:SquarePicker 
                             x:Name="CategoryColorPicker"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            SelectedColor="White"
+                            SelectedColor="{StaticResource _White}"
                             ColorChanged="CategoryColorPicker_ColorChanged" 
                             Height="200"
                             Width="200"

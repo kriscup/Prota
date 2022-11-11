@@ -31,8 +31,13 @@
             BorderBrush="Transparent"
             BorderThickness="4"
             CornerRadius="16"
-            Background="White">
-
+            >
+            <Border.Background>
+                <SolidColorBrush
+                    Color="{StaticResource _White}">
+                    
+                </SolidColorBrush>
+            </Border.Background> 
             <Grid
                 Width="1600"
                 Height="900">
@@ -198,8 +203,8 @@
                                 SpreadMethod="Repeat">
                                 <GradientStop Color="LightBlue" Offset="0" />
                                 <GradientStop Color="LightBlue" Offset="0.1" />
-                                <GradientStop Color="White" Offset="0.1" />
-                                <GradientStop Color="White" Offset="1" />
+                                <GradientStop Color="{StaticResource _White}" Offset="0.1" />
+                                <GradientStop Color="{StaticResource _White}" Offset="1" />
                             </LinearGradientBrush>
                         </Border.Background>
 
