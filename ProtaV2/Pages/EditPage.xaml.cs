@@ -28,15 +28,17 @@ namespace ProtaV2
     {
         private int _selectedCategory = 0;
         private HomePage _page;
+        private CalendarPage _calPage;
         public static string dataPath = Assembly.GetEntryAssembly().Location.Substring(0, Assembly.GetEntryAssembly().Location.IndexOf("bin")) + "\\Data\\data.txt";
 
 
-        public EditPage(HomePage page)
+        public EditPage(HomePage page, CalendarPage calendarPage)
         {
             InitializeComponent();
             List<CategoryListItem> loadedItems = LoadJSON();
 
             _page = page;
+            _calPage = calendarPage;
 
             foreach (CategoryListItem item in loadedItems)
             {
@@ -166,6 +168,8 @@ namespace ProtaV2
             }
             CategoryListbox.Items.Refresh();
             _page.UpdateTasks(tasks);
+            _calPage.UpdateTasks(tasks);
+            
 
         }
 
