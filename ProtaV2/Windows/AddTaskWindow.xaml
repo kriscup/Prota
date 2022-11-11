@@ -15,7 +15,7 @@
         Background="Transparent"
         AllowsTransparency="True" 
         WindowStyle="None"
-        MouseDown="Window_MouseDown">
+        >
 
     <Window.Resources>
         <ResourceDictionary>

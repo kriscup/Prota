@@ -16,7 +16,7 @@
         Background="Transparent"
         AllowsTransparency="True" 
         WindowStyle="None"
-        MouseDown="Window_MouseDown"
+        
         xmlns:custom="clr-namespace:ProtaV2.Placeholder"
         >
 
@@ -134,7 +134,7 @@
                             Height="25"
                             Padding="5, 0, 0, 0"
                             VerticalAlignment="Bottom"
-
+                            VerticalContentAlignment="Center"
                             FontFamily="{StaticResource Bainsley}"
                             TextChanged="NameText_TextChanged"/>
             </Border>
