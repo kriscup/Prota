@@ -384,6 +384,37 @@
 
                                         <!--Skip start Splash screen -->
                                         <!--Skip start Splash screen -->
+                                        
+                                        
+                                        <!--Support us Button-->
+                                        <StackPanel
+                                                Margin="0, 15, 0, 0"
+                                                Orientation="Horizontal"
+                                                FlowDirection="LeftToRight">
+                                            <TextBlock
+                                                    Text="Support Us:"
+                                                    FontSize="24"
+                                                    FontFamily="{DynamicResource Bainsley}"
+                                        
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    TextDecorations="Underline"/>
+                                            <Button
+                                                    x:Name="SupportButton"
+                                                    Content="$$"
+                                                    Margin="50, 0, 0, 0"    
+                                                    Width="100"
+                                                    Height="50"
+                                                    FontSize="24"
+                                                    FontFamily="{DynamicResource Bainsley}"
+                                                    VerticalContentAlignment="Center"
+                                                    HorizontalContentAlignment="Center"
+                                                    HorizontalAlignment="Left"
+                                                    Style="{StaticResource DefaultButton}"
+                                        
+                                                />
+                                        </StackPanel>
+                                        <!--Support us Button-->
 
                                         <!--Spacing-->
                                         <TextBlock>
