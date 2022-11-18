@@ -10,7 +10,7 @@
       Width="1600"
       Title="SettingsPage"
       ShowsNavigationUI="False">
-      
+
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,8 +19,8 @@
         </ResourceDictionary>
     </Page.Resources>
 
-           
-               
+
+
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -41,13 +41,17 @@
 				Grid.Column="2"
 				Grid.Row="1"
                 >
-                <StackPanel>
+                <StackPanel
+                    Width="975">
                     <Border
-						BorderBrush="Black"
 						BorderThickness="0, 0, 0, 3"
 						CornerRadius="0"
 						Margin="15">
-
+                        <Border.BorderBrush>
+                            <SolidColorBrush
+                                Color="{StaticResource _Black}">
+                            </SolidColorBrush>
+                        </Border.BorderBrush>
                         <Label
                             x:Name="TaskName"
 							Content="Settings"
@@ -63,7 +67,7 @@
 
                         </Label>
                     </Border>
-                    
+
                     <Border
 						BorderBrush="Transparent"
 						BorderThickness="1"
@@ -83,7 +87,7 @@
                             <DropShadowEffect BlurRadius="16" />
                         </Border.Effect>
 
-                    
+
                         <Border
                             
                             BorderBrush="Black"
@@ -120,7 +124,7 @@
                                     BorderBrush="Transparent"
                                     BorderThickness="2"
                                     CornerRadius="16">
-                                    
+
                                     <ListBox
                                         x:Name="SettingBox"                                    
                                         ItemContainerStyle="{StaticResource ListItem2}"
@@ -130,9 +134,10 @@
                                         >
                                         <!--for the resolution size-->
                                         <StackPanel
-                                                    Orientation="Horizontal"
-                                                    FlowDirection="LeftToRight"
-                                                    Margin="0, 15, 0, 0">
+                                            Orientation="Horizontal"
+                                            FlowDirection="LeftToRight"
+                                            Margin="0, 15, 0, 0"
+                                            HorizontalAlignment="Left">
 
                                             <TextBlock
                                                         x:Name="ResolutiontextBlock"
@@ -142,43 +147,47 @@
                                                         HorizontalAlignment="Left"
                                                         FontFamily="{StaticResource Bainsley}"
                                                         FontSize="24">
-                                                    <TextBlock.Foreground>
-                                                        <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
-                                                    </TextBlock.Foreground>
-                                                </TextBlock>
+                                                <TextBlock.Foreground>
+                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                </TextBlock.Foreground>
+                                            </TextBlock>
                                             <ComboBox
-                                                        x:Name="ResolutionSizes"
-                                                        Height="40"
-                                                        Width="256"
-                                                        FontSize="24"
-                                                        Cursor="Hand"
-                                                        Margin="55, 0, 0, 0"
-                                                        FontFamily="{StaticResource Bainsley}"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Left"
-                                                        HorizontalContentAlignment="Center"
-                                                        VerticalContentAlignment="Center"
-                                                        Style="{StaticResource CCB}"
-                                                        ItemContainerStyle="{StaticResource CCBI}"
-                                                        SelectionChanged="ResolutionSizes_SelectionChanged"
-                                                        >
-                                                        <ComboBoxItem Content="3840 x 2160" Cursor="Hand"/>
-                                                        <ComboBoxItem Content="2560 x 1440" Cursor="Hand"/>
-                                                        <ComboBoxItem Content="1920 x 1080" Cursor="Hand"/>
-                                                        <ComboBoxItem Content="1600 x 900" Cursor="Hand"/>
-                                                        <ComboBoxItem Content="1300 x 860" Cursor="Hand"/>
+                                                x:Name="ResolutionSizes"
+                                                Height="40"
+                                                Width="256"
+                                                FontSize="24"
+                                                Cursor="Hand"
+                                                Margin="55, 0, 0, 0"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                Style="{StaticResource CCB}"
+                                                ItemContainerStyle="{StaticResource CCBI}"
+                                                SelectionChanged="ResolutionSizes_SelectionChanged"
+                                                Foreground="Black"
+                                                >
+                                                
 
-                                                    </ComboBox>
-                                            
-                                                </StackPanel>
+                                                <ComboBoxItem Content="3840 x 2160" Cursor="Hand"/>
+                                                <ComboBoxItem Content="2560 x 1440" Cursor="Hand"/>
+                                                <ComboBoxItem Content="1920 x 1080" Cursor="Hand"/>
+                                                <ComboBoxItem Content="1600 x 900" Cursor="Hand"/>
+                                                <ComboBoxItem Content="1300 x 860" Cursor="Hand"/>
+
+                                            </ComboBox>
+
+                                        </StackPanel>
                                         <!--for the resolution size-->
 
 
                                         <!--Dark mode button-->
                                         <StackPanel
-                                                Orientation="Horizontal"
-                                                FlowDirection="LeftToRight"
-                                                Margin="0, 15, 0, 0">
+                                            Orientation="Horizontal"
+                                            FlowDirection="LeftToRight"
+                                            Margin="0, 15, 0, 0"
+                                            HorizontalAlignment="Left">
                                             <TextBlock
                                                     x:Name="DarkmodetextBlock"
                                                     Text="Dark Mode:"
@@ -210,75 +219,77 @@
                                                     <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
                                                 </TextBlock.Foreground>
                                                 <CheckBox.LayoutTransform>
-                                                        <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
-                                                    </CheckBox.LayoutTransform>
-                                                </CheckBox>
-                                            </StackPanel>
+                                                    <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
+                                                </CheckBox.LayoutTransform>
+                                            </CheckBox>
+                                        </StackPanel>
                                         <!--Dark mode button-->
 
                                         <!--notification-->
                                         <StackPanel
-                                                    Orientation="Horizontal"
-                                                    FlowDirection="LeftToRight"
-                                                    Margin="0, 15, 0, 0"
-                                                    >
-                                                    <TextBlock
-                                                        x:Name="NotificationstextBlock"
-                                                        Text="Notifications:"
-                                                        TextDecorations="Underline"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Left"
-                                                        FontFamily="{StaticResource Bainsley}"
-                                                        FontSize="24">
+                                            Orientation="Horizontal"
+                                            FlowDirection="LeftToRight"
+                                            Margin="0, 15, 0, 0"
+                                            HorizontalAlignment="Left"
+                                            >
+                                            <TextBlock
+                                                    x:Name="NotificationstextBlock"
+                                                    Text="Notifications:"
+                                                    TextDecorations="Underline"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Left"
+                                                    FontFamily="{StaticResource Bainsley}"
+                                                    FontSize="24">
                                                 <TextBlock.Foreground>
                                                     <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
                                                 </TextBlock.Foreground>
                                             </TextBlock>
 
                                             <custom:PlaceholderTextBoxControl
-                                                        x:Name="EmailInputt"
-                                                        ToolTip="Add Email Here"
-                                                        Width="375"
-                                                        Height="45"
-                                                        FontSize="24"
-                                                        HorizontalAlignment="Left"
-                                                        VerticalContentAlignment="Center"
-                                                        FontFamily="{StaticResource Bainsley}"
-                                                        Margin="30, 0, 0, 0"
-                                                        Padding="5,0,0,0"
-                                                        BorderBrush="Black"
-                                                        />
-                                                    <Button
-                                                        x:Name="RemoveNotificationButton"
-                                                        Margin="30, 0, 0, 0"
-                                                        Content="Remove"
-                                                        HorizontalAlignment="Left"
-                                                        HorizontalContentAlignment="Center"
-                                                        VerticalContentAlignment="Center"
-                                                        FontSize="24"
-                                                        FontFamily="{DynamicResource Bainsley}"
-                                                        Height="45"
-                                                        Width="105"
-                                                        Cursor="Hand"
-                                                        Style="{StaticResource DefaultButton}"
-                                                        Click="RemoveNotificationButton_Click"
-                                                        />
-                                                    <Button
-                                                        x:Name="AddNotificationButton"
-                                                        Margin="30, 0, 0, 0"
-                                                        Content="Update"
-                                                        HorizontalAlignment="Left"
-                                                        HorizontalContentAlignment="Center"
-                                                        VerticalContentAlignment="Center"
-                                                        FontSize="24"
-                                                        FontFamily="{DynamicResource Bainsley}"
-                                                        Height="45"
-                                                        Width="95"
-                                                        Cursor="Hand"
-                                                        Style="{StaticResource DefaultButton}"
-                                                        Click="AddNotificationButton_Click"
-                                                        />
-                                            </StackPanel>
+                                                x:Name="EmailInput"
+                                                ToolTip="Add Email Here"
+                                                Width="375"
+                                                Height="45"
+                                                FontSize="24"
+                                                HorizontalAlignment="Left"
+                                                VerticalContentAlignment="Center"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                Margin="30, 0, 0, 0"
+                                                Padding="5,0,0,0"
+                                                BorderBrush="Black"
+                                                />
+                                            
+                                            <Button
+                                                x:Name="AddNotificationButton"
+                                                Margin="30, 0, 0, 0"
+                                                Content="Update"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                FontSize="24"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                Height="45"
+                                                Width="95"
+                                                Cursor="Hand"
+                                                Style="{StaticResource DefaultButton}"
+                                                Click="AddNotificationButton_Click"
+                                                />
+                                            <Button
+                                                x:Name="RemoveNotificationButton"
+                                                Margin="30, 0, 0, 0"
+                                                Content="Remove"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                FontSize="24"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                Height="45"
+                                                Width="105"
+                                                Cursor="Hand"
+                                                Style="{StaticResource DefaultButton}"
+                                                Click="RemoveNotificationButton_Click"
+                                                />
+                                        </StackPanel>
                                         <!--notification-->
 
                                         <!--contact us-->
@@ -311,9 +322,9 @@
                                                     HorizontalAlignment="Left"
                                                     Click="Contactwords_Click"
                                                 />
-                                            </StackPanel>
+                                        </StackPanel>
                                         <!--contact us-->
-                                    
+
                                         <!--Start on windows startup-->
                                         <StackPanel
                                                 Orientation="Horizontal"
@@ -334,33 +345,35 @@
                                             </TextBlock>
 
                                             <CheckBox
-                                                    x:Name="StartMinimized"
-                                                    Content="Start Minimized"
-                                                    Foreground="Black"
-                                                    Margin="85, 0, 0, 0"    
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    FontSize="12"
-                                                    Click="StartMinimized_Click">
-                                                    <CheckBox.LayoutTransform>
-                                                        <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
-                                                    </CheckBox.LayoutTransform>
+                                                x:Name="StartMinimized"
+                                                Content="Start Minimized"
+                                                Foreground="Black"
+                                                Margin="85, 0, 0, 0"    
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="12"
+                                                Click="StartMinimized_Click"
+                                                >
+                                                <CheckBox.LayoutTransform>
+                                                    <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
+                                                </CheckBox.LayoutTransform>
 
                                                 <TextBlock.Foreground>
                                                     <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
                                                 </TextBlock.Foreground>
 
                                             </CheckBox>
-                                            </StackPanel>
+                                        </StackPanel>
                                         <!--Start on windows startup-->
-                                    
+
                                         <!--Exit to system tray or exit completely screen-->
                                         <StackPanel
-                                                    Orientation="Horizontal"
-                                                    Margin="0, 15, 0, 0"
-                                                    FlowDirection="LeftToRight">
-                                                    <TextBlock
+                                            Orientation="Horizontal"
+                                            Margin="0, 15, 0, 0"
+                                            FlowDirection="LeftToRight"
+                                            >
+                                            <TextBlock
                                                         Text="On Exit:"
                                                         FontSize="24"
                                                         FontFamily="{DynamicResource Bainsley}"
@@ -375,32 +388,32 @@
                                             <CheckBox
                                                         x:Name="MinimizetoTray"
                                                         Content="Minimize to System Tray"
-                                                        Width="400"
+                                                        Width="151"
                                                         Margin="90, 0, 0, 0"    
                                                         FontSize="12"
                                                         FontFamily="{DynamicResource Bainsley}"
                                                         VerticalContentAlignment="Center"
                                                         HorizontalContentAlignment="Left"
-                                                        HorizontalAlignment="Left"
                                                         Click="MinimizetoTray_Click"
      
                                                     >
                                                 <TextBlock.Foreground>
                                                     <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
                                                 </TextBlock.Foreground>
-                                                        <CheckBox.LayoutTransform>
-                                                            <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
-                                                        </CheckBox.LayoutTransform>
-                                                    </CheckBox>
-                                                </StackPanel>
+                                                <CheckBox.LayoutTransform>
+                                                    <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
+                                                </CheckBox.LayoutTransform>
+                                            </CheckBox>
+                                        </StackPanel>
                                         <!--Exit to system tray or exit completely screen-->
 
                                         <!--clear/reset data-->
                                         <StackPanel
                                                 Margin="0, 15, 0, 0"
                                                 Orientation="Horizontal"
-                                                FlowDirection="LeftToRight">
-                                                <TextBlock
+                                                FlowDirection="LeftToRight"
+                                            HorizontalAlignment="Left">
+                                            <TextBlock
                                                     Text="Factory Reset?"
                                                     FontSize="24"
                                                     FontFamily="{DynamicResource Bainsley}"
@@ -414,32 +427,34 @@
                                                 </TextBlock.Foreground>
                                             </TextBlock>
                                             <Button
-                                                    x:Name="ResetButton"
-                                                    Content="Reset"
-                                                    Margin="20, 0, 0, 0"    
-                                                    Width="100"
-                                                    Height="50"
-                                                    FontSize="24"
-                                                    FontFamily="{DynamicResource Bainsley}"
-                                                    VerticalContentAlignment="Center"
-                                                    HorizontalContentAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                                    Style="{StaticResource ResetButton}"
+                                                x:Name="ResetButton"
+                                                Content="Reset"
+                                                Margin="20, 0, 0, 0"    
+                                                Width="100"
+                                                Height="50"
+                                                FontSize="24"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                VerticalContentAlignment="Center"
+                                                HorizontalContentAlignment="Center"
+                                                HorizontalAlignment="Left"
+                                                Style="{StaticResource ResetButton}"
+                                                Foreground="White"
                                         
-                                                    Click="ResetButton_Click"
+                                                Click="ResetButton_Click"
                                                 />
-                                            </StackPanel>
+                                        </StackPanel>
                                         <!--clear/reset data-->
 
                                         <!--Skip start Splash screen -->
                                         <!--Skip start Splash screen -->
-                                        
-                                        
+
+
                                         <!--Support us Button-->
                                         <StackPanel
-                                                Margin="0, 15, 0, 0"
-                                                Orientation="Horizontal"
-                                                FlowDirection="LeftToRight">
+                                            Margin="0, 15, 0, 0"
+                                            Orientation="Horizontal"
+                                            FlowDirection="LeftToRight"
+                                            HorizontalAlignment="Left">
                                             <TextBlock
                                                     Text="Support Us:"
                                                     FontSize="24"
@@ -453,19 +468,20 @@
                                                 </TextBlock.Foreground>
                                             </TextBlock>
                                             <Button
-                                                    x:Name="SupportButton"
-                                                    Content="$$"
-                                                    Margin="50, 0, 0, 0"    
-                                                    Width="100"
-                                                    Height="50"
-                                                    FontSize="24"
-                                                    FontFamily="{DynamicResource Bainsley}"
-                                                    VerticalContentAlignment="Center"
-                                                    HorizontalContentAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                                    Style="{StaticResource DefaultButton}"
-                                        
-                                                />
+                                                x:Name="SupportButton"
+                                                Content="$$"
+                                                Margin="50, 0, 0, 0"    
+                                                Width="100"
+                                                Height="50"
+                                                FontSize="24"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                VerticalContentAlignment="Center"
+                                                HorizontalContentAlignment="Center"
+                                                HorizontalAlignment="Left"
+                                                Style="{StaticResource SupportButton}"
+                                                Foreground="White"
+                                                >
+                                            </Button>
                                         </StackPanel>
                                         <!--Support us Button-->
 
@@ -474,7 +490,7 @@
                                             <LineBreak></LineBreak>
                                         </TextBlock>
                                         <!--Spacing-->
-                                    
+
                                     </ListBox>
                                 </Border>
                             </Grid>

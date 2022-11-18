@@ -37,9 +37,11 @@
 
         <Border
             BorderBrush="Black"
-            Background="LightYellow"
             BorderThickness="2"
             CornerRadius="16">
+            <Border.Background>
+                <SolidColorBrush Color="{StaticResource _lightyellow}"/>
+            </Border.Background>
             <Grid>
                 <Label
                     HorizontalAlignment="Center"
@@ -69,7 +71,8 @@
                     Width="100"
                     Click="REconfirmYes_Click"
                     Margin="-125,110,0,0"
-                    Content="Yes"/>
+                    Content="Yes"
+                    Foreground="White"/>
                 <Button
                     x:Name="REconfirmNo"
                     FontFamily="{StaticResource Bainsley}"

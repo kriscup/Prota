@@ -4,10 +4,10 @@
     <Color x:Key="_White">#303030</Color>
     <Color x:Key="_MedWhite">#3b3b3b</Color>
     <Color x:Key="_Black">White</Color>
-    <Color x:Key="_lightyellow">#d6d6d6</Color>
-    <Color x:Key="_LightBlue">#d9d9d7</Color>
-    <Color x:Key="_Red">#ff3b3b</Color>
-    <Color x:Key="_MedRed">#db2c2c</Color>
+    <Color x:Key="_lightyellow">#afb9c9</Color>
+    <Color x:Key="_LightBlue">#414345</Color>
+    <Color x:Key="_Red">#e30909</Color>
+    <Color x:Key="_MedRed">#ad0a0a</Color>
 
     <!--Control colors.-->
     <Color x:Key="WindowColor">#FFE8EDF9</Color>

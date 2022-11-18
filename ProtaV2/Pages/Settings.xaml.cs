@@ -1,7 +1,11 @@
-﻿using ProtaV2.Windows;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
+using ProtaV2.Windows;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +29,7 @@ namespace ProtaV2 {
         private HomePage _homepage;
         private EditPage _editPage;
         private CalendarPage _calendarPage;
+        public static string emailDataPath = Assembly.GetEntryAssembly().Location.Substring(0, Assembly.GetEntryAssembly().Location.IndexOf("bin")) + "\\Data\\email.txt";
 
         public Settings(MainWindow mainWindow, HomePage  homepage, EditPage editPage, CalendarPage calendarPage) {
             InitializeComponent();
@@ -34,9 +39,6 @@ namespace ProtaV2 {
             _calendarPage = calendarPage;
         }
 
-        private void FontSizes_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
-        }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e) {
 
@@ -88,19 +90,34 @@ namespace ProtaV2 {
             
         }
 
-        private void StartMinimized_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void AddNotificationButton_Click(object sender, RoutedEventArgs e){
+            if (EmailInput.Text.Length != 0 && EmailInput.Text.Contains('@')) {
+                if (File.Exists(emailDataPath)) {
+                    string[]lines = File.ReadAllLines(emailDataPath);
+                    if (lines.Length >= 1) {
+                        error errorWindow = new error(_homepage, _editPage, _calendarPage);
+                        errorWindow.userEmail.Text = lines[0];
+                        errorWindow.ShowDialog();
+                    }
+                    else {
+                        using StreamWriter writer = new StreamWriter(emailDataPath);
+                        string input = EmailInput.Text;
+                        writer.WriteLine(input);
+                        writer.Close();
+                        EmailInput.Text = null;
+                    }
+                }
+            }
+            else {
+                Window mistakeWindow = new mistake(_homepage, _editPage, _calendarPage);
+                mistakeWindow.ShowDialog();
+            }
         }
 
-        private void AddNotificationButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RemoveNotificationButton_Click(object sender, RoutedEventArgs e)
-        {
-
+        private void RemoveNotificationButton_Click(object sender, RoutedEventArgs e){
+            // Wipe the file
+            using StreamWriter delete = new StreamWriter(emailDataPath, false);
         }
 
         private void Contactwords_Click(object sender, RoutedEventArgs e)
@@ -111,6 +128,10 @@ namespace ProtaV2 {
                 UseShellExecute = true,
             };
             System.Diagnostics.Process.Start(sInfo);
+        }
+
+        private void StartMinimized_Click(object sender, RoutedEventArgs e) {
+
         }
     }
 }

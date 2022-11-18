@@ -37,7 +37,7 @@ namespace ProtaV2
             calendarPage = new CalendarPage();
             editPage = new EditPage(homePage, calendarPage);
             settingsPage = new Settings(this, homePage, editPage, calendarPage);
-
+            
             settingsPage.ResolutionSizes.SelectedIndex = 3;
 
             MainContentFrame.Content = splashScreen;
