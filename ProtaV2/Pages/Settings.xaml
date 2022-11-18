@@ -1,110 +1,99 @@
-﻿<Page x:Class="ProtaV2.Settings"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ProtaV2"
-      xmlns:custom="clr-namespace:ProtaV2.Placeholder"
-      mc:Ignorable="d" 
-      Height="780" 
-      Width="1600"
-      Title="SettingsPage"
-      ShowsNavigationUI="False">
-      
+﻿<Page
+    x:Class="ProtaV2.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:custom="clr-namespace:ProtaV2.Placeholder"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ProtaV2"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="SettingsPage"
+    Width="1600"
+    Height="780"
+    ShowsNavigationUI="False"
+    mc:Ignorable="d">
+
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/ProtaTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Themes/ProtaTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
 
-           
-               
+
+
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="15"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="15" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="15"/>
-                <RowDefinition Height="700"/>
-                <RowDefinition Height="15"/>
+                <RowDefinition Height="15" />
+                <RowDefinition Height="700" />
+                <RowDefinition Height="15" />
             </Grid.RowDefinitions>
 
-            <Border
-				Grid.Column="2"
-				Grid.Row="1"
-                >
+            <Border Grid.Row="1" Grid.Column="2">
                 <StackPanel>
                     <Border
-						BorderBrush="Black"
-						BorderThickness="0, 0, 0, 3"
-						CornerRadius="0"
-						Margin="15">
+                        Margin="15"
+                        BorderBrush="Black"
+                        BorderThickness="0,0,0,3"
+                        CornerRadius="0">
 
                         <Label
                             x:Name="TaskName"
-							Content="Settings"
-							FontFamily="{StaticResource Bainsley}"
-                            FontWeight="Bold"
-							FontSize="32"
-							Margin="0, 18, 0, 0"
-							HorizontalContentAlignment="Center">
+                            Margin="0,18,0,0"
+                            HorizontalContentAlignment="Center"
+                            Content="Settings"
+                            FontFamily="{StaticResource Bainsley}"
+                            FontSize="32"
+                            FontWeight="Bold">
 
                             <Label.Foreground>
-                                <SolidColorBrush Color="{StaticResource _Black}"/>
+                                <SolidColorBrush Color="{StaticResource _Black}" />
                             </Label.Foreground>
 
                         </Label>
                     </Border>
-                    
-                    <Border
-						BorderBrush="Transparent"
-						BorderThickness="1"
-						CornerRadius="0, 0, 16, 16"
-						
-						Margin="15, 0, 15, 0"
-                        Height="560"
-                        Padding="20"
-                        VerticalAlignment="Bottom">
-                        <Border.Background>
-                            <SolidColorBrush
-                                    Color="{StaticResource _lightyellow}">
 
-                            </SolidColorBrush>
+                    <Border
+                        Height="560"
+                        Margin="15,0,15,0"
+                        Padding="20"
+                        VerticalAlignment="Bottom"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        CornerRadius="0, 0, 16, 16">
+                        <Border.Background>
+                            <SolidColorBrush Color="{StaticResource _lightyellow}" />
                         </Border.Background>
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="16" />
                         </Border.Effect>
 
-                    
+
                         <Border
-                            
+                            Padding="5"
                             BorderBrush="Black"
                             BorderThickness="2"
-                            CornerRadius="16"
-                            Padding="5"
-                            >
+                            CornerRadius="16">
                             <Border.Background>
-                                <SolidColorBrush
-                                Color="{StaticResource _White}">
-
-                                </SolidColorBrush>
+                                <SolidColorBrush Color="{StaticResource _White}" />
                             </Border.Background>
                             <Grid>
 
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="105"/>
-                                    <RowDefinition Height="105"/>
-                                    <RowDefinition Height="105"/>
-                                    <RowDefinition Height="105"/>
-                                    <RowDefinition Height="105"/>
+                                    <RowDefinition Height="105" />
+                                    <RowDefinition Height="105" />
+                                    <RowDefinition Height="105" />
+                                    <RowDefinition Height="105" />
+                                    <RowDefinition Height="105" />
                                 </Grid.RowDefinitions>
 
                                 <Grid.ColumnDefinitions>
@@ -115,366 +104,345 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Border
-                                    Grid.ColumnSpan="5"
                                     Grid.RowSpan="5"
+                                    Grid.ColumnSpan="5"
                                     BorderBrush="Transparent"
                                     BorderThickness="2"
                                     CornerRadius="16">
-                                    
+
                                     <ListBox
-                                        x:Name="SettingBox"                                    
-                                        ItemContainerStyle="{StaticResource ListItem2}"
-                                        BorderBrush="Transparent"
-                                        Background="Transparent"
+                                        x:Name="SettingBox"
                                         Margin="0,0,0,14"
-                                        >
-                                        <!--for the resolution size-->
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        ItemContainerStyle="{StaticResource ListItem2}">
+                                        <!--  for the resolution size  -->
                                         <StackPanel
-                                                    Orientation="Horizontal"
-                                                    FlowDirection="LeftToRight"
-                                                    Margin="0, 15, 0, 0">
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
 
                                             <TextBlock
-                                                        x:Name="ResolutiontextBlock"
-                                                        Text="Resolution:"
-                                                        TextDecorations="Underline"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Left"
-                                                        FontFamily="{StaticResource Bainsley}"
-                                                        FontSize="24">
-                                                    <TextBlock.Foreground>
-                                                        <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
-                                                    </TextBlock.Foreground>
-                                                </TextBlock>
+                                                x:Name="ResolutiontextBlock"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Resolution:"
+                                                TextDecorations="Underline">
+                                                <TextBlock.Foreground>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
+                                                </TextBlock.Foreground>
+                                            </TextBlock>
                                             <ComboBox
-                                                        x:Name="ResolutionSizes"
-                                                        Height="40"
-                                                        Width="256"
-                                                        FontSize="24"
-                                                        Cursor="Hand"
-                                                        Margin="55, 0, 0, 0"
-                                                        FontFamily="{StaticResource Bainsley}"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Left"
-                                                        HorizontalContentAlignment="Center"
-                                                        VerticalContentAlignment="Center"
-                                                        Style="{StaticResource CCB}"
-                                                        ItemContainerStyle="{StaticResource CCBI}"
-                                                        SelectionChanged="ResolutionSizes_SelectionChanged"
-                                                        >
-                                                        <ComboBoxItem Content="3840 x 2160" Cursor="Hand"/>
-                                                        <ComboBoxItem Content="2560 x 1440" Cursor="Hand"/>
-                                                        <ComboBoxItem Content="1920 x 1080" Cursor="Hand"/>
-                                                        <ComboBoxItem Content="1600 x 900" Cursor="Hand"/>
-                                                        <ComboBoxItem Content="1300 x 860" Cursor="Hand"/>
+                                                x:Name="ResolutionSizes"
+                                                Width="256"
+                                                Height="40"
+                                                Margin="55,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                Cursor="Hand"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                ItemContainerStyle="{StaticResource CCBI}"
+                                                SelectionChanged="ResolutionSizes_SelectionChanged"
+                                                Style="{StaticResource CCB}">
+                                                <ComboBoxItem Content="3840 x 2160" Cursor="Hand" />
+                                                <ComboBoxItem Content="2560 x 1440" Cursor="Hand" />
+                                                <ComboBoxItem Content="1920 x 1080" Cursor="Hand" />
+                                                <ComboBoxItem Content="1600 x 900" Cursor="Hand" />
+                                                <ComboBoxItem Content="1300 x 860" Cursor="Hand" />
 
-                                                    </ComboBox>
-                                            
-                                                </StackPanel>
-                                        <!--for the resolution size-->
+                                            </ComboBox>
+
+                                        </StackPanel>
+                                        <!--  for the resolution size  -->
 
 
-                                        <!--Dark mode button-->
+                                        <!--  Dark mode button  -->
                                         <StackPanel
-                                                Orientation="Horizontal"
-                                                FlowDirection="LeftToRight"
-                                                Margin="0, 15, 0, 0">
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
                                             <TextBlock
-                                                    x:Name="DarkmodetextBlock"
-                                                    Text="Dark Mode:"
-                                                    TextDecorations="Underline"
-                                                    VerticalAlignment="Center"
-                                        
-                                                    HorizontalAlignment="Left"
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    FontSize="24">
+                                                x:Name="DarkmodetextBlock"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Dark Mode:"
+                                                TextDecorations="Underline">
 
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
 
                                             <CheckBox
-                                                    x:Name="DarkmodeToggle"
-                                                    Width="150"
-                                                    Margin="50, 0, 0, 0"
-                                                    Cursor="Hand"
-                                                    Content="Toggle"
-                                                    FontSize="12"
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    HorizontalAlignment="Left"
-                                                    VerticalContentAlignment="Center"
-                                                    HorizontalContentAlignment="Left"
-                                                    Click="DarkmodeToggle_Click">
+                                                x:Name="DarkmodeToggle"
+                                                Width="150"
+                                                Margin="50,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Left"
+                                                VerticalContentAlignment="Center"
+                                                Click="DarkmodeToggle_Click"
+                                                Content="Toggle"
+                                                Cursor="Hand"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="12">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                                 <CheckBox.LayoutTransform>
-                                                        <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
-                                                    </CheckBox.LayoutTransform>
-                                                </CheckBox>
-                                            </StackPanel>
-                                        <!--Dark mode button-->
+                                                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                                                </CheckBox.LayoutTransform>
+                                            </CheckBox>
+                                        </StackPanel>
+                                        <!--  Dark mode button  -->
 
-                                        <!--notification-->
+                                        <!--  notification  -->
                                         <StackPanel
-                                                    Orientation="Horizontal"
-                                                    FlowDirection="LeftToRight"
-                                                    Margin="0, 15, 0, 0"
-                                                    >
-                                                    <TextBlock
-                                                        x:Name="NotificationstextBlock"
-                                                        Text="Notifications:"
-                                                        TextDecorations="Underline"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Left"
-                                                        FontFamily="{StaticResource Bainsley}"
-                                                        FontSize="24">
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
+                                            <TextBlock
+                                                x:Name="NotificationstextBlock"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Notifications:"
+                                                TextDecorations="Underline">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
 
                                             <custom:PlaceholderTextBoxControl
-                                                        x:Name="EmailInputt"
-                                                        ToolTip="Add Email Here"
-                                                        Width="375"
-                                                        Height="45"
-                                                        FontSize="24"
-                                                        HorizontalAlignment="Left"
-                                                        VerticalContentAlignment="Center"
-                                                        FontFamily="{StaticResource Bainsley}"
-                                                        Margin="30, 0, 0, 0"
-                                                        Padding="5,0,0,0"
-                                                        BorderBrush="Black"
-                                                        />
-                                                    <Button
-                                                        x:Name="RemoveNotificationButton"
-                                                        Margin="30, 0, 0, 0"
-                                                        Content="Remove"
-                                                        HorizontalAlignment="Left"
-                                                        HorizontalContentAlignment="Center"
-                                                        VerticalContentAlignment="Center"
-                                                        FontSize="24"
-                                                        FontFamily="{DynamicResource Bainsley}"
-                                                        Height="45"
-                                                        Width="105"
-                                                        Cursor="Hand"
-                                                        Style="{StaticResource DefaultButton}"
-                                                        Click="RemoveNotificationButton_Click"
-                                                        />
-                                                    <Button
-                                                        x:Name="AddNotificationButton"
-                                                        Margin="30, 0, 0, 0"
-                                                        Content="Update"
-                                                        HorizontalAlignment="Left"
-                                                        HorizontalContentAlignment="Center"
-                                                        VerticalContentAlignment="Center"
-                                                        FontSize="24"
-                                                        FontFamily="{DynamicResource Bainsley}"
-                                                        Height="45"
-                                                        Width="95"
-                                                        Cursor="Hand"
-                                                        Style="{StaticResource DefaultButton}"
-                                                        Click="AddNotificationButton_Click"
-                                                        />
-                                            </StackPanel>
-                                        <!--notification-->
+                                                x:Name="EmailInputt"
+                                                Width="375"
+                                                Height="45"
+                                                Margin="30,0,0,0"
+                                                Padding="5,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                VerticalContentAlignment="Center"
+                                                BorderBrush="Black"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                ToolTip="Add Email Here" />
+                                            <Button
+                                                x:Name="RemoveNotificationButton"
+                                                Width="105"
+                                                Height="45"
+                                                Margin="30,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                Click="RemoveNotificationButton_Click"
+                                                Content="Remove"
+                                                Cursor="Hand"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                FontSize="24"
+                                                Style="{StaticResource DefaultButton}" />
+                                            <Button
+                                                x:Name="AddNotificationButton"
+                                                Width="95"
+                                                Height="45"
+                                                Margin="30,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                Click="AddNotificationButton_Click"
+                                                Content="Update"
+                                                Cursor="Hand"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                FontSize="24"
+                                                Style="{StaticResource DefaultButton}" />
+                                        </StackPanel>
+                                        <!--  notification  -->
 
-                                        <!--contact us-->
+                                        <!--  contact us  -->
                                         <StackPanel
-                                                Orientation="Horizontal"
-                                                FlowDirection="LeftToRight"
-                                                Margin="0, 15, 0, 0">
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
                                             <TextBlock
-                                                    x:Name="ContacttextBlock"
-                                                    Text="Contact us:"
-                                                    TextDecorations="Underline"
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                        
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    FontSize="24">
+                                                x:Name="ContacttextBlock"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Contact us:"
+                                                TextDecorations="Underline">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
                                             <Button
-                                                    x:Name="Contactwords"
-                                                    Content="Prota Site ↗"
-                                                    FontSize="24"
-                                                    Margin="50, 0, 0, 0"        
-                                                    Style="{StaticResource DefaultButton}"
-                                                    FontFamily="{StaticResource Bainsley}"
-                                        
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                                    Click="Contactwords_Click"
-                                                />
-                                            </StackPanel>
-                                        <!--contact us-->
-                                    
-                                        <!--Start on windows startup-->
+                                                x:Name="Contactwords"
+                                                Margin="50,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Click="Contactwords_Click"
+                                                Content="Prota Site ↗"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                Style="{StaticResource DefaultButton}" />
+                                        </StackPanel>
+                                        <!--  contact us  -->
+
+                                        <!--  Start on windows startup  -->
                                         <StackPanel
-                                                Orientation="Horizontal"
-                                                FlowDirection="LeftToRight"
-                                                Margin="0, 15, 0, 0">
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
                                             <TextBlock
-                                                    x:Name="RunonStartupBlock"
-                                                    Text="Startup:"
-                                                    TextDecorations="Underline"
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                        
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    FontSize="24">
+                                                x:Name="RunonStartupBlock"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Startup:"
+                                                TextDecorations="Underline">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
 
                                             <CheckBox
-                                                    x:Name="StartMinimized"
-                                                    Content="Start Minimized"
-                                                    Foreground="Black"
-                                                    Margin="85, 0, 0, 0"    
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    FontSize="12"
-                                                    Click="StartMinimized_Click">
-                                                    <CheckBox.LayoutTransform>
-                                                        <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
-                                                    </CheckBox.LayoutTransform>
+                                                x:Name="StartMinimized"
+                                                Margin="85,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Click="StartMinimized_Click"
+                                                Content="Start Minimized"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="12"
+                                                Foreground="Black">
+                                                <CheckBox.LayoutTransform>
+                                                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                                                </CheckBox.LayoutTransform>
 
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
 
                                             </CheckBox>
-                                            </StackPanel>
-                                        <!--Start on windows startup-->
-                                    
-                                        <!--Exit to system tray or exit completely screen-->
+                                        </StackPanel>
+                                        <!--  Start on windows startup  -->
+
+                                        <!--  Exit to system tray or exit completely screen  -->
                                         <StackPanel
-                                                    Orientation="Horizontal"
-                                                    Margin="0, 15, 0, 0"
-                                                    FlowDirection="LeftToRight">
-                                                    <TextBlock
-                                                        Text="On Exit:"
-                                                        FontSize="24"
-                                                        FontFamily="{DynamicResource Bainsley}"
-                                                        HorizontalAlignment="Left"
-                                                        VerticalAlignment="Center"
-                                                        TextDecorations="Underline"
-                                                    >
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
+                                            <TextBlock
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                FontSize="24"
+                                                Text="On Exit:"
+                                                TextDecorations="Underline">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
                                             <CheckBox
-                                                        x:Name="MinimizetoTray"
-                                                        Content="Minimize to System Tray"
-                                                        Width="400"
-                                                        Margin="90, 0, 0, 0"    
-                                                        FontSize="12"
-                                                        FontFamily="{DynamicResource Bainsley}"
-                                                        VerticalContentAlignment="Center"
-                                                        HorizontalContentAlignment="Left"
-                                                        HorizontalAlignment="Left"
-                                                        Click="MinimizetoTray_Click"
-     
-                                                    >
+                                                x:Name="MinimizetoTray"
+                                                Width="400"
+                                                Margin="90,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Left"
+                                                VerticalContentAlignment="Center"
+                                                Click="MinimizetoTray_Click"
+                                                Content="Minimize to System Tray"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                FontSize="12">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
-                                                        <CheckBox.LayoutTransform>
-                                                            <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
-                                                        </CheckBox.LayoutTransform>
-                                                    </CheckBox>
-                                                </StackPanel>
-                                        <!--Exit to system tray or exit completely screen-->
-
-                                        <!--clear/reset data-->
-                                        <StackPanel
-                                                Margin="0, 15, 0, 0"
-                                                Orientation="Horizontal"
-                                                FlowDirection="LeftToRight">
-                                                <TextBlock
-                                                    Text="Factory Reset?"
-                                                    FontSize="24"
-                                                    FontFamily="{DynamicResource Bainsley}"
-                                        
-                                                    HorizontalAlignment="Left"
-                                                    VerticalAlignment="Center"
-                                                    TextDecorations="Underline"
-                                                >
-                                                <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
-                                                </TextBlock.Foreground>
-                                            </TextBlock>
-                                            <Button
-                                                    x:Name="ResetButton"
-                                                    Content="Reset"
-                                                    Margin="20, 0, 0, 0"    
-                                                    Width="100"
-                                                    Height="50"
-                                                    FontSize="24"
-                                                    FontFamily="{DynamicResource Bainsley}"
-                                                    VerticalContentAlignment="Center"
-                                                    HorizontalContentAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                                    Style="{StaticResource ResetButton}"
-                                        
-                                                    Click="ResetButton_Click"
-                                                />
-                                            </StackPanel>
-                                        <!--clear/reset data-->
-
-                                        <!--Skip start Splash screen -->
-                                        <!--Skip start Splash screen -->
-                                        
-                                        
-                                        <!--Support us Button-->
-                                        <StackPanel
-                                                Margin="0, 15, 0, 0"
-                                                Orientation="Horizontal"
-                                                FlowDirection="LeftToRight">
-                                            <TextBlock
-                                                    Text="Support Us:"
-                                                    FontSize="24"
-                                                    FontFamily="{DynamicResource Bainsley}"
-                                        
-                                                    HorizontalAlignment="Left"
-                                                    VerticalAlignment="Center"
-                                                    TextDecorations="Underline">
-                                                <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
-                                                </TextBlock.Foreground>
-                                            </TextBlock>
-                                            <Button
-                                                    x:Name="SupportButton"
-                                                    Content="$$"
-                                                    Margin="50, 0, 0, 0"    
-                                                    Width="100"
-                                                    Height="50"
-                                                    FontSize="24"
-                                                    FontFamily="{DynamicResource Bainsley}"
-                                                    VerticalContentAlignment="Center"
-                                                    HorizontalContentAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                                    Style="{StaticResource DefaultButton}"
-                                        
-                                                />
+                                                <CheckBox.LayoutTransform>
+                                                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                                                </CheckBox.LayoutTransform>
+                                            </CheckBox>
                                         </StackPanel>
-                                        <!--Support us Button-->
+                                        <!--  Exit to system tray or exit completely screen  -->
 
-                                        <!--Spacing-->
+                                        <!--  clear/reset data  -->
+                                        <StackPanel
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
+                                            <TextBlock
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Factory Reset?"
+                                                TextDecorations="Underline">
+                                                <TextBlock.Foreground>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
+                                                </TextBlock.Foreground>
+                                            </TextBlock>
+                                            <Button
+                                                x:Name="ResetButton"
+                                                Width="100"
+                                                Height="50"
+                                                Margin="20,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                Click="ResetButton_Click"
+                                                Content="Reset"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                FontSize="24"
+                                                Style="{StaticResource ResetButton}" />
+                                        </StackPanel>
+                                        <!--  clear/reset data  -->
+
+                                        <!--  Skip start Splash screen  -->
+                                        <!--  Skip start Splash screen  -->
+
+
+                                        <!--  Support us Button  -->
+                                        <StackPanel
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
+                                            <TextBlock
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Support Us:"
+                                                TextDecorations="Underline">
+                                                <TextBlock.Foreground>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
+                                                </TextBlock.Foreground>
+                                            </TextBlock>
+                                            <Button
+                                                x:Name="SupportButton"
+                                                Width="100"
+                                                Height="50"
+                                                Margin="50,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                Content="$$"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                FontSize="24"
+                                                Style="{StaticResource DefaultButton}" />
+                                        </StackPanel>
+                                        <!--  Support us Button  -->
+
+                                        <!--  Spacing  -->
                                         <TextBlock>
-                                            <LineBreak></LineBreak>
+                                            <LineBreak />
                                         </TextBlock>
-                                        <!--Spacing-->
-                                    
+                                        <!--  Spacing  -->
+
                                     </ListBox>
                                 </Border>
                             </Grid>

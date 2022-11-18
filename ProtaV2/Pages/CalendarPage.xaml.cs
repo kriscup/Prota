@@ -26,7 +26,7 @@ namespace ProtaV2
         public CalendarPage()
         {
             InitializeComponent();
-            loadedItems = EditPage.LoadJSON();
+            loadedItems = EditPage.LoadJSON(EditPage.dataPath);
             foundTaskLists = new List<List<TaskListItem>>();
         }
 
