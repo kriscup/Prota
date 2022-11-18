@@ -41,7 +41,7 @@ namespace ProtaV2.Windows {
                     // Wipe the file
                 }
 
-                this.Dispatcher.BeginInvoke(() => _homepage.UpdateTasks(new List<TaskListItem>()));
+                this.Dispatcher.BeginInvoke(() => _homepage.UpdateTasks(new List<TaskListItem>(), new List<CategoryListItem>()));
                 this.Dispatcher.BeginInvoke(() => _calendarPage.UpdateTasks(new List<TaskListItem>()));
                 this.Dispatcher.BeginInvoke(() => _editpage.DeleteData());
 

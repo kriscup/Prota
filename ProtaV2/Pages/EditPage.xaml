@@ -1,19 +1,20 @@
-﻿<Page x:Class="ProtaV2.EditPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ProtaV2"
-      mc:Ignorable="d" 
-      Height="780" 
-      Width="1600"
-      Title="EditPage"
-      ShowsNavigationUI="False">
+﻿<Page
+    x:Class="ProtaV2.EditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ProtaV2"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="EditPage"
+    Width="1600"
+    Height="780"
+    ShowsNavigationUI="False"
+    mc:Ignorable="d">
 
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/ProtaTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Themes/ProtaTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -21,125 +22,122 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="15"/>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="15" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="15"/>
-                <RowDefinition Height="700"/>
-                <RowDefinition Height="15"/>
+                <RowDefinition Height="15" />
+                <RowDefinition Height="750" />
+                <RowDefinition Height="15" />
             </Grid.RowDefinitions>
 
-            <Border
-				Grid.Column="1"
-				Grid.Row="1">
+            <Border Grid.Row="1" Grid.Column="1">
                 <StackPanel>
 
                     <Border
-						BorderThickness="0, 0, 0, 3"
-						CornerRadius="0"
-						Margin="15">
+                        Margin="15"
+                        BorderThickness="0,0,0,3"
+                        CornerRadius="0">
 
                         <Border.BorderBrush>
-                            <SolidColorBrush
-                                Color="{StaticResource _Black}">
-                            </SolidColorBrush>
+                            <SolidColorBrush Color="{StaticResource _Black}" />
                         </Border.BorderBrush>
 
                         <Grid>
                             <Label
-							Content="Categories"
-							FontFamily="{StaticResource Bainsley}"
-							FontSize="32"
-                            FontWeight="Bold"
-                            Margin="0, 18, 0, 0"
-							HorizontalContentAlignment="Center">
+                                Margin="0,18,0,0"
+                                HorizontalContentAlignment="Center"
+                                Content="Categories"
+                                FontFamily="{StaticResource Bainsley}"
+                                FontSize="32"
+                                FontWeight="Bold">
                                 <Label.Foreground>
-                                    <SolidColorBrush Color="{StaticResource _Black}"/>
+                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                 </Label.Foreground>
                             </Label>
 
                             <Button
-								x:Name ="EditCategoryButton"
-								Content="⚙️"
-                                IsEnabled="False"
-                                Style="{StaticResource DefaultButton}"
-                                FontFamily="{StaticResource Bainsley}"
-                                BorderBrush="Black"
-								Cursor="Hand"
+                                x:Name="EditCategoryButton"
                                 Width="40"
                                 Height="40"
+                                Margin="0,0,0,5"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                BorderBrush="Black"
+                                Click="EditCategoryButton_Click"
+                                Content="⚙️"
+                                Cursor="Hand"
+                                FontFamily="{StaticResource Bainsley}"
                                 FontSize="38"
-                                Margin="0, 0, 0, 5"
-								VerticalAlignment="Bottom"
-								HorizontalAlignment="Right"
-                                Click="EditCategoryButton_Click"/>
+                                IsEnabled="False"
+                                Style="{StaticResource DefaultButton}" />
                         </Grid>
-                        
+
                     </Border>
 
                     <Border
-						BorderBrush="Transparent"
-						BorderThickness="1"
-						CornerRadius="16"
-						Background="Transparent"
-                        VerticalAlignment="Bottom">
+                        VerticalAlignment="Bottom"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        CornerRadius="16">
                         <StackPanel>
                             <Border
-                                Margin="15, 0, 15, 15"
+                                Margin="15,0,15,15"
+                                Padding="10"
                                 BorderBrush="Transparent"
                                 BorderThickness="2"
-                                CornerRadius="0, 0, 16, 16"
-                                Padding="10">
+                                CornerRadius="0, 0, 16, 16">
                                 <Border.Effect>
                                     <DropShadowEffect BlurRadius="16" />
                                 </Border.Effect>
-                                
+
                                 <Border.Background>
-                                    <SolidColorBrush Color="{StaticResource _lightyellow}"/>
+                                    <SolidColorBrush Color="{StaticResource _lightyellow}" />
                                 </Border.Background>
                                 <ListBox
-								    x:Name="CategoryListbox"
-                                    ScrollViewer.CanContentScroll="False"
-								    Height="420"
+                                    x:Name="CategoryListbox"
                                     Width="240"
-								    VerticalAlignment="Top"
+                                    Height="420"
+                                    Margin="0,0,0,0"
                                     HorizontalAlignment="Center"
-                                    Margin="0, 0, 0, 0"
-                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-								    Background="Transparent" 
+                                    VerticalAlignment="Top"
+                                    d:ItemsSource="{d:SampleData ItemCount=15}"
+                                    Background="Transparent"
                                     BorderThickness="0"
-                                    SelectionChanged="CategoryListbox_SelectionChanged"
-                                    d:ItemsSource="{d:SampleData ItemCount=15}">
+                                    ScrollViewer.CanContentScroll="False"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    SelectionChanged="CategoryListbox_SelectionChanged">
 
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <Border 
+                                            <Border
                                                 x:Name="Border"
+                                                Width="210"
+                                                Margin="0,5,0,5"
+                                                Padding="2"
+                                                Background="{Binding CategoryBrush}"
                                                 BorderBrush="Black"
                                                 BorderThickness="2"
-                                                CornerRadius="12" 
-                                                Background="{Binding CategoryBrush}" 
-                                                Padding="2"
-                                                Margin="0, 5, 0, 5"
-                                                Width="210">
+                                                CornerRadius="12">
                                                 <Grid>
                                                     <TextBlock
-                                                        VerticalAlignment="Center"
+                                                        Padding="4"
                                                         HorizontalAlignment="Center"
-                                                        IsHitTestVisible="False"
+                                                        VerticalAlignment="Center"
                                                         Background="Transparent"
                                                         FontFamily="{StaticResource Bainsley}"
-                                                        TextWrapping="Wrap"
                                                         FontSize="22"
-                                                        Padding="4">
-                                                        <Run Text="{Binding CategoryName}"> </Run>
-                                                        <Run >(</Run>
-                                                        <Run Text="{Binding Amount}"> </Run>
+                                                        IsHitTestVisible="False"
+                                                        TextAlignment="Center"
+                                                        TextWrapping="Wrap">
+                                                        <Run Text="{Binding CategoryName}" />
+                                                        <Run>(</Run>
+                                                        <Run Text="{Binding Amount}" />
                                                         <Run>)</Run>
                                                     </TextBlock>
                                                 </Grid>
@@ -150,20 +148,48 @@
                             </Border>
 
                             <Button
-								x:Name ="AddCategoryButton"
-								Content="+ Category"
-								FontSize="28"
-                                Style="{StaticResource DefaultButton}"
-                                FontFamily="{StaticResource Bainsley}"
-								Cursor="Hand"
-                                Width="200"
+                                x:Name="AddCategoryButton"
+                                Width="250"
                                 Height="66"
-								VerticalAlignment="Bottom"
-								HorizontalAlignment="Center"
+                                Margin="15"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
                                 Click="AddCategoryButton_Click"
-                                Margin="15"/>
+                                Content="+ Category"
+                                Cursor="Hand"
+                                FontFamily="{StaticResource Bainsley}"
+                                FontSize="28"
+                                Style="{StaticResource DefaultButton}" />
 
-                            
+                            <StackPanel Orientation="Horizontal">
+                                <Button
+                                    x:Name="ImportDataButton"
+                                    Width="100"
+                                    Height="66"
+                                    Margin="30,0,0,0"
+                                    Click="ImportDataButton_Click"
+                                    Content="Import"
+                                    Cursor="Hand"
+                                    FontFamily="{StaticResource Bainsley}"
+                                    FontSize="28"
+                                    Style="{StaticResource DefaultButton}" />
+
+                                <Button
+                                    x:Name="ExportDataButton"
+                                    Width="100"
+                                    Height="66"
+                                    Margin="40,0,0,0"
+                                    Click="ExportDataButton_Click"
+                                    Content="Export"
+                                    Cursor="Hand"
+                                    FontFamily="{StaticResource Bainsley}"
+                                    FontSize="28"
+                                    Style="{StaticResource DefaultButton}" />
+                            </StackPanel>
+
+
+
+
                         </StackPanel>
 
                     </Border>
@@ -174,119 +200,105 @@
 
             </Border>
 
-            <Border
-				Grid.Column="2"
-				Grid.Row="1">
+            <Border Grid.Row="1" Grid.Column="2">
 
                 <StackPanel>
                     <Border
-						BorderThickness="0, 0, 0, 3"
-						CornerRadius="0"
-						Margin="15">
+                        Margin="15"
+                        BorderThickness="0,0,0,3"
+                        CornerRadius="0">
 
                         <Border.BorderBrush>
-                            <SolidColorBrush
-                                Color="{StaticResource _Black}">
-                            </SolidColorBrush>
+                            <SolidColorBrush Color="{StaticResource _Black}" />
                         </Border.BorderBrush>
 
                         <Label
                             x:Name="TaskName"
-							Content="Click a task to view"
-							FontFamily="{StaticResource Bainsley}"
-                            FontWeight="Bold"
-							FontSize="32"
-							Margin="0, 18, 0, 0"
-							HorizontalContentAlignment="Center">
+                            Margin="0,18,0,0"
+                            HorizontalContentAlignment="Center"
+                            Content="Click a task to view"
+                            FontFamily="{StaticResource Bainsley}"
+                            FontSize="32"
+                            FontWeight="Bold">
 
                             <Label.Foreground>
-                                <SolidColorBrush Color="{StaticResource _Black}"/>
+                                <SolidColorBrush Color="{StaticResource _Black}" />
                             </Label.Foreground>
 
                         </Label>
                     </Border>
 
                     <Border
-						BorderBrush="Transparent"
-						BorderThickness="1"
-						CornerRadius="0, 0, 16, 16"
-						Margin="15, 0, 15, 0"
                         Height="560"
+                        Margin="15,0,15,0"
                         Padding="20"
-                        VerticalAlignment="Bottom">
+                        VerticalAlignment="Bottom"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        CornerRadius="0, 0, 16, 16">
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="16" />
                         </Border.Effect>
 
                         <Border.Background>
-                            <SolidColorBrush
-                                Color="{StaticResource _lightyellow}">
-
-                            </SolidColorBrush>
+                            <SolidColorBrush Color="{StaticResource _lightyellow}" />
                         </Border.Background>
 
                         <Border
-                            
                             BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="16">
                             <Border.Background>
-                                <SolidColorBrush
-                                Color="{StaticResource _White}">
-
-                                </SolidColorBrush>
+                                <SolidColorBrush Color="{StaticResource _White}" />
                             </Border.Background>
                             <StackPanel>
-                                <Border
-                                    BorderThickness="0, 0, 0, 2">
+                                <Border BorderThickness="0,0,0,2">
                                     <Border.BorderBrush>
-                                        <SolidColorBrush
-                                    Color="{StaticResource _Black}">
-                                            </SolidColorBrush>
-                                        </Border.BorderBrush>
+                                        <SolidColorBrush Color="{StaticResource _Black}" />
+                                    </Border.BorderBrush>
                                     <TextBox
                                         x:Name="TaskText"
-                                        BorderBrush="Transparent"
-                                        Background="Transparent"
-                                        IsReadOnly="True"
                                         Width="892"
-                                        TextWrapping="Wrap"
-                                        IsHitTestVisible="False"
-							            Padding="10"
                                         Height="370"
-                                        ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True"
-                                        Text="No Task Selected"
+                                        Padding="10"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
                                         FontFamily="{StaticResource Bainsley}"
-                                        FontSize="24">
+                                        FontSize="24"
+                                        IsHitTestVisible="False"
+                                        IsReadOnly="True"
+                                        ScrollViewer.CanContentScroll="True"
+                                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                        Text="No Task Selected"
+                                        TextWrapping="Wrap">
                                         <TextBox.Foreground>
-                                            <SolidColorBrush Color="{StaticResource _Black}"/>
+                                            <SolidColorBrush Color="{StaticResource _Black}" />
                                         </TextBox.Foreground>
                                     </TextBox>
                                 </Border>
 
                                 <TextBlock
                                     x:Name="LocationText"
-							        Padding="20"
-                                    Text=""
+                                    Padding="20"
                                     FontFamily="{StaticResource Bainsley}"
-                                    FontSize="24">
+                                    FontSize="24"
+                                    Text="">
                                     <TextBlock.Foreground>
-                                            <SolidColorBrush Color="{StaticResource _Black}"/>
-                                        </TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource _Black}" />
+                                    </TextBlock.Foreground>
                                 </TextBlock>
                                 <TextBlock
                                     x:Name="DueText"
-							        Padding="20"
-                                    Text=""
+                                    Padding="20"
                                     FontFamily="{StaticResource Bainsley}"
-                                    FontSize="24">
+                                    FontSize="24"
+                                    Text="">
                                     <TextBlock.Foreground>
-                                            <SolidColorBrush Color="{StaticResource _Black}"/>
-                                        </TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource _Black}" />
+                                    </TextBlock.Foreground>
                                 </TextBlock>
                             </StackPanel>
-                            
+
                         </Border>
 
                     </Border>
@@ -294,122 +306,118 @@
                 </StackPanel>
             </Border>
 
-            <Border
-				Grid.Column="3"
-				Grid.Row="1">
+            <Border Grid.Row="1" Grid.Column="3">
 
                 <StackPanel>
                     <Border
-						BorderThickness="0, 0, 0, 3"
-						CornerRadius="0"
-						Margin="15">
+                        Margin="15"
+                        BorderThickness="0,0,0,3"
+                        CornerRadius="0">
 
                         <Border.BorderBrush>
-                            <SolidColorBrush
-                                Color="{StaticResource _Black}">
-                            </SolidColorBrush>
+                            <SolidColorBrush Color="{StaticResource _Black}" />
                         </Border.BorderBrush>
 
                         <Grid>
 
                             <Label
-							Content="Tasks"
-							FontFamily="{StaticResource Bainsley}"
-                            FontWeight="Bold"
-							FontSize="32"
-							Margin="0, 18, 0, 0"
-							HorizontalContentAlignment="Center">
+                                Margin="0,18,0,0"
+                                HorizontalContentAlignment="Center"
+                                Content="Tasks"
+                                FontFamily="{StaticResource Bainsley}"
+                                FontSize="32"
+                                FontWeight="Bold">
 
                                 <Label.Foreground>
-                                    <SolidColorBrush Color="{StaticResource _Black}"/>
+                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                 </Label.Foreground>
 
                             </Label>
 
                             <Button
-								x:Name ="EditTaskButton"
-								Content="⚙️"
-								FontSize="38"
-                                IsEnabled="False"
-                                Style="{StaticResource DefaultButton}"
-                                FontFamily="{StaticResource Bainsley}"
-                                BorderBrush="Black"
-								Cursor="Hand"
+                                x:Name="EditTaskButton"
                                 Width="40"
                                 Height="40"
-                                Padding="0, 0, 0, 0"
-                                Margin="0, 0, 0, 5"
-								VerticalAlignment="Bottom"
-								HorizontalAlignment="Right"
-                                Click="EditTaskButton_Click"/>
+                                Margin="0,0,0,5"
+                                Padding="0,0,0,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                BorderBrush="Black"
+                                Click="EditTaskButton_Click"
+                                Content="⚙️"
+                                Cursor="Hand"
+                                FontFamily="{StaticResource Bainsley}"
+                                FontSize="38"
+                                IsEnabled="False"
+                                Style="{StaticResource DefaultButton}" />
                         </Grid>
-                        
+
                     </Border>
 
                     <Border
-						BorderBrush="Transparent"
-						BorderThickness="1"
-						CornerRadius="16"
-                        VerticalAlignment="Bottom">
+                        VerticalAlignment="Bottom"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        CornerRadius="16">
                         <StackPanel>
                             <Border
-						        BorderBrush="Transparent"
-						        BorderThickness="1"
-						        CornerRadius="16"
-						        Margin="0, 0, 0, 0"
-                                VerticalAlignment="Bottom">
+                                Margin="0,0,0,0"
+                                VerticalAlignment="Bottom"
+                                BorderBrush="Transparent"
+                                BorderThickness="1"
+                                CornerRadius="16">
                                 <StackPanel>
                                     <Border
-                                        Margin="15, 0, 15, 15"
+                                        Margin="15,0,15,15"
+                                        Padding="10"
                                         BorderBrush="Transparent"
                                         BorderThickness="2"
-                                        CornerRadius="0, 0, 16, 16"
-                                        Padding="10">
+                                        CornerRadius="0, 0, 16, 16">
                                         <Border.Effect>
                                             <DropShadowEffect BlurRadius="16" />
                                         </Border.Effect>
-                                        
+
                                         <Border.Background>
-                                            <SolidColorBrush Color="{StaticResource _lightyellow}"/>
+                                            <SolidColorBrush Color="{StaticResource _lightyellow}" />
                                         </Border.Background>
                                         <ListBox
-								            x:Name="TaskListbox"
-                                            ScrollViewer.CanContentScroll="False"
-								            Height="420"
+                                            x:Name="TaskListbox"
                                             Width="240"
-								            VerticalAlignment="Top"
+                                            Height="420"
+                                            Margin="0,0,0,0"
                                             HorizontalAlignment="Center"
-                                            Margin="0, 0, 0, 0"
-                                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-								            Background="Transparent" 
+                                            VerticalAlignment="Top"
+                                            d:ItemsSource="{d:SampleData ItemCount=15}"
+                                            Background="Transparent"
                                             BorderThickness="0"
-                                            SelectionChanged="TaskListbox_SelectionChanged"
-                                            d:ItemsSource="{d:SampleData ItemCount=15}">
+                                            ScrollViewer.CanContentScroll="False"
+                                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                            SelectionChanged="TaskListbox_SelectionChanged">
 
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
-                                                    
-                                                    <Border 
+
+                                                    <Border
                                                         x:Name="Border"
+                                                        Width="210"
+                                                        Margin="0,5,0,5"
+                                                        Padding="2"
+                                                        Background="{Binding TaskBrush}"
                                                         BorderBrush="Black"
                                                         BorderThickness="2"
-                                                        CornerRadius="12" 
-                                                        Background="{Binding TaskBrush}" 
-                                                        Padding="2"
-                                                        Margin="0, 5, 0, 5"
-                                                        Width="210">
+                                                        CornerRadius="12">
                                                         <Grid>
                                                             <TextBlock
-                                                                VerticalAlignment="Center"
+                                                                Padding="4"
                                                                 HorizontalAlignment="Center"
-                                                                IsHitTestVisible="False"
+                                                                VerticalAlignment="Center"
                                                                 Background="Transparent"
-                                                                TextWrapping="Wrap"
-                                                                Text="{Binding TaskName}"
                                                                 FontFamily="{StaticResource Bainsley}"
                                                                 FontSize="22"
-                                                                Padding="4">
-                                                            </TextBlock>
+                                                                IsHitTestVisible="False"
+                                                                Text="{Binding TaskName}"
+                                                                TextAlignment="Center"
+                                                                TextWrapping="Wrap" />
                                                         </Grid>
                                                     </Border>
                                                 </DataTemplate>
@@ -421,19 +429,19 @@
                             </Border>
 
                             <Button
-								x:Name ="AddTaskButton"
-								Content="+ Task"
-								FontSize="28"
-                                Style="{StaticResource DefaultButton}"
-								Cursor="Hand"
-                                Width="200"
+                                x:Name="AddTaskButton"
+                                Width="250"
                                 Height="66"
-                                FontFamily="{StaticResource Bainsley}"
-								VerticalAlignment="Bottom"
-								HorizontalAlignment="Center"
-                                Click="AddTaskButton_Click"
                                 Margin="15"
-                                IsEnabled="False"/>
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Click="AddTaskButton_Click"
+                                Content="+ Task"
+                                Cursor="Hand"
+                                FontFamily="{StaticResource Bainsley}"
+                                FontSize="28"
+                                IsEnabled="False"
+                                Style="{StaticResource DefaultButton}" />
                         </StackPanel>
 
                     </Border>
