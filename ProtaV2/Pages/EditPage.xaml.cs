@@ -18,6 +18,7 @@ using System.Xml;
 using Newtonsoft.Json;
 using System.Reflection;
 using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace ProtaV2
 {
@@ -35,7 +36,7 @@ namespace ProtaV2
         public EditPage(HomePage page, CalendarPage calendarPage)
         {
             InitializeComponent();
-            List<CategoryListItem> loadedItems = LoadJSON();
+            List<CategoryListItem> loadedItems = LoadJSON(dataPath);
 
             _page = page;
             _calPage = calendarPage;
@@ -45,6 +46,40 @@ namespace ProtaV2
                 CategoryListbox.Items.Add(item);
             }
             UpdateTasks();
+        }
+
+        public void AppendData(List<CategoryListItem> loadedItems)
+        {
+            List<string> knownCategoryNames = new List<string>();
+
+            foreach(CategoryListItem knownItem in CategoryListbox.Items)
+            {
+                knownCategoryNames.Add(knownItem.CategoryName);
+            }
+
+            foreach (CategoryListItem item in loadedItems)
+            {
+                if(!knownCategoryNames.Contains(item.CategoryName))
+                {
+                    CategoryListbox.Items.Add(item);
+                }
+            }
+            UpdateTasks();
+            UpdateJSON();
+        }
+
+        public void SetData(List<CategoryListItem> loadedItems)
+        {
+            CategoryListbox.Items.Clear();
+
+            foreach (CategoryListItem item in loadedItems)
+            {
+                CategoryListbox.Items.Add(item);
+            }
+
+            CategoryListbox.Items.Refresh();
+            UpdateTasks();
+            UpdateJSON();
         }
 
         private async void AddCategoryButton_Click(object sender, RoutedEventArgs e)
@@ -147,6 +182,7 @@ namespace ProtaV2
             TaskListbox.Items.Clear();
             CategoryListItem current = (CategoryListItem)CategoryListbox.SelectedItem;
             List<TaskListItem> tasks = new List<TaskListItem>();
+            List<CategoryListItem> categories = new List<CategoryListItem>();
             if (current != null)
             {
                 foreach (TaskListItem item in current.tasks)
@@ -161,13 +197,14 @@ namespace ProtaV2
             foreach(CategoryListItem category in CategoryListbox.Items)
             {
                 category.Amount = category.tasks.Count;
-                foreach(TaskListItem task in category.tasks)
+                categories.Add(category);
+                foreach (TaskListItem task in category.tasks)
                 {
                     tasks.Add(task);
                 }
             }
             CategoryListbox.Items.Refresh();
-            _page.UpdateTasks(tasks);
+            _page.UpdateTasks(tasks, categories);
             _calPage.UpdateTasks(tasks);
             
 
@@ -204,13 +241,38 @@ namespace ProtaV2
             }
         }
 
-        public static List<CategoryListItem> LoadJSON()
+        public static void UpdateJSON(List<CategoryListItem> items)
         {
-            if (File.Exists(dataPath))
+            try
+            {
+
+                using (StreamWriter sw = new StreamWriter(dataPath, false))
+                {
+                    // Wipe the file
+                }
+
+                foreach (CategoryListItem item in items)
+                {
+                    string jsonString = JsonConvert.SerializeObject(item);
+
+                    using (StreamWriter sw = new StreamWriter(dataPath, true))
+                    {
+                        sw.WriteLine(jsonString);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        public static List<CategoryListItem> LoadJSON(string path)
+        {
+            if (File.Exists(path))
             {
                 List<CategoryListItem> found = new List<CategoryListItem>();
                 // Read the file and display it line by line.  
-                foreach (string line in File.ReadLines(dataPath))
+                foreach (string line in File.ReadLines(path))
                 {
                     found.Add(JsonConvert.DeserializeObject<CategoryListItem>(line));
                 }
@@ -281,6 +343,48 @@ namespace ProtaV2
             addTaskWindow.CompletedByDate.Value = DateTime.Parse(current.DueDate);
 
             addTaskWindow.ShowDialog();
+        }
+
+        private async void ImportDataButton_Click(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(100);
+            ImportDataWindow importDataWindow = new ImportDataWindow(this);
+
+            importDataWindow.ShowDialog();
+        }
+
+        private void ExportDataButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog openFileDialog = new SaveFileDialog();
+            openFileDialog.Filter = "Text files (*.txt)|*.txt";
+            if ((bool)openFileDialog.ShowDialog())
+            {
+
+                try
+                {
+                    try
+                    {
+                        foreach (CategoryListItem item in CategoryListbox.Items)
+                        {
+                            string jsonString = JsonConvert.SerializeObject(item);
+
+                            using (StreamWriter sw = new StreamWriter(openFileDialog.FileName, true))
+                            {
+                                sw.WriteLine(jsonString);
+                            }
+                        }
+                        MessageBox.Show("Export completed!");
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occured.", "Prota");
+                }
+            }
         }
     }
 

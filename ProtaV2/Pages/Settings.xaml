@@ -14,7 +14,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/ProtaTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Themes/ProtaTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -24,17 +24,17 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="15"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="15" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="15"/>
-                <RowDefinition Height="700"/>
-                <RowDefinition Height="15"/>
+                <RowDefinition Height="15" />
+                <RowDefinition Height="700" />
+                <RowDefinition Height="15" />
             </Grid.RowDefinitions>
 
             <Border
@@ -54,34 +54,30 @@
                         </Border.BorderBrush>
                         <Label
                             x:Name="TaskName"
-							Content="Settings"
-							FontFamily="{StaticResource Bainsley}"
-                            FontWeight="Bold"
-							FontSize="32"
-							Margin="0, 18, 0, 0"
-							HorizontalContentAlignment="Center">
+                            Margin="0,18,0,0"
+                            HorizontalContentAlignment="Center"
+                            Content="Settings"
+                            FontFamily="{StaticResource Bainsley}"
+                            FontSize="32"
+                            FontWeight="Bold">
 
                             <Label.Foreground>
-                                <SolidColorBrush Color="{StaticResource _Black}"/>
+                                <SolidColorBrush Color="{StaticResource _Black}" />
                             </Label.Foreground>
 
                         </Label>
                     </Border>
 
                     <Border
-						BorderBrush="Transparent"
-						BorderThickness="1"
-						CornerRadius="0, 0, 16, 16"
-						
-						Margin="15, 0, 15, 0"
                         Height="560"
+                        Margin="15,0,15,0"
                         Padding="20"
-                        VerticalAlignment="Bottom">
+                        VerticalAlignment="Bottom"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        CornerRadius="0, 0, 16, 16">
                         <Border.Background>
-                            <SolidColorBrush
-                                    Color="{StaticResource _lightyellow}">
-
-                            </SolidColorBrush>
+                            <SolidColorBrush Color="{StaticResource _lightyellow}" />
                         </Border.Background>
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="16" />
@@ -89,26 +85,21 @@
 
 
                         <Border
-                            
+                            Padding="5"
                             BorderBrush="Black"
                             BorderThickness="2"
-                            CornerRadius="16"
-                            Padding="5"
-                            >
+                            CornerRadius="16">
                             <Border.Background>
-                                <SolidColorBrush
-                                Color="{StaticResource _White}">
-
-                                </SolidColorBrush>
+                                <SolidColorBrush Color="{StaticResource _White}" />
                             </Border.Background>
                             <Grid>
 
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="105"/>
-                                    <RowDefinition Height="105"/>
-                                    <RowDefinition Height="105"/>
-                                    <RowDefinition Height="105"/>
-                                    <RowDefinition Height="105"/>
+                                    <RowDefinition Height="105" />
+                                    <RowDefinition Height="105" />
+                                    <RowDefinition Height="105" />
+                                    <RowDefinition Height="105" />
+                                    <RowDefinition Height="105" />
                                 </Grid.RowDefinitions>
 
                                 <Grid.ColumnDefinitions>
@@ -119,20 +110,19 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Border
-                                    Grid.ColumnSpan="5"
                                     Grid.RowSpan="5"
+                                    Grid.ColumnSpan="5"
                                     BorderBrush="Transparent"
                                     BorderThickness="2"
                                     CornerRadius="16">
 
                                     <ListBox
-                                        x:Name="SettingBox"                                    
-                                        ItemContainerStyle="{StaticResource ListItem2}"
-                                        BorderBrush="Transparent"
-                                        Background="Transparent"
+                                        x:Name="SettingBox"
                                         Margin="0,0,0,14"
-                                        >
-                                        <!--for the resolution size-->
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        ItemContainerStyle="{StaticResource ListItem2}">
+                                        <!--  for the resolution size  -->
                                         <StackPanel
                                             Orientation="Horizontal"
                                             FlowDirection="LeftToRight"
@@ -182,41 +172,40 @@
                                         <!--for the resolution size-->
 
 
-                                        <!--Dark mode button-->
+                                        <!--  Dark mode button  -->
                                         <StackPanel
                                             Orientation="Horizontal"
                                             FlowDirection="LeftToRight"
                                             Margin="0, 15, 0, 0"
                                             HorizontalAlignment="Left">
                                             <TextBlock
-                                                    x:Name="DarkmodetextBlock"
-                                                    Text="Dark Mode:"
-                                                    TextDecorations="Underline"
-                                                    VerticalAlignment="Center"
-                                        
-                                                    HorizontalAlignment="Left"
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    FontSize="24">
+                                                x:Name="DarkmodetextBlock"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Dark Mode:"
+                                                TextDecorations="Underline">
 
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
 
                                             <CheckBox
-                                                    x:Name="DarkmodeToggle"
-                                                    Width="150"
-                                                    Margin="50, 0, 0, 0"
-                                                    Cursor="Hand"
-                                                    Content="Toggle"
-                                                    FontSize="12"
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    HorizontalAlignment="Left"
-                                                    VerticalContentAlignment="Center"
-                                                    HorizontalContentAlignment="Left"
-                                                    Click="DarkmodeToggle_Click">
+                                                x:Name="DarkmodeToggle"
+                                                Width="150"
+                                                Margin="50,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Left"
+                                                VerticalContentAlignment="Center"
+                                                Click="DarkmodeToggle_Click"
+                                                Content="Toggle"
+                                                Cursor="Hand"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="12">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                                 <CheckBox.LayoutTransform>
                                                     <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
@@ -225,7 +214,7 @@
                                         </StackPanel>
                                         <!--Dark mode button-->
 
-                                        <!--notification-->
+                                        <!--  notification  -->
                                         <StackPanel
                                             Orientation="Horizontal"
                                             FlowDirection="LeftToRight"
@@ -241,7 +230,7 @@
                                                     FontFamily="{StaticResource Bainsley}"
                                                     FontSize="24">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
 
@@ -292,22 +281,21 @@
                                         </StackPanel>
                                         <!--notification-->
 
-                                        <!--contact us-->
+                                        <!--  contact us  -->
                                         <StackPanel
-                                                Orientation="Horizontal"
-                                                FlowDirection="LeftToRight"
-                                                Margin="0, 15, 0, 0">
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
                                             <TextBlock
-                                                    x:Name="ContacttextBlock"
-                                                    Text="Contact us:"
-                                                    TextDecorations="Underline"
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                        
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    FontSize="24">
+                                                x:Name="ContacttextBlock"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Contact us:"
+                                                TextDecorations="Underline">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
                                             <Button
@@ -327,20 +315,19 @@
 
                                         <!--Start on windows startup-->
                                         <StackPanel
-                                                Orientation="Horizontal"
-                                                FlowDirection="LeftToRight"
-                                                Margin="0, 15, 0, 0">
+                                            Margin="0,15,0,0"
+                                            FlowDirection="LeftToRight"
+                                            Orientation="Horizontal">
                                             <TextBlock
-                                                    x:Name="RunonStartupBlock"
-                                                    Text="Startup:"
-                                                    TextDecorations="Underline"
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Left"
-                                        
-                                                    FontFamily="{StaticResource Bainsley}"
-                                                    FontSize="24">
+                                                x:Name="RunonStartupBlock"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Startup:"
+                                                TextDecorations="Underline">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
 
@@ -360,7 +347,7 @@
                                                 </CheckBox.LayoutTransform>
 
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
 
                                             </CheckBox>
@@ -382,7 +369,7 @@
                                                         TextDecorations="Underline"
                                                     >
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
                                             <CheckBox
@@ -398,7 +385,7 @@
      
                                                     >
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                                 <CheckBox.LayoutTransform>
                                                     <ScaleTransform ScaleX="2" ScaleY="2"></ScaleTransform>
@@ -407,7 +394,7 @@
                                         </StackPanel>
                                         <!--Exit to system tray or exit completely screen-->
 
-                                        <!--clear/reset data-->
+                                        <!--  clear/reset data  -->
                                         <StackPanel
                                                 Margin="0, 15, 0, 0"
                                                 Orientation="Horizontal"
@@ -423,7 +410,7 @@
                                                     TextDecorations="Underline"
                                                 >
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
                                             <Button
@@ -456,15 +443,14 @@
                                             FlowDirection="LeftToRight"
                                             HorizontalAlignment="Left">
                                             <TextBlock
-                                                    Text="Support Us:"
-                                                    FontSize="24"
-                                                    FontFamily="{DynamicResource Bainsley}"
-                                        
-                                                    HorizontalAlignment="Left"
-                                                    VerticalAlignment="Center"
-                                                    TextDecorations="Underline">
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{DynamicResource Bainsley}"
+                                                FontSize="24"
+                                                Text="Support Us:"
+                                                TextDecorations="Underline">
                                                 <TextBlock.Foreground>
-                                                    <SolidColorBrush Color="{StaticResource _Black}"></SolidColorBrush>
+                                                    <SolidColorBrush Color="{StaticResource _Black}" />
                                                 </TextBlock.Foreground>
                                             </TextBlock>
                                             <Button
@@ -483,11 +469,11 @@
                                                 >
                                             </Button>
                                         </StackPanel>
-                                        <!--Support us Button-->
+                                        <!--  Support us Button  -->
 
-                                        <!--Spacing-->
+                                        <!--  Spacing  -->
                                         <TextBlock>
-                                            <LineBreak></LineBreak>
+                                            <LineBreak />
                                         </TextBlock>
                                         <!--Spacing-->
 

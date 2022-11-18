@@ -31,6 +31,9 @@ namespace ProtaV2
 
         public MainWindow(){
             InitializeComponent();
+
+
+
             DataContext = new HomePage();
             splashScreen = new Splash();
             homePage = new HomePage();
@@ -88,7 +91,7 @@ namespace ProtaV2
                 }
             }
 
-            homePage.UpdateTasks(tasks);
+            homePage.UpdateTasks(tasks, newCategories);
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e){
@@ -266,6 +269,8 @@ namespace ProtaV2
         public SolidColorBrush TaskBrush { get; set; }
         public string DueDate { get; set; }
         public string Location { get; set; }
+        public bool isDone { get; set; } = false;
+        public int HomePageIndex { get; set; }
     }
 
     public class CategoryListItem
