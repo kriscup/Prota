@@ -99,8 +99,8 @@
                             StartPoint="0, 0" 
                             MappingMode="Absolute" 
                             SpreadMethod="Repeat">
-                    <GradientStop Color="LightBlue" Offset="0" />
-                    <GradientStop Color="LightBlue" Offset="0.1" />
+                    <GradientStop Color="{StaticResource _LightBlue}" Offset="0" />
+                    <GradientStop Color="{StaticResource _LightBlue}" Offset="0.1" />
                     <GradientStop Color="{StaticResource _White}" Offset="0.1" />
                     <GradientStop Color="{StaticResource _White}" Offset="1" />
                 </LinearGradientBrush>
@@ -262,7 +262,7 @@
                     FontWeight="Bold"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
-                    Margin="35, 10, 0, 0"
+                    Margin="5, 10, 0, 0"
                     VerticalContentAlignment="Bottom"
 			        FontSize="22"
 			        Foreground="Black"

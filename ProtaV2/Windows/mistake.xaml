@@ -1,0 +1,87 @@
+﻿<Window x:Class="ProtaV2.Windows.mistake"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProtaV2.Windows"
+        mc:Ignorable="d"
+        Title="mistake" Height="225" Width="500"
+        Icon="/Images/ProtaLogo.ico"
+        ResizeMode="NoResize"	
+		WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True" 
+        WindowStyle="None"
+        >
+
+        <Window.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="/Themes/ProtaTheme.xaml"></ResourceDictionary>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Window.Resources>
+
+        <Border
+	    BorderBrush="Transparent"
+	    BorderThickness="1"
+	    CornerRadius="0, 0, 16, 16"
+	    Background="Transparent"
+        Padding="10">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="16" />
+            </Border.Effect>
+
+
+            <Border
+            BorderBrush="Black"
+            BorderThickness="2"
+            CornerRadius="16">
+                <Border.Background>
+                    <SolidColorBrush Color="{StaticResource _lightyellow}"/>
+                </Border.Background>
+                <Grid>
+                    <Label
+                    HorizontalAlignment="Center"
+                    Margin="0,25,0,0"
+                    Foreground="Black"
+                    FontFamily="{StaticResource Bainsley}"
+                    FontSize="24"
+                >
+                        <TextBlock
+                            x:Name="mistakeText"
+                            TextWrapping="Wrap"
+                            FontWeight="Bold"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="That is not a valid email!" 
+                            TextAlignment="Center"
+                            Margin="0,20,0,0"
+                        >
+
+
+                    </TextBlock>
+                    </Label>
+
+                    <Button
+                        x:Name="Okay"
+                        FontFamily="{StaticResource Bainsley}"
+                        Style="{StaticResource DefaultButton}"
+                        Height="50"
+                        Width="100"
+                        HorizontalAlignment="Center"
+                        Click="Okay_Click"
+                        Margin="0,110,0,0"
+                        Content="Okay"/>
+
+
+
+
+                </Grid>
+            </Border>
+        </Border>
+
+
+    
+
+</Window>
