@@ -1,17 +1,16 @@
 ﻿<Window
-    x:Class="ProtaV2.Windows.Attention"
+    x:Class="ProtaV2.Windows.mistakeDark"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ProtaV2.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="Attention"
+    Title="mistake"
     Width="500"
     Height="225"
     AllowsTransparency="True"
     Background="Transparent"
     Icon="/Images/ProtaLogo.ico"
-    MouseDown="Window_MouseDown"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
@@ -20,7 +19,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/ProtaTheme.xaml" />
+                <ResourceDictionary Source="/Themes/ProtaThemeDark.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -51,34 +50,35 @@
                     FontSize="24"
                     Foreground="Black">
                     <TextBlock
-                        x:Name="AttentionText"
+                        x:Name="mistakeText"
+                        Margin="0,20,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontWeight="Bold"
-                        Text="Are you sure you want to do this, this will reset ALL of your data."
+                        Text="That is not a valid email!"
                         TextAlignment="Center"
                         TextWrapping="Wrap" />
                 </Label>
+
                 <Button
-                    x:Name="REconfirmYes"
+                    x:Name="Okay"
                     Width="100"
                     Height="50"
-                    Margin="-125,110,0,0"
-                    Click="REconfirmYes_Click"
-                    Content="Yes"
-                    FontFamily="{StaticResource Bainsley}"
-                    Foreground="White"
-                    Style="{StaticResource ResetButton}" />
-                <Button
-                    x:Name="REconfirmNo"
-                    Width="100"
-                    Height="50"
-                    Margin="125,110,0,0"
-                    Click="REconfirmNo_Click"
-                    Content="No"
+                    Margin="0,110,0,0"
+                    HorizontalAlignment="Center"
+                    Click="Okay_Click"
+                    Content="Okay"
                     FontFamily="{StaticResource Bainsley}"
                     Style="{StaticResource DefaultButton}" />
+
+
+
+
             </Grid>
         </Border>
     </Border>
+
+
+
+
 </Window>

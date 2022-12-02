@@ -269,7 +269,7 @@
                                         IsReadOnly="True"
                                         ScrollViewer.CanContentScroll="True"
                                         ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                        Text="No Task Selected"
+                                        Text="No task selected"
                                         TextWrapping="Wrap">
                                         <TextBox.Foreground>
                                             <SolidColorBrush Color="{StaticResource _Black}" />

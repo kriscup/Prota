@@ -1,0 +1,296 @@
+﻿<Window
+    x:Class="ProtaV2.Windows.AddTaskWindowDark"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:custom="clr-namespace:ProtaV2.Placeholder"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ProtaV2.Windows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    Title="AddTaskWindow"
+    Width="800"
+    Height="580"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Icon="/Images/ProtaLogo.ico"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/ProtaThemeDark.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Row="1"
+            BorderBrush="Black"
+            BorderThickness="3,0,3,3"
+            CornerRadius="0, 0, 16, 16">
+            <Border.Background>
+                <LinearGradientBrush MappingMode="Absolute" SpreadMethod="Repeat" StartPoint="0, 0" EndPoint="0, 30">
+                    <GradientStop Offset="0" Color="{StaticResource _LightBlue}" />
+                    <GradientStop Offset="0.1" Color="{StaticResource _LightBlue}" />
+                    <GradientStop Offset="0.1" Color="{StaticResource _White}" />
+                    <GradientStop Offset="1" Color="{StaticResource _White}" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Border
+            BorderBrush="Black"
+            BorderThickness="3,3,3,0"
+            CornerRadius="16, 16, 0, 0">
+            <Border.Background>
+                <SolidColorBrush Color="{StaticResource _White}" />
+            </Border.Background>
+            <Label
+                x:Name="Title"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalContentAlignment="Center"
+                Content="Add New Task"
+                FontFamily="{StaticResource Bainsley}"
+                FontSize="28"
+                FontWeight="Bold">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{StaticResource _Black}" />
+                </Label.Foreground>
+            </Label>
+        </Border>
+
+        <StackPanel
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FlowDirection="LeftToRight"
+            Orientation="Horizontal">
+
+            <Button
+                x:Name="CloseButton"
+                Width="40"
+                Height="40"
+                Margin="0,5,10,0"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Click="CloseButton_Click"
+                Content="X"
+                Style="{StaticResource DefaultButton}" />
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="15,0,0,0">
+            <StackPanel>
+                <Label
+                    x:Name="NameLabel"
+                    Height="32"
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Bottom"
+                    Content="Name - Short and sweet"
+                    FontFamily="{StaticResource Bainsley}"
+                    FontSize="18"
+                    FontWeight="Bold">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{StaticResource _Black}" />
+                    </Label.Foreground>
+                </Label>
+
+                <Border
+                    Width="350"
+                    Height="30"
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    CornerRadius="8">
+                    <custom:PlaceholderTextBoxControl
+                        x:Name="NameText"
+                        Height="25"
+                        Padding="5,0,0,0"
+                        VerticalAlignment="Bottom"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontFamily="{StaticResource Bainsley}"
+                        FontSize="18"
+                        Text=""
+                        TextChanged="NameText_TextChanged"
+                        ToolTip="Task Name">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{StaticResource _Black}" />
+                        </TextBlock.Foreground>
+                    </custom:PlaceholderTextBoxControl>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,0">
+                <Label
+                    x:Name="DescLabel"
+                    Height="28"
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Bottom"
+                    Content="Description - What will be happening?"
+                    FontFamily="{StaticResource Bainsley}"
+                    FontSize="18"
+                    FontWeight="Bold">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{StaticResource _Black}" />
+                    </Label.Foreground>
+                </Label>
+
+                <Border
+                    Width="740"
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    CornerRadius="8">
+                    <custom:PlaceholderTextBoxControl
+                        x:Name="DescText"
+                        Height="208"
+                        Padding="5,0,0,0"
+                        VerticalAlignment="Top"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontFamily="{StaticResource Bainsley}"
+                        FontSize="24"
+                        Text=""
+                        TextBlock.LineHeight="30"
+                        TextChanged="DescText_TextChanged"
+                        ToolTip="Add a Description!">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{StaticResource _Black}" />
+                        </TextBlock.Foreground>
+                    </custom:PlaceholderTextBoxControl>
+                </Border>
+            </StackPanel>
+
+            <StackPanel>
+                <Label
+                    x:Name="DueLabel"
+                    Height="30"
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Bottom"
+                    Content="When is it due?"
+                    FontFamily="{StaticResource Bainsley}"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="Black">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource _Black}" />
+                    </TextBlock.Foreground>
+                </Label>
+
+                <Border
+                    Width="350"
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    CornerRadius="8">
+                    <xctk:DateTimePicker
+                        x:Name="CompletedByDate"
+                        Height="25"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontFamily="{StaticResource Bainsley}"
+                        FontSize="14"
+                        TextAlignment="Left"
+                        ValueChanged="CompletedByDate_ValueChanged">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{StaticResource _Black}" />
+                        </TextBlock.Foreground>
+                    </xctk:DateTimePicker>
+                </Border>
+            </StackPanel>
+
+            <StackPanel>
+                <Label
+                    x:Name="LocationLabel"
+                    Height="30"
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Bottom"
+                    Content="Location? (Optional)"
+                    FontFamily="{StaticResource Bainsley}"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="Black">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource _Black}" />
+                    </TextBlock.Foreground>
+                </Label>
+
+                <Border
+                    Width="350"
+                    Height="30"
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    CornerRadius="8">
+                    <custom:PlaceholderTextBoxControl
+                        x:Name="LocationText"
+                        Height="25"
+                        Padding="5,0,0,0"
+                        VerticalAlignment="Bottom"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontFamily="{StaticResource Bainsley}"
+                        FontSize="18"
+                        Text=""
+                        TextChanged="LocationText_TextChanged"
+                        ToolTip="Address">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{StaticResource _Black}" />
+                        </TextBlock.Foreground>
+                    </custom:PlaceholderTextBoxControl>
+                </Border>
+            </StackPanel>
+
+            <StackPanel>
+                <Button
+                    x:Name="SaveButton"
+                    Width="150"
+                    Height="50"
+                    Margin="0,0,30,0"
+                    HorizontalAlignment="Right"
+                    Click="SaveButton_Click"
+                    Content="Save"
+                    FontFamily="{StaticResource Bainsley}"
+                    FontSize="24"
+                    IsEnabled="False"
+                    Style="{StaticResource DefaultButton}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

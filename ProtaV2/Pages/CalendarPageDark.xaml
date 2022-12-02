@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="ProtaV2.CalendarPage"
+    x:Class="ProtaV2.CalendarPageDark"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,10 +13,9 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/ProtaTheme.xaml" />
+                <ResourceDictionary Source="/Themes/ProtaThemeDark.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
     </Page.Resources>
 
     <Grid>
@@ -63,7 +62,7 @@
                         SelectionMode="SingleDate">
 
                         <Calendar.Background>
-                            <SolidColorBrush Color="{StaticResource _White}" />
+                            <SolidColorBrush Color="{StaticResource _Black}" />
                         </Calendar.Background>
 
                         <Calendar.RenderTransform>

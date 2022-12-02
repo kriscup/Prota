@@ -23,17 +23,17 @@ using Microsoft.Win32;
 namespace ProtaV2
 {
     /// <summary>
-    /// Interaction logic for MainPage.xaml
+    /// Interaction logic for MainPageDark.xaml
     /// </summary>
-    public partial class EditPage : Page
+    public partial class EditPageDark : Page
     {
         private int _selectedCategory = 0;
-        private HomePage _page;
-        private CalendarPage _calPage;
+        private HomePageDark _page;
+        private CalendarPageDark _calPage;
         public static string dataPath = Assembly.GetEntryAssembly().Location.Substring(0, Assembly.GetEntryAssembly().Location.IndexOf("bin")) + "\\Data\\data.txt";
 
 
-        public EditPage(HomePage page, CalendarPage calendarPage)
+        public EditPageDark(HomePageDark page, CalendarPageDark calendarPage)
         {
             InitializeComponent();
             List<CategoryListItem> loadedItems = LoadJSON(dataPath);
@@ -85,7 +85,7 @@ namespace ProtaV2
         private async void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
             await Task.Delay(100);
-            AddCategoryWindow addCategoryWindow = new AddCategoryWindow(this);
+            AddCategoryWindowDark addCategoryWindow = new AddCategoryWindowDark(this);
 
             addCategoryWindow.ShowDialog();  // Showdialog for non-modal
         }
@@ -145,7 +145,7 @@ namespace ProtaV2
         private async void AddTaskButton_Click(object sender, RoutedEventArgs e)
         {
             await Task.Delay(100);
-            AddTaskWindow addTaskWindow = new AddTaskWindow(this);
+            AddTaskWindowDark addTaskWindow = new AddTaskWindowDark(this);
 
             addTaskWindow.ShowDialog();
 
@@ -285,7 +285,7 @@ namespace ProtaV2
         {
             await Task.Delay(100);
             CategoryListItem current = (CategoryListItem)CategoryListbox.SelectedItem;
-            AddCategoryWindow addCategoryWindow = new AddCategoryWindow(this, current);
+            AddCategoryWindowDark addCategoryWindow = new AddCategoryWindowDark(this, current);
             addCategoryWindow.NameText.Text = current.CategoryName;
             addCategoryWindow.CategoryColorPicker.Color.RGB_R = current.CategoryColor.R;
             addCategoryWindow.CategoryColorPicker.Color.RGB_G = current.CategoryColor.G;
@@ -336,7 +336,7 @@ namespace ProtaV2
         {
             await Task.Delay(100);
             TaskListItem current = (TaskListItem)TaskListbox.SelectedItem;
-            AddTaskWindow addTaskWindow = new AddTaskWindow(this, current);
+            AddTaskWindowDark addTaskWindow = new AddTaskWindowDark(this, current);
             addTaskWindow.NameText.Text = current.TaskName;
             addTaskWindow.DescText.Text = current.TaskText;
             addTaskWindow.LocationText.Text = current.Location;
@@ -348,7 +348,7 @@ namespace ProtaV2
         private async void ImportDataButton_Click(object sender, RoutedEventArgs e)
         {
             await Task.Delay(100);
-            ImportDataWindow importDataWindow = new ImportDataWindow(this);
+            ImportDataWindowDark importDataWindow = new ImportDataWindowDark(this);
 
             importDataWindow.ShowDialog();
         }
