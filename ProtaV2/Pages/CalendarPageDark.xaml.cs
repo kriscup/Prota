@@ -16,36 +16,18 @@ using System.Windows.Shapes;
 namespace ProtaV2
 {
     /// <summary>
-    /// Interaction logic for CalendarPage.xaml
+    /// Interaction logic for CalendarPageDark.xaml
     /// </summary>
-    public partial class CalendarPage : Page
+    public partial class CalendarPageDark : Page
     {
         List<CategoryListItem> loadedItems;
         List<List<TaskListItem>> foundTaskLists;
-        List<DateTime> foundDateTimes = new List<DateTime>();
 
-        public CalendarPage()
+        public CalendarPageDark()
         {
             InitializeComponent();
-
-            loadedItems = EditPage.LoadJSON(EditPage.dataPath);
+            loadedItems = EditPageDark.LoadJSON(EditPageDark.dataPath);
             foundTaskLists = new List<List<TaskListItem>>();
-
-            foreach (CategoryListItem item in loadedItems)
-            {
-                foundTaskLists.Add(item.tasks);
-            }
-
-            foreach (List<TaskListItem> list in foundTaskLists)
-            {
-                foreach (TaskListItem task in list)
-                {
-                    foundDateTimes.Add(DateTime.Parse(task.DueDate));
-                }
-            }
-
-
-
         }
 
         private void Calendar_MouseEnter(object sender, MouseEventArgs e)

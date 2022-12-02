@@ -19,12 +19,12 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 namespace ProtaV2
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for HomePageDark.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class HomePageDark : Page
     {
         public List<CategoryListItem> CategoryCollection = new List<CategoryListItem>();
-        public HomePage()
+        public HomePageDark()
         {
             InitializeComponent();
         }
@@ -142,7 +142,7 @@ namespace ProtaV2
 
                         if(CategoryCollection.Count > 0)
                         {
-                            EditPage.UpdateJSON(CategoryCollection);
+                            EditPageDark.UpdateJSON(CategoryCollection);
                         }
 
                         CompletedTasksListbox.SelectedItem = task;
@@ -172,7 +172,7 @@ namespace ProtaV2
 
                         if (CategoryCollection.Count > 0)
                         {
-                            EditPage.UpdateJSON(CategoryCollection);
+                            EditPageDark.UpdateJSON(CategoryCollection);
                         }
                         UpcomingTasksListbox.SelectedItem = task;
                         CheckButton.Content = "Set Done";

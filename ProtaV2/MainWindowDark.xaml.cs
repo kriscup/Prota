@@ -23,42 +23,57 @@ namespace ProtaV2
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window{
-        public static MainWindow mainWindow;
-        public static Splash splashScreen;
-        public static HomePage homePage;
-        public static EditPage editPage;
-        public static CalendarPage calendarPage;
-        public static Settings settingsPage;
+    public partial class MainWindowDark : Window {
+        public static SplashDark splashScreen;
+        public static HomePageDark homePage;
+        public static EditPageDark editPage;
+        public static CalendarPageDark calendarPage;
+        public static SettingsDark settingsPage;
 
-        public static MainWindowDark mainWindowDark;
-        public static SplashDark splashScreenDark;
-        public static HomePageDark homePageDark;
-        public static EditPageDark editPageDark;
-        public static CalendarPageDark calendarPageDark;
-        public static SettingsDark settingsPageDark;
+        public static MainWindow mainWindowLight;
+        public static Splash splashScreenLight;
+        public static HomePage homePageLight;
+        public static EditPage editPageLight;
+        public static CalendarPage calendarPageLight;
+        public static Settings settingsPageLight;
 
         private bool _isWindowed = true;
         public bool minimizeToTray = false;
         public static string email = "";
-        public bool doCreate = true;
 
-        public MainWindow() {
+        public MainWindowDark (bool doCreate, MainWindow main) {
             InitializeComponent();
 
-            mainWindow = this;
-            splashScreen = new Splash();
-            homePage = new HomePage();
-            calendarPage = new CalendarPage();
-            editPage = new EditPage(homePage, calendarPage);
-            settingsPage = new Settings(this, homePage, editPage, calendarPage);
+            splashScreen = new SplashDark();
+            homePage = new HomePageDark();
+            calendarPage = new CalendarPageDark();
+            editPage = new EditPageDark(homePage, calendarPage);
+            settingsPage = new SettingsDark(this, homePage, editPage, calendarPage);
             settingsPage.ResolutionSizes.SelectedIndex = 3;
 
             if (doCreate)
             {
-                doCreate = false;
-                mainWindowDark = new MainWindowDark(false, this);
+                mainWindowLight = main;
 
+                ButtonStackPanel.Opacity = 1;
+
+                HomeButton.IsEnabled = true;
+
+                EditButton.IsEnabled = true;
+                CalButton.IsEnabled = true;
+                SettingsButton.IsEnabled = true;
+
+                EditButton.IsHitTestVisible = false;
+                CalButton.IsHitTestVisible = false;
+                SettingsButton.IsHitTestVisible = false;
+
+                HomeButton.IsHitTestVisible = true;
+                CalButton.IsHitTestVisible = true;
+                SettingsButton.IsHitTestVisible = true;
+                EditButton.IsHitTestVisible = true;
+            }
+            else
+            {
                 MainContentFrame.Content = splashScreen;
                 ButtonStackPanel.Opacity = 0;
 
@@ -94,27 +109,7 @@ namespace ProtaV2
                     });
                 });
             }
-            else
-            {
-                ButtonStackPanel.Opacity = 1;
-
-                HomeButton.IsEnabled = true;
-
-                EditButton.IsEnabled = true;
-                CalButton.IsEnabled = true;
-                SettingsButton.IsEnabled = true;
-
-                EditButton.IsHitTestVisible = false;
-                CalButton.IsHitTestVisible = false;
-                SettingsButton.IsHitTestVisible = false;
-
-                HomeButton.IsHitTestVisible = true;
-                CalButton.IsHitTestVisible = true;
-                SettingsButton.IsHitTestVisible = true;
-                EditButton.IsHitTestVisible = true;
-            }
             UpdateButton();
-
         }
 
         private void UpdateButton()
@@ -365,27 +360,4 @@ namespace ProtaV2
             });
         }
     }
-
-    public class TaskListItem
-    {
-        public string TaskName { get; set; }
-        public string TaskText { get; set; }
-        public Color TaskColor { get; set; }
-        public SolidColorBrush TaskBrush { get; set; }
-        public string DueDate { get; set; }
-        public string Location { get; set; }
-        public bool isDone { get; set; } = false;
-        public int HomePageIndex { get; set; }
-    }
-
-    public class CategoryListItem
-    {
-        public string CategoryName { get; set; }
-        public List<TaskListItem> tasks { get; set; }
-        public Color CategoryColor { get; set; }
-        public SolidColorBrush CategoryBrush { get; set; }
-        public int Amount { get; set; } = 0;
-    }
-
-
 }

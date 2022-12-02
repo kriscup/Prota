@@ -1,5 +1,5 @@
 ﻿<Window
-    x:Class="ProtaV2.MainWindow"
+    x:Class="ProtaV2.MainWindowDark"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -20,7 +20,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/ProtaTheme.xaml" />
+                <ResourceDictionary Source="/Themes/ProtaThemeDark.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -109,7 +109,7 @@
                             Margin="0,-44,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Source="/Images/ProtaLogo.png" />
+                            Source="/Images/ProtawhiteLogo.png" />
 
                         <Button
                             x:Name="HomeButton"

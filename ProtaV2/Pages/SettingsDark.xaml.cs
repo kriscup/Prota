@@ -23,15 +23,15 @@ namespace ProtaV2 {
     /// <summary>
     /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Settings : Page {
+    public partial class SettingsDark : Page {
 
-        private MainWindow _mainWindow;
-        private HomePage _homepage;
-        private EditPage _editPage;
-        private CalendarPage _calendarPage;
+        private MainWindowDark _mainWindow;
+        private HomePageDark _homepage;
+        private EditPageDark _editPage;
+        private CalendarPageDark _calendarPage;
         public static string emailDataPath = Assembly.GetEntryAssembly().Location.Substring(0, Assembly.GetEntryAssembly().Location.IndexOf("bin")) + "\\Data\\email.txt";
 
-        public Settings(MainWindow mainWindow, HomePage  homepage, EditPage editPage, CalendarPage calendarPage) {
+        public SettingsDark(MainWindowDark mainWindow, HomePageDark homepage, EditPageDark editPage, CalendarPageDark calendarPage) {
             InitializeComponent();
             _mainWindow = mainWindow;
             _homepage = homepage;
@@ -42,7 +42,7 @@ namespace ProtaV2 {
 
         private void ResetButton_Click(object sender, RoutedEventArgs e) {
 
-            Window resetWindow = new Attention(_homepage, _editPage, _calendarPage);
+            Window resetWindow = new AttentionDark(_homepage, _editPage, _calendarPage);
             
             resetWindow.ShowDialog();
         }
@@ -69,15 +69,12 @@ namespace ProtaV2 {
 
         private void DarkmodeToggle_Click(object sender, RoutedEventArgs e)
         {
-            // Checked is now true
-            // Do something
-            MainWindow.mainWindowDark = new MainWindowDark(true, _mainWindow);
-            MainWindowDark dark = MainWindow.mainWindowDark;
+            MainWindow light = MainWindowDark.mainWindowLight;
             Window current = Application.Current.MainWindow;
-            MainWindowDark.settingsPage.ResolutionSizes.SelectedIndex = MainWindow.settingsPage.ResolutionSizes.SelectedIndex;
-            Application.Current.MainWindow = dark;
+            MainWindow.settingsPage.ResolutionSizes.SelectedIndex = MainWindowDark.settingsPage.ResolutionSizes.SelectedIndex;
+            Application.Current.MainWindow = light;
             current.Visibility = Visibility.Hidden;
-            dark.MainContentFrame.Content = MainWindowDark.settingsPage;
+            light.MainContentFrame.Content = MainWindow.settingsPage;
 
             Application.Current.MainWindow.Show();
         }
@@ -94,14 +91,14 @@ namespace ProtaV2 {
                 if (File.Exists(emailDataPath)) {
                     string[]lines = File.ReadAllLines(emailDataPath);
                     if (lines.Length >= 1) {
-                        error errorWindow = new error(_homepage, _editPage, _calendarPage);
+                        errorDark errorWindow = new errorDark(_homepage, _editPage, _calendarPage);
                         errorWindow.userEmail.Text = lines[0];
                         errorWindow.ShowDialog();
                     }
                     else {
                         using StreamWriter writer = new StreamWriter(emailDataPath);
                         string input = EmailInput.Text;
-                        MainWindow.email = EmailInput.Text;
+                        MainWindowDark.email = EmailInput.Text;
                         writer.WriteLine(input);
                         writer.Close();
                         EmailInput.Text = null;
@@ -109,7 +106,7 @@ namespace ProtaV2 {
                 }
             }
             else {
-                Window mistakeWindow = new mistake(_homepage, _editPage, _calendarPage);
+                Window mistakeWindow = new mistakeDark(_homepage, _editPage, _calendarPage);
                 mistakeWindow.ShowDialog();
             }
         }
