@@ -34,7 +34,6 @@
             <DropShadowEffect BlurRadius="16" />
         </Border.Effect>
 
-
         <Border
             BorderBrush="Black"
             BorderThickness="2"

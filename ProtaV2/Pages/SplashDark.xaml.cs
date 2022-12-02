@@ -22,7 +22,7 @@ namespace ProtaV2
     {
         public SplashDark()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
     }
 }

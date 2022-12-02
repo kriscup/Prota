@@ -71,7 +71,6 @@ namespace ProtaV2
 
             UpcomingTasksListbox.Items.Refresh();
             CompletedTasksListbox.Items.Refresh();
-
         }
 
         private void UpcomingTasksListbox_SelectionChanged(object sender, SelectionChangedEventArgs e)

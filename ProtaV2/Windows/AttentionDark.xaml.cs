@@ -30,7 +30,6 @@ namespace ProtaV2.Windows {
             _calendarPage = calendarPage;
             InitializeComponent();
         }
-
         private void REconfirmYes_Click(object sender, RoutedEventArgs e) {
 
             Brush color = AttentionText.Foreground;

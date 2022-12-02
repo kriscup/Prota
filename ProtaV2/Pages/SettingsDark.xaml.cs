@@ -39,7 +39,6 @@ namespace ProtaV2 {
             _calendarPage = calendarPage;
         }
 
-
         private void ResetButton_Click(object sender, RoutedEventArgs e) {
 
             Window resetWindow = new AttentionDark(_homepage, _editPage, _calendarPage);

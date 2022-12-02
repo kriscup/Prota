@@ -190,7 +190,6 @@ namespace ProtaV2
             EditButton.IsHitTestVisible = false;
             SettingsButton.IsHitTestVisible = false;
 
-
             Task.Delay(125).ContinueWith(t =>
             {
                 this.Dispatcher.BeginInvoke(() => AnimationHelper.AnimatePageOpactiy(1, 0, 0.25f, (Page)MainContentFrame.Content));

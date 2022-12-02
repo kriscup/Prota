@@ -32,7 +32,6 @@ namespace ProtaV2
         private CalendarPageDark _calPage;
         public static string dataPath = Assembly.GetEntryAssembly().Location.Substring(0, Assembly.GetEntryAssembly().Location.IndexOf("bin")) + "\\Data\\data.txt";
 
-
         public EditPageDark(HomePageDark page, CalendarPageDark calendarPage)
         {
             InitializeComponent();

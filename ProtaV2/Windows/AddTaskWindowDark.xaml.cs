@@ -52,7 +52,6 @@ namespace ProtaV2.Windows
             _location = LocationText.Text;
             CheckButton();
         }
-
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             if(_current == null)

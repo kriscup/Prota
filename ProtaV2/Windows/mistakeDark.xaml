@@ -71,14 +71,8 @@
                     FontFamily="{StaticResource Bainsley}"
                     Style="{StaticResource DefaultButton}" />
 
-
-
-
             </Grid>
         </Border>
     </Border>
-
-
-
 
 </Window>
