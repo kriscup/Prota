@@ -67,7 +67,7 @@ namespace ProtaV2
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Close();  
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

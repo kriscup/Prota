@@ -77,7 +77,6 @@
                 Style="{StaticResource DefaultButton}" />
         </StackPanel>
 
-
         <Border
             Grid.Row="1"
             Grid.ColumnSpan="2"

@@ -17,6 +17,7 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None">
 
+    
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

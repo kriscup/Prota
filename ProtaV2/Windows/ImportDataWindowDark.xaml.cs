@@ -49,7 +49,6 @@ namespace ProtaV2.Windows
             openFileDialog.Filter = "Text files (*.txt)|*.txt";
             if ((bool)openFileDialog.ShowDialog())
             {
-
                 try
                 {
                     _categories = EditPage.LoadJSON(openFileDialog.FileName);

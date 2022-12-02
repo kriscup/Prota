@@ -208,7 +208,6 @@ namespace ProtaV2
             CalButton.IsEnabled = true;
             EditButton.IsEnabled = true;
             SettingsButton.IsEnabled = true;
-
             CalButton.IsHitTestVisible = false;
             EditButton.IsHitTestVisible = false;
             SettingsButton.IsHitTestVisible = false;

@@ -169,7 +169,6 @@
                 </Trigger.ExitActions>
             </Trigger>
         </Style.Triggers>
-
     </Style>
 
     <!--  Reset Button Style  -->

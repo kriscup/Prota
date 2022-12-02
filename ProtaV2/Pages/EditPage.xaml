@@ -187,14 +187,9 @@
                                     Style="{StaticResource DefaultButton}" />
                             </StackPanel>
 
-
-
-
                         </StackPanel>
 
                     </Border>
-
-
 
                 </StackPanel>
 

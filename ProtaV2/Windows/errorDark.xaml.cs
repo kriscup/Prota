@@ -32,7 +32,7 @@ namespace ProtaV2.Windows {
         }
 
         private void Okay_Click(object sender, RoutedEventArgs e) {
-            Close();
+            Close(); 
         }
     }
 }
